@@ -8,7 +8,7 @@
 <meta content="Nordic Rise Agency — Där kreatörer växer" property="og:title"/>
 <meta content="Specialistbyrån för TikTok LIVE-kreatörer. Fler tittare, följare, engagemang och coins. Helt gratis att gå med." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="https://orivox.org/static/business/ee2a77c1-47bf-4c13-89a2-cb56a5d153f2/logos/c87a1f1f_678_1003.png" property="og:image"/>
+<meta content="logo.png" property="og:image"/>
 <meta content="#050608" name="theme-color"/>
 <script type="application/ld+json">
 {
@@ -17,11 +17,11 @@
   "name": "Nordic Rise Agency",
   "description": "Specialistbyrå för TikTok LIVE-kreatörer. Hjälper kreatörer med fler tittare, följare, engagemang, coins och långsiktig tillväxt på TikTok LIVE.",
   "slogan": "Där kreatörer växer.",
-  "logo": "https://orivox.org/static/business/ee2a77c1-47bf-4c13-89a2-cb56a5d153f2/logos/c87a1f1f_678_1003.png"
+  "logo": "logo.png"
 }
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://orivox.org/static/business/ee2a77c1-47bf-4c13-89a2-cb56a5d153f2/logos/c87a1f1f_678_1003.png" rel="icon" type="image/png"/>
+<link href="logo.png" rel="icon" type="image/png"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -92,6 +92,11 @@
 
   .checklist li{display:flex; gap:.75rem; align-items:flex-start;}
   .check-badge{flex-shrink:0; width:22px; height:22px; border-radius:999px; background:rgba(95,194,255,.12); border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; margin-top:2px;}
+
+  .bonus-card{transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;}
+  .bonus-card:hover{transform:translateY(-6px); box-shadow:0 22px 44px -14px rgba(95,194,255,.4); border-color:var(--border-strong);}
+  .bonus-card.featured{border-color:var(--accent);}
+  .bonus-card.featured:hover{box-shadow:0 22px 50px -12px rgba(95,194,255,.55);}
 </style>
 </head>
 <body class="antialiased">
@@ -99,12 +104,13 @@
 <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#050608]/75 backdrop-blur-md">
 <div class="mx-auto max-w-7xl px-5 md:px-8 flex items-center justify-between relative h-24 md:h-32">
 <a class="flex items-center gap-3 shrink-0" href="#hem">
-<img alt="Nordic Rise Agency" class="w-auto select-none h-24 md:h-28" src="https://orivox.org/static/business/ee2a77c1-47bf-4c13-89a2-cb56a5d153f2/logos/c87a1f1f_678_1003.png"/>
+<img alt="Nordic Rise Agency" class="w-auto select-none h-24 md:h-28" src="logo.png"/>
 </a>
 <nav aria-label="Huvudmeny" class="hidden md:flex items-center gap-10 text-[.8rem] tracking-[.08em] uppercase text-white/70 font-medium">
 <a class="hover:text-white" href="#hem">Hem</a>
 <a class="hover:text-white" href="#for-kreatorer">För kreatörer</a>
 <a class="hover:text-white" href="#sa-fungerar-det">Så fungerar det</a>
+<a class="hover:text-white" href="#bonusprogram">Bonus</a>
 <a class="hover:text-white" href="#faq">FAQ</a>
 </nav>
 <div class="hidden md:block">
@@ -119,6 +125,7 @@
 <a href="#hem">Hem</a>
 <a href="#for-kreatorer">För kreatörer</a>
 <a href="#sa-fungerar-det">Så fungerar det</a>
+<a href="#bonusprogram">Bonus</a>
 <a href="#faq">FAQ</a>
 <a class="btn btn-primary justify-center mt-2" href="#ansok">Ansök nu →</a>
 </div>
@@ -287,6 +294,74 @@
 </div>
 </div>
 </section>
+<section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="bonus" id="bonusprogram">
+<div aria-hidden="true" class="glow-blob w-[460px] h-[460px] bg-[#1e6bff] left-1/2 -translate-x-1/2 -top-40"></div>
+<div class="relative mx-auto max-w-6xl px-5 md:px-8">
+<div class="max-w-3xl mx-auto text-center mb-14" data-reveal>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Bonusprogram</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6">Tjäna extra varje månad med Nordic Rise</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Hos Nordic Rise belönar vi kreatörer som är konsekventa och når nya nivåer på TikTok LIVE.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-8">Utöver dina vanliga intäkter från TikTok kan du få en <span class="text-white font-semibold">månatlig Nordic Rise-bonus</span> när du når någon av bonusnivåerna nedan.</p>
+<blockquote class="panel-card rounded-xl px-6 py-5 text-sm md:text-base text-[color:var(--text-dim)] text-left border-l-2" style="border-left-color:var(--accent);">Bonusen baseras på hur många <span class="text-[color:var(--accent2)] font-semibold">TikTok Coins</span> du samlar under en kalendermånad.</blockquote>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-16">
+<div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
+<svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">50 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<div class="w-8 h-px bg-white/10 mb-5"></div>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+1 250</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+</div>
+<div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
+<svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">100 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<div class="w-8 h-px bg-white/10 mb-5"></div>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+2 500</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+</div>
+<div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
+<svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">250 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<div class="w-8 h-px bg-white/10 mb-5"></div>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+8 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+</div>
+<div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
+<svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">500 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<div class="w-8 h-px bg-white/10 mb-5"></div>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+22 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+</div>
+<div class="panel-card bonus-card featured rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center relative">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[color:var(--accent)] text-[#04121e] text-[.6rem] font-display font-bold uppercase tracking-[.15em] px-3 py-1 rounded-full whitespace-nowrap">Högsta nivå</span>
+<svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">1 000 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<div class="w-8 h-px bg-white/10 mb-5"></div>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+35 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+</div>
+</div>
+<div class="max-w-3xl mx-auto panel-card rounded-xl p-8 md:p-10 mb-16" data-reveal>
+<h3 class="font-display font-semibold text-lg mb-5">Hur fungerar bonusen?</h3>
+<ul class="checklist space-y-4">
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Bonusen räknas på hela månadens TikTok Coins.</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">När du når en bonusnivå får du den bonus som motsvarar den nivån.</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Bonusen betalas ut av Nordic Rise enligt agency-avtalet.</span></li>
+</ul>
+</div>
+<div class="text-center" data-reveal>
+<h3 class="font-display font-bold text-2xl md:text-3xl mb-4 text-gradient">Redo att ta nästa nivå?</h3>
+<p class="text-[color:var(--text-dim)] text-lg mb-8 max-w-xl mx-auto">Bli en del av Nordic Rise Agency och låt ditt LIVE-arbete belönas varje månad.</p>
+<a class="btn btn-primary" href="#ansok">Ansök till Nordic Rise →</a>
+</div>
+</div>
+</section>
 <section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="pricing">
 <div aria-hidden="true" class="glow-blob w-[420px] h-[420px] bg-[#5fc2ff] left-1/2 -translate-x-1/2 -top-32"></div>
 <div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center panel-card rounded-2xl py-16 px-8 md:px-16" data-reveal>
@@ -348,7 +423,7 @@
 <footer class="relative border-t border-white/5 bg-[color:var(--bg)] pt-16 pb-10">
 <div class="mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-3 gap-12 mb-12">
 <div>
-<img alt="Nordic Rise Agency" class="w-auto mb-4 h-36" src="https://orivox.org/static/business/ee2a77c1-47bf-4c13-89a2-cb56a5d153f2/logos/c87a1f1f_678_1003.png"/>
+<img alt="Nordic Rise Agency" class="w-auto mb-4 h-36" src="logo.png"/>
 <p class="text-[color:var(--text-dim)] italic text-sm">Där kreatörer växer.</p>
 </div>
 <div>
@@ -357,6 +432,7 @@
 <li><a class="hover:text-white" href="#hem">Hem</a></li>
 <li><a class="hover:text-white" href="#for-kreatorer">För kreatörer</a></li>
 <li><a class="hover:text-white" href="#sa-fungerar-det">Så fungerar det</a></li>
+<li><a class="hover:text-white" href="#bonusprogram">Bonus</a></li>
 <li><a class="hover:text-white" href="#faq">FAQ</a></li>
 <li><a class="hover:text-white" href="#ansok">Ansök</a></li>
 </ul>
