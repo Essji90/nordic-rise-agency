@@ -570,6 +570,21 @@
       window.dataLayer.push(['consent', 'update', { 'analytics_storage': value }]);
     }
   }
+  function sendPageView(){
+    // gtag('config', ...) already sent its automatic page_view at load time,
+    // but that happened while analytics_storage was still 'denied' (the
+    // consent banner had not been answered yet), so no real GA4 hit went out.
+    // A 'consent update' on its own does not trigger a new hit -- it only
+    // changes the state future hits will use -- so on first-time Accept we
+    // have to explicitly fire one real page_view now, under the now-granted
+    // state, per Google's guidance for consent-gated initial page loads.
+    if(typeof window.gtag === 'function'){
+      window.gtag('event', 'page_view');
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['event', 'page_view']);
+    }
+  }
   function hideBanner(){
     banner.hidden = true;
   }
@@ -577,7 +592,9 @@
   var existing = getStoredConsent();
   if(existing === 'granted' || existing === 'denied'){
     // Choice already made on a previous visit (head script already re-applied
-    // 'granted' before the GA4 config call ran); keep the banner hidden.
+    // 'granted' before the GA4 config call ran, so that call's automatic
+    // page_view already fired correctly under the granted state); keep the
+    // banner hidden.
     hideBanner();
   } else {
     banner.hidden = false;
@@ -587,6 +604,7 @@
     acceptBtn.addEventListener('click', function(){
       setStoredConsent('granted');
       pushConsent('granted');
+      sendPageView();
       hideBanner();
     });
   }
