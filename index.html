@@ -54,10 +54,20 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   // anonymize_ip is on by default in GA4; consent defaults kept restrictive until
-  // a cookie-consent solution grants analytics_storage explicitly.
+  // the user accepts via the cookie banner (see #cookie-banner near end of body).
   gtag('consent', 'default', {
     'analytics_storage': 'denied'
   });
+  // Returning visitor who already made a choice: apply it immediately so
+  // consent state is correct before the initial config/page_view hit fires.
+  (function(){
+    try {
+      var storedConsent = localStorage.getItem('nra_consent');
+      if (storedConsent === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
   gtag('config', 'G-140429B9NQ');
 </script>
 <style>
@@ -132,6 +142,17 @@
   .bonus-card:hover{transform:translateY(-6px); box-shadow:0 22px 44px -14px rgba(95,194,255,.4); border-color:var(--border-strong);}
   .bonus-card.featured{border-color:var(--accent);}
   .bonus-card.featured:hover{box-shadow:0 22px 50px -12px rgba(95,194,255,.55);}
+
+  .cookie-banner{position:fixed; inset:auto 0 0 0; z-index:70; background:rgba(5,6,8,.94); backdrop-filter:blur(10px); border-top:1px solid var(--border-strong); box-shadow:0 -20px 40px -10px rgba(0,0,0,.6);}
+  .cookie-banner[hidden]{display:none;}
+  .cookie-banner-inner{max-width:80rem; margin:0 auto; padding:1.25rem 1.25rem 1.5rem; display:flex; flex-direction:column; gap:1rem; align-items:flex-start;}
+  @media (min-width:768px){ .cookie-banner-inner{flex-direction:row; align-items:center; justify-content:space-between; gap:2rem; padding:1.25rem 2rem;} }
+  .cookie-banner-text{font-size:.82rem; line-height:1.6; color:var(--text-dim); max-width:52rem;}
+  .cookie-banner-text strong{color:var(--text); font-weight:600;}
+  .cookie-banner-actions{display:flex; gap:.75rem; width:100%;}
+  @media (min-width:768px){ .cookie-banner-actions{width:auto; flex-shrink:0;} }
+  .cookie-banner-actions .btn{font-size:.7rem; padding:.75rem 1.4rem; flex:1; justify-content:center;}
+  @media (min-width:768px){ .cookie-banner-actions .btn{flex:none;} }
 </style>
 </head>
 <body class="antialiased">
@@ -493,6 +514,15 @@
 <p>Integritetspolicy · Användarvillkor · Cookies</p>
 </div>
 </footer>
+<div class="cookie-banner" hidden="" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookieinställningar">
+<div class="cookie-banner-inner">
+<p class="cookie-banner-text"><strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.</p>
+<div class="cookie-banner-actions">
+<button class="btn btn-ghost" id="cookie-decline" type="button">Neka</button>
+<button class="btn btn-primary" id="cookie-accept" type="button">Acceptera</button>
+</div>
+</div>
+</div>
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -514,6 +544,57 @@
   if(mobileMenu){
     mobileMenu.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){ mobileMenu.removeAttribute('open'); });
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var CONSENT_KEY = 'nra_consent';
+  var banner = document.getElementById('cookie-banner');
+  if(!banner) return;
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+
+  function getStoredConsent(){
+    try { return localStorage.getItem(CONSENT_KEY); } catch(e){ return null; }
+  }
+  function setStoredConsent(value){
+    try { localStorage.setItem(CONSENT_KEY, value); } catch(e){}
+  }
+  function pushConsent(value){
+    if(typeof window.gtag === 'function'){
+      window.gtag('consent', 'update', { 'analytics_storage': value });
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['consent', 'update', { 'analytics_storage': value }]);
+    }
+  }
+  function hideBanner(){
+    banner.hidden = true;
+  }
+
+  var existing = getStoredConsent();
+  if(existing === 'granted' || existing === 'denied'){
+    // Choice already made on a previous visit (head script already re-applied
+    // 'granted' before the GA4 config call ran); keep the banner hidden.
+    hideBanner();
+  } else {
+    banner.hidden = false;
+  }
+
+  if(acceptBtn){
+    acceptBtn.addEventListener('click', function(){
+      setStoredConsent('granted');
+      pushConsent('granted');
+      hideBanner();
+    });
+  }
+  if(declineBtn){
+    declineBtn.addEventListener('click', function(){
+      setStoredConsent('denied');
+      pushConsent('denied');
+      hideBanner();
     });
   }
 })();
