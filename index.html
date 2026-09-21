@@ -5,26 +5,84 @@
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Nordic Rise Agency — TikTok LIVE-byrå | Där kreatörer växer</title>
 <meta content="Nordic Rise Agency är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att få fler tittare, följare, mer engagemang och coins — helt gratis att gå med." name="description"/>
+<meta content="TikTok LIVE, TikTok LIVE-byrå, TikTok LIVE coaching, creator growth, TikTok kreatörer, TikTok livestreaming, kreatörsbyrå Sverige, TikTok coins, TikTok tittare, TikTok följare" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://nordic-rise-agency.netlify.app/" rel="canonical"/>
 <meta content="Nordic Rise Agency — Där kreatörer växer" property="og:title"/>
-<meta content="Specialistbyrån för TikTok LIVE-kreatörer. Fler tittare, följare, engagemang och coins. Helt gratis att gå med." property="og:description"/>
+<meta content="TikTok LIVE Coaching &amp; Creator Growth för kreatörer som vill växa." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="logo.png" property="og:image"/>
+<meta content="https://nordic-rise-agency.netlify.app/" property="og:url"/>
+<meta content="Nordic Rise Agency" property="og:site_name"/>
+<meta content="sv_SE" property="og:locale"/>
+<meta content="https://nordic-rise-agency.netlify.app/og-image.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Nordic Rise Agency — Där kreatörer växer. TikTok LIVE Coaching &amp; Creator Growth." property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Nordic Rise Agency — Där kreatörer växer" name="twitter:title"/>
+<meta content="TikTok LIVE Coaching &amp; Creator Growth för kreatörer som vill växa." name="twitter:description"/>
+<meta content="https://nordic-rise-agency.netlify.app/og-image.jpg" name="twitter:image"/>
+<meta content="Nordic Rise Agency — Där kreatörer växer. TikTok LIVE Coaching &amp; Creator Growth." name="twitter:image:alt"/>
 <meta content="#050608" name="theme-color"/>
+<!-- Google Search Console verification: paste your real verification code from
+     Search Console → Settings → Ownership verification → HTML tag method.
+     Left commented out on purpose -- a placeholder/fake code would just fail
+     verification, so this is inert until you add the real one.
+<meta name="google-site-verification" content="REPLACE_WITH_REAL_CODE" /> -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Nordic Rise Agency",
+  "url": "https://nordic-rise-agency.netlify.app/",
   "description": "Specialistbyrå för TikTok LIVE-kreatörer. Hjälper kreatörer med fler tittare, följare, engagemang, coins och långsiktig tillväxt på TikTok LIVE.",
   "slogan": "Där kreatörer växer.",
-  "logo": "logo.png"
+  "logo": "https://nordic-rise-agency.netlify.app/logo.png"
 }
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Nordic Rise Agency",
+  "url": "https://nordic-rise-agency.netlify.app/",
+  "inLanguage": "sv-SE"
+}
+</script>
+<link href="tailwind.css" rel="stylesheet"/>
 <link href="logo.png" rel="icon" type="image/png"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Header logo (logo.webp) is the first meaningful image painted above the
+     fold and already carries fetchpriority="high" on its <img> tag; a
+     preload hint backs that up for browsers where fetchpriority support on
+     <img> is inconsistent. -->
+<link as="image" fetchpriority="high" href="logo.webp" rel="preload" type="image/webp"/>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-140429B9NQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // anonymize_ip is on by default in GA4; consent defaults kept restrictive until
+  // the user accepts via the cookie banner (see #cookie-banner near end of body).
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+  // Returning visitor who already made a choice: apply it immediately so
+  // consent state is correct before the initial config/page_view hit fires.
+  (function(){
+    try {
+      var storedConsent = localStorage.getItem('nra_consent');
+      if (storedConsent === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-140429B9NQ');
+</script>
 <style>
   :root{
     --bg:#050608;
@@ -97,6 +155,22 @@
   .bonus-card:hover{transform:translateY(-6px); box-shadow:0 22px 44px -14px rgba(95,194,255,.4); border-color:var(--border-strong);}
   .bonus-card.featured{border-color:var(--accent);}
   .bonus-card.featured:hover{box-shadow:0 22px 50px -12px rgba(95,194,255,.55);}
+
+  /* Named away from generic "cookie-banner"/"cookie-consent" selectors on
+     purpose: those exact class/id names are common targets in ad-block
+     "cookie notice" cosmetic filter lists (e.g. EasyList Cookie, AdGuard
+     Cookie Notices), which hide or remove matching elements outright before
+     any of our own JS/CSS logic runs. A brand-specific name sidesteps that. */
+  .nra-consent-bar{position:fixed !important; inset:auto 0 0 0; z-index:70; background:rgba(5,6,8,.94); backdrop-filter:blur(10px); border-top:1px solid var(--border-strong); box-shadow:0 -20px 40px -10px rgba(0,0,0,.6); visibility:visible;}
+  .nra-consent-bar[hidden]{display:none !important;}
+  .nra-consent-bar-inner{max-width:80rem; margin:0 auto; padding:1.25rem 1.25rem 1.5rem; display:flex; flex-direction:column; gap:1rem; align-items:flex-start;}
+  @media (min-width:768px){ .nra-consent-bar-inner{flex-direction:row; align-items:center; justify-content:space-between; gap:2rem; padding:1.25rem 2rem;} }
+  .nra-consent-bar-text{font-size:.82rem; line-height:1.6; color:var(--text-dim); max-width:52rem;}
+  .nra-consent-bar-text strong{color:var(--text); font-weight:600;}
+  .nra-consent-bar-actions{display:flex; gap:.75rem; width:100%;}
+  @media (min-width:768px){ .nra-consent-bar-actions{width:auto; flex-shrink:0;} }
+  .nra-consent-bar-actions .btn{font-size:.7rem; padding:.75rem 1.4rem; flex:1; justify-content:center;}
+  @media (min-width:768px){ .nra-consent-bar-actions .btn{flex:none;} }
 </style>
 </head>
 <body class="antialiased">
@@ -104,7 +178,10 @@
 <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#050608]/75 backdrop-blur-md">
 <div class="mx-auto max-w-7xl px-5 md:px-8 flex items-center justify-between relative h-24 md:h-32">
 <a class="flex items-center gap-3 shrink-0" href="#hem">
-<img alt="Nordic Rise Agency" class="w-auto select-none h-24 md:h-28" src="logo.png"/>
+<picture>
+<source srcset="logo.webp" type="image/webp"/>
+<img alt="Nordic Rise Agency" class="w-auto select-none h-24 md:h-28" fetchpriority="high" height="678" src="logo.png" width="1003"/>
+</picture>
 </a>
 <nav aria-label="Huvudmeny" class="hidden md:flex items-center gap-10 text-[.8rem] tracking-[.08em] uppercase text-white/70 font-medium">
 <a class="hover:text-white" href="#hem">Hem</a>
@@ -423,7 +500,10 @@
 <footer class="relative border-t border-white/5 bg-[color:var(--bg)] pt-16 pb-10">
 <div class="mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-3 gap-12 mb-12">
 <div>
-<img alt="Nordic Rise Agency" class="w-auto mb-4 h-36" src="logo.png"/>
+<picture>
+<source srcset="logo.webp" type="image/webp"/>
+<img alt="Nordic Rise Agency" class="w-auto mb-4 h-36" height="678" loading="lazy" src="logo.png" width="1003"/>
+</picture>
 <p class="text-[color:var(--text-dim)] italic text-sm">Där kreatörer växer.</p>
 </div>
 <div>
@@ -452,6 +532,15 @@
 <p>Integritetspolicy · Användarvillkor · Cookies</p>
 </div>
 </footer>
+<div class="nra-consent-bar" data-nra-consent-bar="" hidden="" id="nra-consent-bar" role="dialog" aria-live="polite" aria-label="Cookieinställningar">
+<div class="nra-consent-bar-inner">
+<p class="nra-consent-bar-text"><strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.</p>
+<div class="nra-consent-bar-actions">
+<button class="btn btn-ghost" id="nra-consent-decline" type="button">Neka</button>
+<button class="btn btn-primary" id="nra-consent-accept" type="button">Acceptera</button>
+</div>
+</div>
+</div>
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -473,6 +562,105 @@
   if(mobileMenu){
     mobileMenu.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){ mobileMenu.removeAttribute('open'); });
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var CONSENT_KEY = 'nra_consent';
+  var banner = document.getElementById('nra-consent-bar');
+  if(!banner) return;
+  var acceptBtn = document.getElementById('nra-consent-accept');
+  var declineBtn = document.getElementById('nra-consent-decline');
+
+  // QA helper: visiting with ?reset_consent=1 clears any stored choice
+  // before we decide whether to show the banner, so you can force a true
+  // "first-time visitor" view for testing without needing to open a private
+  // window or manually clear site data. Has zero effect for normal visitors
+  // who never add that query param.
+  try {
+    if(/[?&]reset_consent=1\b/.test(window.location.search)){
+      localStorage.removeItem(CONSENT_KEY);
+    }
+  } catch(e) {}
+
+  function getStoredConsent(){
+    try { return localStorage.getItem(CONSENT_KEY); } catch(e){ return null; }
+  }
+  function setStoredConsent(value){
+    try { localStorage.setItem(CONSENT_KEY, value); } catch(e){}
+  }
+  function pushConsent(value){
+    if(typeof window.gtag === 'function'){
+      window.gtag('consent', 'update', { 'analytics_storage': value });
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['consent', 'update', { 'analytics_storage': value }]);
+    }
+  }
+  function sendPageView(){
+    // gtag('config', ...) already sent its automatic page_view at load time,
+    // but that happened while analytics_storage was still 'denied' (the
+    // consent banner had not been answered yet), so no real GA4 hit went out.
+    // A 'consent update' on its own does not trigger a new hit -- it only
+    // changes the state future hits will use -- so on first-time Accept we
+    // have to explicitly fire one real page_view now, under the now-granted
+    // state, per Google's guidance for consent-gated initial page loads.
+    if(typeof window.gtag === 'function'){
+      window.gtag('event', 'page_view');
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['event', 'page_view']);
+    }
+  }
+  function hideBanner(){
+    banner.hidden = true;
+  }
+
+  var existing = getStoredConsent();
+  if(existing === 'granted' || existing === 'denied'){
+    // Choice already made on a previous visit (head script already re-applied
+    // 'granted' before the GA4 config call ran, so that call's automatic
+    // page_view already fired correctly under the granted state); keep the
+    // banner hidden. NOTE: a plain reload of a page you already answered on
+    // is NOT a fresh visit from the browser's point of view -- localStorage
+    // survives reloads. To genuinely test as a new visitor, use a private
+    // window, clear site data for this origin, or add ?reset_consent=1 to
+    // the URL (see above).
+    hideBanner();
+  } else {
+    banner.hidden = false;
+    // Defensive check: something outside our own CSS (a browser extension's
+    // cosmetic filter, a misbehaving third-party stylesheet, etc.) could in
+    // theory still force this element hidden after we clear the `hidden`
+    // attribute. If that happens, force it visible via inline styles and
+    // leave a console breadcrumb so it's diagnosable from DevTools instead
+    // of silently vanishing.
+    try {
+      var computed = window.getComputedStyle(banner);
+      if(computed.display === 'none' || computed.visibility === 'hidden'){
+        banner.style.setProperty('display', 'flex', 'important');
+        banner.style.setProperty('visibility', 'visible', 'important');
+        banner.style.setProperty('opacity', '1', 'important');
+        console.warn('[nra-consent] Banner was force-hidden by external CSS (possibly a browser extension); re-shown via inline styles.');
+      }
+    } catch(e) {}
+  }
+
+  if(acceptBtn){
+    acceptBtn.addEventListener('click', function(){
+      setStoredConsent('granted');
+      pushConsent('granted');
+      sendPageView();
+      hideBanner();
+    });
+  }
+  if(declineBtn){
+    declineBtn.addEventListener('click', function(){
+      setStoredConsent('denied');
+      pushConsent('denied');
+      hideBanner();
     });
   }
 })();
