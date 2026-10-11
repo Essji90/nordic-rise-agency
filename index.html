@@ -54,6 +54,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 <!-- Header logo (logo.webp) is the first meaningful image painted above the
      fold and already carries fetchpriority="high" on its <img> tag; a
      preload hint backs that up for browsers where fetchpriority support on
@@ -156,6 +157,25 @@
   .bonus-card.featured{border-color:var(--accent);}
   .bonus-card.featured:hover{box-shadow:0 22px 50px -12px rgba(95,194,255,.55);}
 
+  /* Mountain ridge motif -- atmospheric brand texture, inspired by the angular
+     peaks in the recruitment visual and the new logo's own chevron/peak mark.
+     Plain inline SVG: no raster asset, scales losslessly, trivial file weight,
+     no animation. Kept low-opacity and strictly decorative (aria-hidden,
+     pointer-events:none) so it never competes with real content. */
+  .ridge-hero{position:absolute; left:0; right:0; bottom:0; width:100%; height:auto; pointer-events:none; opacity:.55;}
+
+  /* Explicit sizing classes for the logo -- the compiled tailwind.css only
+     contains the utility classes actually used at build time (e.g. h-24,
+     md:h-28, h-36), so a differently-sized utility class like "h-20" or a
+     bare "h-28" simply wouldn't exist in that stylesheet and the image would
+     render unconstrained. Defining the sizes explicitly here avoids that. */
+  .brand-logo-header{height:5rem; width:auto;}
+  @media (min-width:768px){ .brand-logo-header{height:6rem;} }
+  .brand-logo-footer{height:7rem; width:auto;}
+  .icon-sm{width:3.5rem; height:3.5rem;}
+  .hero-heading{font-size:clamp(2.4rem,7vw,4.4rem); line-height:1.15;}
+  .founder-photo{width:9rem; height:9rem; border-radius:9999px; object-fit:cover; display:block; border:2px solid rgba(255,255,255,.15);}
+
   /* Named away from generic "cookie-banner"/"cookie-consent" selectors on
      purpose: those exact class/id names are common targets in ad-block
      "cookie notice" cosmetic filter lists (e.g. EasyList Cookie, AdGuard
@@ -180,12 +200,13 @@
 <a class="flex items-center gap-3 shrink-0" href="#hem">
 <picture>
 <source srcset="logo.webp" type="image/webp"/>
-<img alt="Nordic Rise Agency" class="w-auto select-none h-24 md:h-28" fetchpriority="high" height="678" src="logo.png" width="1003"/>
+<img alt="Nordic Rise Agency" class="select-none brand-logo-header" fetchpriority="high" height="544" src="logo.png" width="1100"/>
 </picture>
 </a>
 <nav aria-label="Huvudmeny" class="hidden md:flex items-center gap-10 text-[.8rem] tracking-[.08em] uppercase text-white/70 font-medium">
 <a class="hover:text-white" href="#hem">Hem</a>
 <a class="hover:text-white" href="#for-kreatorer">För kreatörer</a>
+<a class="hover:text-white" href="#live-pa-tiktok">Videor</a>
 <a class="hover:text-white" href="#sa-fungerar-det">Så fungerar det</a>
 <a class="hover:text-white" href="#bonusprogram">Bonus</a>
 <a class="hover:text-white" href="#faq">FAQ</a>
@@ -201,6 +222,7 @@
 <div class="mm-panel px-6 py-6 flex flex-col gap-5 text-sm uppercase tracking-wide text-white/80" style="position:fixed; top:6rem; left:0; right:0; max-height:calc(100vh - 6rem); overflow-y:auto; z-index:60;">
 <a href="#hem">Hem</a>
 <a href="#for-kreatorer">För kreatörer</a>
+<a href="#live-pa-tiktok">Videor</a>
 <a href="#sa-fungerar-det">Så fungerar det</a>
 <a href="#bonusprogram">Bonus</a>
 <a href="#faq">FAQ</a>
@@ -214,33 +236,41 @@
 <section class="relative min-h-[100svh] flex items-center pt-32 pb-20 overflow-hidden" data-section-type="hero" id="hem">
 <div aria-hidden="true" class="glow-blob w-[520px] h-[520px] bg-[#1e6bff] -top-40 -left-40"></div>
 <div aria-hidden="true" class="glow-blob w-[420px] h-[420px] bg-[#5fc2ff] top-1/3 -right-32"></div>
+<svg aria-hidden="true" class="ridge-hero" preserveAspectRatio="none" viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="heroRidgeGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0" stop-color="#5fc2ff" stop-opacity=".22"></stop>
+<stop offset="1" stop-color="#050608" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,220 L0,150 L80,170 L160,110 L240,150 L320,90 L410,140 L500,100 L590,145 L680,80 L760,130 L850,95 L940,140 L1030,85 L1120,135 L1210,100 L1300,145 L1440,120 L1440,220 Z" fill="url(#heroRidgeGrad)"></path>
+</svg>
 <div class="relative mx-auto max-w-7xl px-5 md:px-8 w-full grid md:grid-cols-[1.15fr,.85fr] gap-14 items-center">
 <div data-reveal>
-<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-6">Nordic Rise Agency</p>
-<h1 class="font-display font-extrabold leading-[.95] text-[clamp(2.8rem,8vw,6.2rem)]">
-<span class="block text-gradient">DIN LIVE.</span>
-<span class="block text-gradient">DIN TILLVÄXT.</span>
-</h1>
+<h1 class="font-display font-extrabold hero-heading text-gradient">DU BEHÖVER INTE<br/>VÄXA ENSAM.</h1>
 <p class="font-display text-lg md:text-xl mt-6 text-[color:var(--accent2)]">Där kreatörer växer.</p>
 <p class="mt-6 max-w-xl text-[color:var(--text-dim)] text-base md:text-lg leading-relaxed">
-          Vi hjälper TikTok LIVE-kreatörer att få fler tittare, bygga starkare communities och tjäna mer på sina livesändningar.
+          Nordic Rise Agency hjälper dig som kreatör att utvecklas på TikTok LIVE genom personlig coachning, en community att växa tillsammans med och strategier som faktiskt är anpassade efter din LIVE.
         </p><div class="badge-soon mt-5"><svg fill="none" height="14" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" width="14"><path d="M4 12l5 5L20 6"></path></svg>Helt gratis att gå med oss</div>
 <div class="mt-9 flex flex-wrap items-center gap-4">
-<a class="btn btn-primary text-sm" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök till Nordic Rise →</a>
+<a class="btn btn-primary text-sm" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
 <a class="btn btn-ghost text-sm" href="#intro">Läs mer ↓</a>
 </div>
 </div>
 <div aria-hidden="true" class="relative hidden md:flex items-center justify-center" data-reveal>
 <div class="absolute w-80 h-80 rounded-full glow-blob bg-[#5fc2ff] opacity-40"></div>
+<!-- Brand mark: the same double-chevron / peak icon used above "NORDIC RISE"
+     in the official logo, reproduced here as strokes (not the old "NR"
+     monogram) so the hero graphic matches the real brand mark. -->
 <svg class="relative w-64 h-64 drop-shadow-[0_0_40px_rgba(95,194,255,.35)]" viewBox="0 0 200 200">
 <defs>
-<linearGradient id="nrGrad" x1="0" x2="1" y1="0" y2="1">
+<linearGradient id="heroPeakGrad" x1="0" x2="1" y1="0" y2="1">
 <stop offset="0" stop-color="#ffffff"></stop>
 <stop offset="1" stop-color="#9fe0ff"></stop>
 </linearGradient>
 </defs>
-<path d="M25 165 L25 45 L100 130 L100 45" fill="none" stroke="url(#nrGrad)" stroke-linecap="square" stroke-linejoin="miter" stroke-width="14"></path>
-<path d="M115 165 L115 45 L150 45 Q175 45 175 72 Q175 99 150 99 L128 99 L178 165" fill="none" stroke="url(#nrGrad)" stroke-linecap="square" stroke-linejoin="miter" stroke-width="14"></path>
+<path d="M63 86 L100 49 L137 86" fill="none" stroke="url(#heroPeakGrad)" stroke-linecap="square" stroke-linejoin="miter" stroke-width="11"></path>
+<path d="M28 156 L100 86 L172 156" fill="none" stroke="url(#heroPeakGrad)" stroke-linecap="square" stroke-linejoin="miter" stroke-width="13"></path>
 </svg>
 </div>
 </div>
@@ -257,61 +287,59 @@
       </p>
 </div>
 </section>
-<section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="services" id="for-kreatorer">
-<div class="mx-auto max-w-7xl px-5 md:px-8">
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-16" data-reveal>Allt börjar med din LIVE.</h2>
-<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-<div class="panel-card rounded-xl p-7">
-<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Fler tittare</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Lär dig hur du skapar livesändningar som attraherar och behåller fler tittare.</p>
+<section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)]" data-section-type="founder" id="bakom-nordic-rise">
+<div class="mx-auto max-w-6xl px-5 md:px-8 grid gap-14 items-center">
+<div data-reveal>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Bakom Nordic Rise</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6">Jag bygger det här för att jag själv vet hur det är att växa på TikTok LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-5">Jag heter Robin och driver min egen TikTok LIVE-kanal, med en publik på omkring 20 000 följare. Jag vet hur mycket jobb som ligger bakom varje sändning — och hur mycket lättare det blir när man inte behöver lista ut allt själv.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed">Det är därför jag startade Nordic Rise Agency: för att ge andra kreatörer den vägledning, gemenskap och struktur jag själv hade velat ha från början. Inga påhittade genvägar — bara praktisk hjälp från någon som faktiskt gör det här varje dag.</p>
 </div>
-<div class="panel-card rounded-xl p-7">
-<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-7 7-7s7 3 7 7"></path><path d="M19 8v6M22 11h-6"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Fler följare</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Förvandla tillfälliga tittare till människor som följer dig och kommer tillbaka.</p>
-</div>
-<div class="panel-card rounded-xl p-7">
-<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5.4A8.4 8.4 0 1 1 21 11.5Z"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Mer engagemang</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Skapa en LIVE där chatten lever och tittarna vill vara delaktiga.</p>
-</div>
-<div class="panel-card rounded-xl p-7">
-<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Fler coins</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Utveckla din LIVE och skapa bättre förutsättningar för gifts och intäkter.</p>
+<div class="relative hidden md:flex items-center justify-center" data-reveal>
+<div class="absolute w-80 h-80 rounded-full glow-blob bg-[#1e6bff] opacity-40"></div>
+<div class="panel-card relative rounded-2xl p-8 text-center">
+<img alt="Robin, grundare av Nordic Rise Agency" class="founder-photo mx-auto mb-6" height="480" loading="lazy" src="robin-founder.jpg" width="480"/>
+<p class="font-display text-sm uppercase tracking-[.2em] text-white/70">Robin</p>
+<p class="text-xs text-[color:var(--text-dimmer)] mt-1">Grundare, Nordic Rise Agency</p>
 </div>
 </div>
 </div>
 </section>
-<section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)]" data-section-type="process">
-<div class="mx-auto max-w-6xl px-5 md:px-8">
-<div class="max-w-2xl mb-16" data-reveal>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6">Du behöver inte göra det ensam.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed">Som kreatör hos Nordic Rise får du vägledning och feedback som hjälper dig att förstå din LIVE, din publik och dina möjligheter att växa.</p>
+<section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="services" id="for-kreatorer">
+<div class="mx-auto max-w-7xl px-5 md:px-8">
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-16" data-reveal>Det här får du som kreatör hos Nordic Rise.</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="panel-card rounded-xl p-7">
+<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="12" cy="12" r="9"></circle><path d="M14.3 9.7 10 10.3l-.6 4.3 4.3-.6.6-4.3Z"></path></svg>
+<h3 class="font-display font-semibold text-lg mb-3">Personlig coachning</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Hjälp att komma igång, utvecklas och få vägledning längs vägen — oavsett var du befinner dig idag.</p>
 </div>
-<div class="grid md:grid-cols-4 gap-8">
-<div class="md:mt-12">
-<span class="num-step">01</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Analysera</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Identifiera vad som fungerar och vad som kan förbättras.</p>
+<div class="panel-card rounded-xl p-7">
+<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-7 7-7s7 3 7 7"></path><path d="M19 8v6M22 11h-6"></path></svg>
+<h3 class="font-display font-semibold text-lg mb-3">Community</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Ett sammanhang där du kan lära av andra kreatörer, dela erfarenheter och känna att du inte gör det här ensam.</p>
 </div>
-<div class="md:mt-8">
-<span class="num-step">02</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Utveckla</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Få konkreta strategier och idéer för dina livesändningar.</p>
+<div class="panel-card rounded-xl p-7">
+<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3 class="font-display font-semibold text-lg mb-3">LIVE-utveckling</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Förstå din statistik, testa nya strategier och hitta vad som faktiskt fungerar för just din publik.</p>
 </div>
-<div class="md:mt-4">
-<span class="num-step">03</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Testa</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Implementera, testa och se vad som fungerar för just dig och din publik.</p>
-</div>
-<div>
-<span class="num-step">04</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Väx</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Bygg vidare på det som fungerar och ta din LIVE till nästa nivå.</p>
+<div class="panel-card rounded-xl p-7">
+<svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2.8-2.8 2.8-2.8Z"></path></svg>
+<h3 class="font-display font-semibold text-lg mb-3">Verktyg</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Nordic Rise LIVE ingår som en del av ditt medlemskap — ett verktyg som gör det enklare att utvecklas, helt utan extra kostnad.</p>
 </div>
 </div>
+</div>
+</section>
+<section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="video" id="live-pa-tiktok">
+<div aria-hidden="true" class="glow-blob w-[420px] h-[420px] bg-[#5fc2ff] left-1/2 -translate-x-1/2 -top-32"></div>
+<div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center" data-reveal>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Se Nordic Rise i praktiken</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-gradient mb-6">DET BÖRJAR PÅ LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Nordic Rise handlar om det som faktiskt händer under sändning — inte bara siffror i efterhand. Vi bygger just nu upp en samling klipp och exempel från våra kreatörers livesändningar.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10">Håll utkik här — mer innehåll läggs till löpande i takt med att fler kreatörer blir en del av Nordic Rise.</p>
+<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Vill du synas här? Ansök till Nordic Rise →</a>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="custom">
@@ -346,27 +374,23 @@
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="process_2" id="sa-fungerar-det">
 <div class="mx-auto max-w-6xl px-5 md:px-8">
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-16" data-reveal>Så fungerar det.</h2>
-<div class="grid md:grid-cols-4 gap-8">
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-6" data-reveal>Så fungerar Nordic Rise.</h2>
+<p class="text-[color:var(--text-dim)] text-lg text-center max-w-2xl mx-auto mb-16" data-reveal>Du behöver inte redan ha LIVE-behörighet eller tidigare statistik — vi möter dig där du är.</p>
+<div class="grid md:grid-cols-3 gap-8">
 <div>
 <span class="num-step">01</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Ansök</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Berätta om dig själv och din TikTok LIVE.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Gå med</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Ansök och bli en del av Nordic Rise — det är gratis och tar bara någon minut.</p>
 </div>
 <div>
 <span class="num-step">02</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Vi lär känna dig</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Vi tittar på din nuvarande LIVE och vad du vill uppnå.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Kom igång</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Oavsett om du är helt ny på LIVE eller redan sänder idag får du hjälp utifrån just din erfarenhet.</p>
 </div>
 <div>
 <span class="num-step">03</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Du får coaching</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Du får vägledning, feedback och strategier för att utvecklas.</p>
-</div>
-<div>
-<span class="num-step">04</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Du växer</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Implementera, utvecklas och bygg din LIVE vidare.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Utvecklas tillsammans</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Testa nya strategier, följ upp din statistik, få återkoppling och justera längs vägen.</p>
 </div>
 </div>
 </div>
@@ -479,13 +503,35 @@
 </div>
 </div>
 </section>
+<section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="final_cta" id="ansok">
+<div aria-hidden="true" class="glow-blob w-[520px] h-[520px] bg-[#1e6bff] left-1/2 -translate-x-1/2 -top-40"></div>
+<svg aria-hidden="true" class="ridge-hero" preserveAspectRatio="none" viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="finalCtaRidgeGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0" stop-color="#5fc2ff" stop-opacity=".22"></stop>
+<stop offset="1" stop-color="#050608" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,220 L0,150 L80,170 L160,110 L240,150 L320,90 L410,140 L500,100 L590,145 L680,80 L760,130 L850,95 L940,140 L1030,85 L1120,135 L1210,100 L1300,145 L1440,120 L1440,220 Z" fill="url(#finalCtaRidgeGrad)"></path>
+</svg>
+<div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center" data-reveal>
+<h2 class="font-display font-extrabold hero-heading text-gradient mb-6">DET BÖRJAR PÅ LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10">Du har redan börjat fundera på nästa steg. Nu är det dags att faktiskt ta det.</p>
+<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
+<p class="mt-5 text-sm text-[color:var(--text-dimmer)]">Helt gratis att gå med oss.</p>
+<div class="mt-12 pt-10 border-t border-white/5">
+<p class="font-display uppercase tracking-[.3em] text-sm text-white/70">Nordic Rise Agency</p>
+<p class="text-[color:var(--text-dim)] italic text-sm mt-2">Där kreatörer växer.</p>
+</div>
+</div>
+</section>
 </main>
 <footer class="relative border-t border-white/5 bg-[color:var(--bg)] pt-16 pb-10">
 <div class="mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-3 gap-12 mb-12">
 <div>
 <picture>
 <source srcset="logo.webp" type="image/webp"/>
-<img alt="Nordic Rise Agency" class="w-auto mb-4 h-36" height="678" loading="lazy" src="logo.png" width="1003"/>
+<img alt="Nordic Rise Agency" class="mb-4 brand-logo-footer" height="544" loading="lazy" src="logo.png" width="1100"/>
 </picture>
 <p class="text-[color:var(--text-dim)] italic text-sm">Där kreatörer växer.</p>
 </div>
