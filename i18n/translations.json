@@ -1,0 +1,635 @@
+{
+  "sv": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-byrå | Där kreatörer växer",
+      "description": "Nordic Rise Agency är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att få fler tittare, följare, mer engagemang och coins — helt gratis att gå med.",
+      "ogTitle": "Nordic Rise Agency — Där kreatörer växer",
+      "ogDescription": "TikTok LIVE Coaching & Creator Growth för kreatörer som vill växa.",
+      "ogImageAlt": "Nordic Rise Agency — Där kreatörer växer. TikTok LIVE Coaching & Creator Growth.",
+      "locale": "sv_SE",
+      "htmlLang": "sv",
+      "jsonLdSlogan": "Där kreatörer växer.",
+      "jsonLdInLanguage": "sv-SE",
+      "jsonLdOrgDescription": "Specialistbyrå för TikTok LIVE-kreatörer. Hjälper kreatörer med fler tittare, följare, engagemang, coins och långsiktig tillväxt på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Hoppa till innehåll" },
+    "nav": {
+      "ariaLabel": "Huvudmeny",
+      "home": "Hem",
+      "forCreators": "För kreatörer",
+      "videos": "Videor",
+      "howItWorks": "Så fungerar det",
+      "bonus": "Bonus",
+      "faq": "FAQ",
+      "applyCta": "Ansök nu →",
+      "openMenuAria": "Öppna meny"
+    },
+    "hero": {
+      "headlineLine1": "DU BEHÖVER INTE",
+      "headlineLine2": "VÄXA ENSAM.",
+      "tagline": "Där kreatörer växer.",
+      "body": "Nordic Rise Agency hjälper dig som kreatör att utvecklas på TikTok LIVE genom personlig coachning, en community att växa tillsammans med och strategier som faktiskt är anpassade efter din LIVE.",
+      "badge": "Helt gratis att gå med oss",
+      "ctaPrimary": "Bli en del av Nordic Rise →",
+      "ctaSecondary": "Läs mer ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "TITTARE", "followers": "FÖLJARE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "TILLVÄXT" },
+    "intro": {
+      "heading": "Där kreatörer växer.",
+      "p1": "Att lyckas på TikTok LIVE handlar om mer än att bara starta en sändning. Det handlar om att förstå sin publik, skapa energi, behålla tittare och utveckla en LIVE som människor vill komma tillbaka till.",
+      "p2": "Nordic Rise hjälper kreatörer att förstå vad som fungerar och hur de kan utveckla sin LIVE över tid."
+    },
+    "founder": {
+      "eyebrow": "Bakom Nordic Rise",
+      "heading": "Jag bygger det här för att jag själv vet hur det är att växa på TikTok LIVE.",
+      "p1": "Jag heter Robin och driver min egen TikTok LIVE-kanal, med en publik på omkring 20 000 följare. Jag vet hur mycket jobb som ligger bakom varje sändning — och hur mycket lättare det blir när man inte behöver lista ut allt själv.",
+      "p2": "Det är därför jag startade Nordic Rise Agency: för att ge andra kreatörer den vägledning, gemenskap och struktur jag själv hade velat ha från början. Inga påhittade genvägar — bara praktisk hjälp från någon som faktiskt gör det här varje dag.",
+      "name": "Robin",
+      "role": "Grundare, Nordic Rise Agency",
+      "photoAlt": "Robin, grundare av Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Det här får du som kreatör hos Nordic Rise.",
+      "card1": { "title": "Personlig coachning", "desc": "Hjälp att komma igång, utvecklas och få vägledning längs vägen — oavsett var du befinner dig idag." },
+      "card2": { "title": "Community", "desc": "Ett sammanhang där du kan lära av andra kreatörer, dela erfarenheter och känna att du inte gör det här ensam." },
+      "card3": { "title": "LIVE-utveckling", "desc": "Förstå din statistik, testa nya strategier och hitta vad som faktiskt fungerar för just din publik." },
+      "card4": { "title": "Verktyg", "desc": "Nordic Rise LIVE ingår som en del av ditt medlemskap — ett verktyg som gör det enklare att utvecklas, helt utan extra kostnad." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praktiken",
+      "heading": "DET BÖRJAR PÅ LIVE.",
+      "p1": "Nordic Rise handlar om det som faktiskt händer under sändning — inte bara siffror i efterhand. Vi bygger just nu upp en samling klipp och exempel från våra kreatörers livesändningar.",
+      "p2": "Håll utkik här — mer innehåll läggs till löpande i takt med att fler kreatörer blir en del av Nordic Rise.",
+      "cta": "Vill du synas här? Ansök till Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Ditt sätt.",
+      "p1": "Du behöver inte vara gamer, underhållare eller ha en specifik typ av content.",
+      "p2": "TikTok LIVE handlar om människor, personligheter och communities.",
+      "p3": "Oavsett om du spelar, pratar, underhåller, skapar, diskuterar, lagar mat, gör IRL-content eller har ett helt eget koncept är målet detsamma:",
+      "quote": "Att bygga en LIVE som människor vill komma tillbaka till.",
+      "subtext": "Det finns inga krav för att gå med i Nordic Rise — bara viljan att växa."
+    },
+    "custom2": {
+      "heading": "Vi letar efter drivna kreatörer.",
+      "subtext": "Du behöver inte vara störst. Du behöver vilja bli bättre.",
+      "item1": "Du gör TikTok LIVE", "item2": "Du vill växa", "item3": "Du vill få fler tittare",
+      "item4": "Du vill bygga en community", "item5": "Du vill öka dina följare",
+      "item6": "Du vill tjäna mer på dina livesändningar", "item7": "Du är villig att utvecklas",
+      "item8": "Du vill ta din LIVE till nästa nivå", "cta": "Ansök till Nordic Rise →"
+    },
+    "process": {
+      "heading": "Så fungerar Nordic Rise.",
+      "subtext": "Du behöver inte redan ha LIVE-behörighet eller tidigare statistik — vi möter dig där du är.",
+      "step1": { "title": "Gå med", "desc": "Ansök och bli en del av Nordic Rise — det är gratis och tar bara någon minut." },
+      "step2": { "title": "Kom igång", "desc": "Oavsett om du är helt ny på LIVE eller redan sänder idag får du hjälp utifrån just din erfarenhet." },
+      "step3": { "title": "Utvecklas tillsammans", "desc": "Testa nya strategier, följ upp din statistik, få återkoppling och justera längs vägen." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram",
+      "heading": "Tjäna extra varje månad med Nordic Rise",
+      "p1": "Hos Nordic Rise belönar vi kreatörer som är konsekventa och når nya nivåer på TikTok LIVE.",
+      "p2Html": "Utöver dina vanliga intäkter från TikTok kan du få en <span class=\"text-white font-semibold\">månatlig Nordic Rise-bonus</span> när du når någon av bonusnivåerna nedan.",
+      "quoteHtml": "Bonusen baseras på hur många <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samlar under en kalendermånad.",
+      "coinsLabel": "Coins / månad",
+      "bonusCoinsLabel": "Bonus Coins",
+      "tierBadge": "Högsta nivå",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Hur fungerar bonusen?",
+        "item1": "Bonusen räknas på hela månadens TikTok Coins.",
+        "item2": "När du når en bonusnivå får du den bonus som motsvarar den nivån.",
+        "item3": "Bonusen betalas ut av Nordic Rise enligt agency-avtalet."
+      },
+      "cta": { "heading": "Redo att ta nästa nivå?", "subtext": "Bli en del av Nordic Rise Agency och låt ditt LIVE-arbete belönas varje månad.", "button": "Ansök till Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det är helt gratis att gå med oss.",
+      "p1": "Nordic Rise Agency kostar inget att gå med i.",
+      "p2": "Vårt mål är att hjälpa våra kreatörer att utvecklas, växa sin publik och lyckas bättre på TikTok LIVE.",
+      "cta": "Ansök gratis →"
+    },
+    "faq": {
+      "heading": "Vanliga frågor.",
+      "q1": "Vad är Nordic Rise Agency?", "a1": "Nordic Rise är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att utveckla sina livesändningar, få fler tittare och följare, bygga communities och öka sina LIVE-intäkter.",
+      "q2": "Vad får jag som kreatör?", "a2": "Du får coaching, vägledning, feedback och strategier för att utveckla din TikTok LIVE och växa på plattformen. Du får också bonus beroende på hur mycket coins du drar in på en månad!",
+      "q3": "Kostar det något?", "a3": "Nej. Det är helt gratis att gå med oss.",
+      "q4": "Måste jag redan ha många tittare?", "a4": "Nej. Vi letar efter kreatörer med potential, driv och vilja att utvecklas. Du behöver inte redan vara stor för att börja växa.",
+      "q5": "Vilken typ av content behöver jag göra?", "a5": "Ingen specifik typ. Nordic Rise välkomnar kreatörer inom alla typer av TikTok LIVE-content. Det viktiga är att du vill utvecklas och bygga en starkare LIVE.",
+      "q6": "Vad fokuserar Nordic Rise på?", "a6": "Enbart TikTok LIVE. Vårt fokus är tittare, följare, engagemang, community, gifts, coins och långsiktig tillväxt på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET BÖRJAR PÅ LIVE.",
+      "body": "Du har redan börjat fundera på nästa steg. Nu är det dags att faktiskt ta det.",
+      "cta": "Bli en del av Nordic Rise →",
+      "subtext": "Helt gratis att gå med oss.",
+      "brand": "Nordic Rise Agency",
+      "tagline": "Där kreatörer växer."
+    },
+    "footer": {
+      "tagline": "Där kreatörer växer.",
+      "navHeading": "Navigation",
+      "navHome": "Hem", "navForCreators": "För kreatörer", "navHowItWorks": "Så fungerar det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Ansök",
+      "socialHeading": "Sociala kanaler",
+      "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alla rättigheter förbehållna.",
+      "legalLinks": "Integritetspolicy · Användarvillkor · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.",
+      "decline": "Neka", "accept": "Acceptera", "ariaLabel": "Cookieinställningar"
+    }
+  },
+  "da": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-bureau | Hvor skabere vokser",
+      "description": "Nordic Rise Agency er et specialistbureau for TikTok LIVE. Vi hjælper skabere med flere seere, følgere, mere engagement og coins — helt gratis at være med.",
+      "ogTitle": "Nordic Rise Agency — Hvor skabere vokser",
+      "ogDescription": "TikTok LIVE-coaching & Creator Growth for skabere, der vil vokse.",
+      "ogImageAlt": "Nordic Rise Agency — Hvor skabere vokser. TikTok LIVE-coaching & Creator Growth.",
+      "locale": "da_DK",
+      "htmlLang": "da",
+      "jsonLdSlogan": "Hvor skabere vokser.",
+      "jsonLdInLanguage": "da-DK",
+      "jsonLdOrgDescription": "Specialistbureau for TikTok LIVE-skabere. Hjælper skabere med flere seere, følgere, engagement, coins og langsigtet vækst på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Spring til indhold" },
+    "nav": {
+      "ariaLabel": "Hovedmenu", "home": "Hjem", "forCreators": "For skabere", "videos": "Videoer",
+      "howItWorks": "Sådan fungerer det", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Ansøg nu →", "openMenuAria": "Åbn menu"
+    },
+    "hero": {
+      "headlineLine1": "DU SKAL IKKE", "headlineLine2": "VOKSE ALENE.",
+      "tagline": "Hvor skabere vokser.",
+      "body": "Nordic Rise Agency hjælper dig som skaber med at udvikle dig på TikTok LIVE gennem personlig coaching, et community at vokse sammen med og strategier, der faktisk er tilpasset din LIVE.",
+      "badge": "Helt gratis at være med",
+      "ctaPrimary": "Bliv en del af Nordic Rise →", "ctaSecondary": "Læs mere ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "SEERE", "followers": "FØLGERE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "VÆKST" },
+    "intro": {
+      "heading": "Hvor skabere vokser.",
+      "p1": "At lykkes på TikTok LIVE handler om mere end bare at starte en sending. Det handler om at forstå sit publikum, skabe energi, fastholde seere og udvikle en LIVE, som folk vil komme tilbage til.",
+      "p2": "Nordic Rise hjælper skabere med at forstå, hvad der virker, og hvordan de kan udvikle deres LIVE over tid."
+    },
+    "founder": {
+      "eyebrow": "Bag Nordic Rise",
+      "heading": "Jeg bygger det her, fordi jeg selv ved, hvordan det er at vokse på TikTok LIVE.",
+      "p1": "Jeg hedder Robin og driver min egen TikTok LIVE-kanal med et publikum på omkring 20.000 følgere. Jeg ved, hvor meget arbejde der ligger bag hver sending — og hvor meget lettere det bliver, når man ikke skal finde ud af det hele selv.",
+      "p2": "Det er derfor, jeg startede Nordic Rise Agency: for at give andre skabere den vejledning, det fællesskab og den struktur, jeg selv gerne havde haft fra starten. Ingen opdigtede genveje — kun praktisk hjælp fra en, der rent faktisk gør det her hver dag.",
+      "name": "Robin", "role": "Grundlægger, Nordic Rise Agency", "photoAlt": "Robin, grundlægger af Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Det her får du som skaber hos Nordic Rise.",
+      "card1": { "title": "Personlig coaching", "desc": "Hjælp til at komme i gang, udvikle dig og få vejledning undervejs — uanset hvor du er i dag." },
+      "card2": { "title": "Community", "desc": "Et fællesskab, hvor du kan lære af andre skabere, dele erfaringer og mærke, at du ikke gør det her alene." },
+      "card3": { "title": "LIVE-udvikling", "desc": "Forstå din statistik, test nye strategier og find ud af, hvad der rent faktisk virker for netop dit publikum." },
+      "card4": { "title": "Værktøjer", "desc": "Nordic Rise LIVE indgår som en del af dit medlemskab — et værktøj, der gør det nemmere at udvikle sig, helt uden ekstra omkostning." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praksis", "heading": "DET STARTER PÅ LIVE.",
+      "p1": "Nordic Rise handler om det, der rent faktisk sker under sendingen — ikke kun tal bagefter. Vi er ved at opbygge en samling klip og eksempler fra vores skaberes livesendinger.",
+      "p2": "Hold øje her — mere indhold bliver løbende tilføjet, efterhånden som flere skabere bliver en del af Nordic Rise.",
+      "cta": "Vil du vises her? Ansøg til Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Din stil.",
+      "p1": "Du behøver ikke være gamer, entertainer eller have en bestemt type indhold.",
+      "p2": "TikTok LIVE handler om mennesker, personligheder og communities.",
+      "p3": "Uanset om du spiller, snakker, underholder, skaber, diskuterer, laver mad, laver IRL-indhold eller har dit helt eget koncept, er målet det samme:",
+      "quote": "At bygge en LIVE, som folk vil komme tilbage til.",
+      "subtext": "Der er ingen krav for at blive en del af Nordic Rise — kun viljen til at vokse."
+    },
+    "custom2": {
+      "heading": "Vi søger drevne skabere.", "subtext": "Du behøver ikke være størst. Du skal ville blive bedre.",
+      "item1": "Du laver TikTok LIVE", "item2": "Du vil vokse", "item3": "Du vil have flere seere",
+      "item4": "Du vil bygge et community", "item5": "Du vil øge dine følgere",
+      "item6": "Du vil tjene mere på dine livesendinger", "item7": "Du er villig til at udvikle dig",
+      "item8": "Du vil tage din LIVE til næste niveau", "cta": "Ansøg til Nordic Rise →"
+    },
+    "process": {
+      "heading": "Sådan fungerer Nordic Rise.",
+      "subtext": "Du behøver ikke allerede have LIVE-adgang eller tidligere statistik — vi møder dig, der hvor du er.",
+      "step1": { "title": "Bliv medlem", "desc": "Ansøg og bliv en del af Nordic Rise — det er gratis og tager kun et øjeblik." },
+      "step2": { "title": "Kom i gang", "desc": "Uanset om du er helt ny til LIVE eller allerede sender i dag, får du hjælp ud fra netop din erfaring." },
+      "step3": { "title": "Udvikl jer sammen", "desc": "Test nye strategier, følg op på din statistik, få feedback og juster undervejs." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram", "heading": "Tjen ekstra hver måned med Nordic Rise",
+      "p1": "Hos Nordic Rise belønner vi skabere, der er konsekvente og når nye niveauer på TikTok LIVE.",
+      "p2Html": "Ud over dine almindelige indtægter fra TikTok kan du få en <span class=\"text-white font-semibold\">månedlig Nordic Rise-bonus</span>, når du når et af bonusniveauerne nedenfor.",
+      "quoteHtml": "Bonussen beregnes ud fra, hvor mange <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samler i løbet af en kalendermåned.",
+      "coinsLabel": "Coins / måned", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Højeste niveau",
+      "tier1": { "coins": "50.000", "bonus": "+1.250" },
+      "tier2": { "coins": "100.000", "bonus": "+2.500" },
+      "tier3": { "coins": "250.000", "bonus": "+8.000" },
+      "tier4": { "coins": "500.000", "bonus": "+22.000" },
+      "tier5": { "coins": "1.000.000", "bonus": "+35.000" },
+      "how": {
+        "heading": "Hvordan fungerer bonussen?",
+        "item1": "Bonussen beregnes ud fra hele månedens TikTok Coins.",
+        "item2": "Når du når et bonusniveau, får du den bonus, der svarer til det niveau.",
+        "item3": "Bonussen udbetales af Nordic Rise i henhold til agency-aftalen."
+      },
+      "cta": { "heading": "Klar til at tage næste niveau?", "subtext": "Bliv en del af Nordic Rise Agency, og lad dit LIVE-arbejde blive belønnet hver måned.", "button": "Ansøg til Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det er helt gratis at være med.",
+      "p1": "Nordic Rise Agency koster ikke noget at være medlem af.",
+      "p2": "Vores mål er at hjælpe vores skabere med at udvikle sig, vokse deres publikum og få mere succes på TikTok LIVE.",
+      "cta": "Ansøg gratis →"
+    },
+    "faq": {
+      "heading": "Ofte stillede spørgsmål.",
+      "q1": "Hvad er Nordic Rise Agency?", "a1": "Nordic Rise er et specialistbureau for TikTok LIVE. Vi hjælper skabere med at udvikle deres livesendinger, få flere seere og følgere, bygge communities og øge deres LIVE-indtægter.",
+      "q2": "Hvad får jeg som skaber?", "a2": "Du får coaching, vejledning, feedback og strategier til at udvikle din TikTok LIVE og vokse på platformen. Du får også bonus afhængigt af, hvor mange coins du samler på en måned!",
+      "q3": "Koster det noget?", "a3": "Nej. Det er helt gratis at være med.",
+      "q4": "Skal jeg allerede have mange seere?", "a4": "Nej. Vi leder efter skabere med potentiale, drive og vilje til at udvikle sig. Du behøver ikke allerede være stor for at begynde at vokse.",
+      "q5": "Hvilken type indhold skal jeg lave?", "a5": "Ingen bestemt type. Nordic Rise byder skabere inden for alle typer TikTok LIVE-indhold velkommen. Det vigtige er, at du vil udvikle dig og bygge en stærkere LIVE.",
+      "q6": "Hvad fokuserer Nordic Rise på?", "a6": "Udelukkende TikTok LIVE. Vores fokus er seere, følgere, engagement, community, gifts, coins og langsigtet vækst på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET STARTER PÅ LIVE.", "body": "Du er allerede begyndt at overveje næste skridt. Nu er det tid til rent faktisk at tage det.",
+      "cta": "Bliv en del af Nordic Rise →", "subtext": "Helt gratis at være med.", "brand": "Nordic Rise Agency", "tagline": "Hvor skabere vokser."
+    },
+    "footer": {
+      "tagline": "Hvor skabere vokser.", "navHeading": "Navigation",
+      "navHome": "Hjem", "navForCreators": "For skabere", "navHowItWorks": "Sådan fungerer det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Ansøg",
+      "socialHeading": "Sociale kanaler", "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alle rettigheder forbeholdes.", "legalLinks": "Privatlivspolitik · Brugsvilkår · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi bruger cookies.</strong> Vi bruger Google Analytics til statistik og analyse af, hvordan besøgende bruger sitet, så vi kan forbedre det. Ingen analysedata gemmes, før du accepterer.",
+      "decline": "Afvis", "accept": "Accepter", "ariaLabel": "Cookieindstillinger"
+    }
+  },
+  "nb": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-byrå | Der skapere vokser",
+      "description": "Nordic Rise Agency er et spesialistbyrå for TikTok LIVE. Vi hjelper skapere med flere seere, følgere, mer engasjement og coins — helt gratis å bli med.",
+      "ogTitle": "Nordic Rise Agency — Der skapere vokser",
+      "ogDescription": "TikTok LIVE-coaching og Creator Growth for skapere som vil vokse.",
+      "ogImageAlt": "Nordic Rise Agency — Der skapere vokser. TikTok LIVE-coaching og Creator Growth.",
+      "locale": "nb_NO",
+      "htmlLang": "nb",
+      "jsonLdSlogan": "Der skapere vokser.",
+      "jsonLdInLanguage": "nb-NO",
+      "jsonLdOrgDescription": "Spesialistbyrå for TikTok LIVE-skapere. Hjelper skapere med flere seere, følgere, engasjement, coins og langsiktig vekst på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Hopp til innhold" },
+    "nav": {
+      "ariaLabel": "Hovedmeny", "home": "Hjem", "forCreators": "For skapere", "videos": "Videoer",
+      "howItWorks": "Slik fungerer det", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Søk nå →", "openMenuAria": "Åpne meny"
+    },
+    "hero": {
+      "headlineLine1": "DU TRENGER IKKE", "headlineLine2": "VOKSE ALENE.",
+      "tagline": "Der skapere vokser.",
+      "body": "Nordic Rise Agency hjelper deg som skaper å utvikle deg på TikTok LIVE gjennom personlig coaching, et community å vokse sammen med, og strategier som faktisk er tilpasset din LIVE.",
+      "badge": "Helt gratis å bli med",
+      "ctaPrimary": "Bli en del av Nordic Rise →", "ctaSecondary": "Les mer ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "SEERE", "followers": "FØLGERE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "VEKST" },
+    "intro": {
+      "heading": "Der skapere vokser.",
+      "p1": "Å lykkes på TikTok LIVE handler om mer enn å bare starte en sending. Det handler om å forstå publikummet sitt, skape energi, beholde seere og utvikle en LIVE som folk vil komme tilbake til.",
+      "p2": "Nordic Rise hjelper skapere med å forstå hva som fungerer, og hvordan de kan utvikle sin LIVE over tid."
+    },
+    "founder": {
+      "eyebrow": "Bak Nordic Rise",
+      "heading": "Jeg bygger dette fordi jeg selv vet hvordan det er å vokse på TikTok LIVE.",
+      "p1": "Jeg heter Robin og driver min egen TikTok LIVE-kanal, med et publikum på rundt 20 000 følgere. Jeg vet hvor mye jobb som ligger bak hver sending — og hvor mye lettere det blir når man ikke trenger å finne ut av alt selv.",
+      "p2": "Det er derfor jeg startet Nordic Rise Agency: for å gi andre skapere den veiledningen, fellesskapet og strukturen jeg selv skulle ønske jeg hadde hatt fra starten. Ingen oppdiktede snarveier — bare praktisk hjelp fra noen som faktisk gjør dette hver dag.",
+      "name": "Robin", "role": "Grunnlegger, Nordic Rise Agency", "photoAlt": "Robin, grunnlegger av Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Dette får du som skaper hos Nordic Rise.",
+      "card1": { "title": "Personlig coaching", "desc": "Hjelp til å komme i gang, utvikle deg og få veiledning underveis — uansett hvor du er i dag." },
+      "card2": { "title": "Community", "desc": "Et fellesskap der du kan lære av andre skapere, dele erfaringer og kjenne at du ikke gjør dette alene." },
+      "card3": { "title": "LIVE-utvikling", "desc": "Forstå statistikken din, test nye strategier og finn ut hva som faktisk fungerer for nettopp ditt publikum." },
+      "card4": { "title": "Verktøy", "desc": "Nordic Rise LIVE inngår som en del av medlemskapet ditt — et verktøy som gjør det enklere å utvikle seg, helt uten ekstra kostnad." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praksis", "heading": "DET STARTER PÅ LIVE.",
+      "p1": "Nordic Rise handler om det som faktisk skjer under sendingen — ikke bare tall i etterkant. Vi bygger nå opp en samling klipp og eksempler fra livesendingene til skaperne våre.",
+      "p2": "Følg med her — mer innhold legges til fortløpende etter hvert som flere skapere blir en del av Nordic Rise.",
+      "cta": "Vil du vises her? Søk til Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Din stil.",
+      "p1": "Du trenger ikke være gamer, underholder eller ha en bestemt type innhold.",
+      "p2": "TikTok LIVE handler om mennesker, personligheter og communities.",
+      "p3": "Uansett om du spiller, prater, underholder, skaper, diskuterer, lager mat, lager IRL-innhold eller har et helt eget konsept, er målet det samme:",
+      "quote": "Å bygge en LIVE som folk vil komme tilbake til.",
+      "subtext": "Det finnes ingen krav for å bli med i Nordic Rise — bare viljen til å vokse."
+    },
+    "custom2": {
+      "heading": "Vi ser etter drevne skapere.", "subtext": "Du trenger ikke være størst. Du må ville bli bedre.",
+      "item1": "Du driver med TikTok LIVE", "item2": "Du vil vokse", "item3": "Du vil ha flere seere",
+      "item4": "Du vil bygge et community", "item5": "Du vil øke antall følgere",
+      "item6": "Du vil tjene mer på livesendingene dine", "item7": "Du er villig til å utvikle deg",
+      "item8": "Du vil ta LIVE-en din til neste nivå", "cta": "Søk til Nordic Rise →"
+    },
+    "process": {
+      "heading": "Slik fungerer Nordic Rise.",
+      "subtext": "Du trenger ikke allerede ha LIVE-tilgang eller tidligere statistikk — vi møter deg der du er.",
+      "step1": { "title": "Bli med", "desc": "Søk og bli en del av Nordic Rise — det er gratis og tar bare et øyeblikk." },
+      "step2": { "title": "Kom i gang", "desc": "Enten du er helt ny på LIVE eller allerede sender i dag, får du hjelp ut fra din egen erfaring." },
+      "step3": { "title": "Utvikle dere sammen", "desc": "Test nye strategier, følg opp statistikken din, få tilbakemeldinger og juster underveis." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram", "heading": "Tjen ekstra hver måned med Nordic Rise",
+      "p1": "Hos Nordic Rise belønner vi skapere som er konsekvente og når nye nivåer på TikTok LIVE.",
+      "p2Html": "I tillegg til de vanlige inntektene dine fra TikTok kan du få en <span class=\"text-white font-semibold\">månedlig Nordic Rise-bonus</span> når du når et av bonusnivåene nedenfor.",
+      "quoteHtml": "Bonusen beregnes ut fra hvor mange <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samler i løpet av en kalendermåned.",
+      "coinsLabel": "Coins / måned", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Høyeste nivå",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Hvordan fungerer bonusen?",
+        "item1": "Bonusen beregnes ut fra hele månedens TikTok Coins.",
+        "item2": "Når du når et bonusnivå, får du bonusen som tilsvarer det nivået.",
+        "item3": "Bonusen utbetales av Nordic Rise i henhold til agency-avtalen."
+      },
+      "cta": { "heading": "Klar for å ta neste nivå?", "subtext": "Bli en del av Nordic Rise Agency, og la LIVE-arbeidet ditt bli belønnet hver måned.", "button": "Søk til Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det er helt gratis å bli med oss.",
+      "p1": "Nordic Rise Agency koster ingenting å bli med i.",
+      "p2": "Målet vårt er å hjelpe skaperne våre med å utvikle seg, vokse publikummet sitt og lykkes bedre på TikTok LIVE.",
+      "cta": "Søk gratis →"
+    },
+    "faq": {
+      "heading": "Vanlige spørsmål.",
+      "q1": "Hva er Nordic Rise Agency?", "a1": "Nordic Rise er et spesialistbyrå for TikTok LIVE. Vi hjelper skapere med å utvikle livesendingene sine, få flere seere og følgere, bygge communities og øke LIVE-inntektene sine.",
+      "q2": "Hva får jeg som skaper?", "a2": "Du får coaching, veiledning, tilbakemeldinger og strategier for å utvikle din TikTok LIVE og vokse på plattformen. Du får også bonus avhengig av hvor mange coins du samler inn på en måned!",
+      "q3": "Koster det noe?", "a3": "Nei. Det er helt gratis å bli med oss.",
+      "q4": "Må jeg allerede ha mange seere?", "a4": "Nei. Vi ser etter skapere med potensial, pågangsmot og vilje til å utvikle seg. Du trenger ikke allerede være stor for å begynne å vokse.",
+      "q5": "Hvilken type innhold må jeg lage?", "a5": "Ingen bestemt type. Nordic Rise ønsker skapere innen alle typer TikTok LIVE-innhold velkommen. Det viktige er at du vil utvikle deg og bygge en sterkere LIVE.",
+      "q6": "Hva fokuserer Nordic Rise på?", "a6": "Utelukkende TikTok LIVE. Fokuset vårt er seere, følgere, engasjement, community, gifts, coins og langsiktig vekst på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET STARTER PÅ LIVE.", "body": "Du har allerede begynt å tenke på neste steg. Nå er det på tide å faktisk ta det.",
+      "cta": "Bli en del av Nordic Rise →", "subtext": "Helt gratis å bli med oss.", "brand": "Nordic Rise Agency", "tagline": "Der skapere vokser."
+    },
+    "footer": {
+      "tagline": "Der skapere vokser.", "navHeading": "Navigasjon",
+      "navHome": "Hjem", "navForCreators": "For skapere", "navHowItWorks": "Slik fungerer det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Søk",
+      "socialHeading": "Sosiale kanaler", "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alle rettigheter forbeholdt.", "legalLinks": "Personvernerklæring · Brukervilkår · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi bruker informasjonskapsler.</strong> Vi bruker Google Analytics til statistikk og analyse av hvordan besøkende bruker nettstedet, slik at vi kan forbedre det. Ingen analysedata lagres før du godtar.",
+      "decline": "Avslå", "accept": "Godta", "ariaLabel": "Innstillinger for informasjonskapsler"
+    }
+  },
+  "fi": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE -toimisto | Missä sisällöntuottajat kasvavat",
+      "description": "Nordic Rise Agency on TikTok LIVEn erikoistoimisto. Autamme sisällöntuottajia saamaan lisää katsojia, seuraajia, enemmän sitoutumista ja kolikoita — liittyminen on täysin ilmaista.",
+      "ogTitle": "Nordic Rise Agency — Missä sisällöntuottajat kasvavat",
+      "ogDescription": "TikTok LIVE -valmennusta ja kasvua sisällöntuottajille, jotka haluavat kasvaa.",
+      "ogImageAlt": "Nordic Rise Agency — Missä sisällöntuottajat kasvavat. TikTok LIVE -valmennusta ja kasvua.",
+      "locale": "fi_FI",
+      "htmlLang": "fi",
+      "jsonLdSlogan": "Missä sisällöntuottajat kasvavat.",
+      "jsonLdInLanguage": "fi-FI",
+      "jsonLdOrgDescription": "TikTok LIVE -sisällöntuottajien erikoistoimisto. Auttaa sisällöntuottajia saamaan lisää katsojia, seuraajia, sitoutumista, kolikoita ja pitkäaikaista kasvua TikTok LIVEssä."
+    },
+    "a11y": { "skipLink": "Siirry sisältöön" },
+    "nav": {
+      "ariaLabel": "Päävalikko", "home": "Koti", "forCreators": "Sisällöntuottajille", "videos": "Videot",
+      "howItWorks": "Näin se toimii", "bonus": "Bonus", "faq": "UKK", "applyCta": "Hae nyt →", "openMenuAria": "Avaa valikko"
+    },
+    "hero": {
+      "headlineLine1": "SINUN EI TARVITSE", "headlineLine2": "KASVAA YKSIN.",
+      "tagline": "Missä sisällöntuottajat kasvavat.",
+      "body": "Nordic Rise Agency auttaa sinua sisällöntuottajana kehittymään TikTok LIVEssä henkilökohtaisen valmennuksen, yhdessä kasvavan yhteisön ja sellaisten strategioiden avulla, jotka on todella räätälöity sinun LIVE-lähetyksiisi.",
+      "badge": "Liittyminen on täysin ilmaista",
+      "ctaPrimary": "Liity osaksi Nordic Riseä →", "ctaSecondary": "Lue lisää ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "KATSOJAT", "followers": "SEURAAJAT", "community": "YHTEISÖ", "gifts": "GIFTS", "coins": "COINS", "growth": "KASVU" },
+    "intro": {
+      "heading": "Missä sisällöntuottajat kasvavat.",
+      "p1": "Menestyminen TikTok LIVEssä on muutakin kuin lähetyksen aloittaminen. Kyse on yleisön ymmärtämisestä, energian luomisesta, katsojien pitämisestä ja sellaisen LIVEn rakentamisesta, johon ihmiset haluavat palata.",
+      "p2": "Nordic Rise auttaa sisällöntuottajia ymmärtämään, mikä toimii ja miten he voivat kehittää LIVE-lähetystään ajan myötä."
+    },
+    "founder": {
+      "eyebrow": "Nordic Risen takana",
+      "heading": "Rakennan tätä, koska tiedän itse, millaista on kasvaa TikTok LIVEssä.",
+      "p1": "Nimeni on Robin, ja pyöritän omaa TikTok LIVE -kanavaani, jolla on noin 20 000 seuraajan yleisö. Tiedän, kuinka paljon työtä jokaisen lähetyksen takana on — ja kuinka paljon helpompaa se on, kun ei tarvitse keksiä kaikkea itse.",
+      "p2": "Siksi perustin Nordic Rise Agencyn: antaakseni muille sisällöntuottajille sitä ohjausta, yhteisöä ja rakennetta, jota itse olisin halunnut alusta alkaen. Ei keksittyjä oikoteitä — vain käytännön apua joltakulta, joka todella tekee tätä joka päivä.",
+      "name": "Robin", "role": "Perustaja, Nordic Rise Agency", "photoAlt": "Robin, Nordic Rise Agencyn perustaja"
+    },
+    "services": {
+      "heading": "Tämän saat sisällöntuottajana Nordic Riseltä.",
+      "card1": { "title": "Henkilökohtainen valmennus", "desc": "Apua aloittamiseen, kehittymiseen ja ohjausta matkan varrella — riippumatta siitä, missä olet juuri nyt." },
+      "card2": { "title": "Yhteisö", "desc": "Yhteisö, jossa voit oppia muilta sisällöntuottajilta, jakaa kokemuksia ja tuntea, ettet tee tätä yksin." },
+      "card3": { "title": "LIVE-kehitys", "desc": "Ymmärrä tilastosi, kokeile uusia strategioita ja löydä, mikä todella toimii juuri sinun yleisöllesi." },
+      "card4": { "title": "Työkalut", "desc": "Nordic Rise LIVE sisältyy jäsenyyteesi — työkalu, joka tekee kehittymisestä helpompaa täysin ilman lisäkustannuksia." }
+    },
+    "video": {
+      "eyebrow": "Katso Nordic Rise käytännössä", "heading": "SE ALKAA LIVESTÄ.",
+      "p1": "Nordic Rise keskittyy siihen, mitä lähetyksen aikana todella tapahtuu — ei vain jälkikäteen nähtäviin lukuihin. Kokoamme parhaillaan kokoelmaa klippejä ja esimerkkejä sisällöntuottajiemme live-lähetyksistä.",
+      "p2": "Pysy kuulolla — lisää sisältöä lisätään jatkuvasti sitä mukaa, kun yhä useampi sisällöntuottaja liittyy Nordic Riseen.",
+      "cta": "Haluatko näkyä täällä? Hae Nordic Riseen →"
+    },
+    "custom1": {
+      "heading": "Sinun LIVEsi. Omalla tavallasi.",
+      "p1": "Sinun ei tarvitse olla pelaaja, viihdyttäjä tai tehdä tietynlaista sisältöä.",
+      "p2": "TikTok LIVE on ihmisistä, persoonista ja yhteisöistä.",
+      "p3": "Olitpa sitten pelaamassa, juttelemassa, viihdyttämässä, luomassa, keskustelemassa, kokkaamassa, tekemässä IRL-sisältöä tai ihan oma konseptisi — tavoite on sama:",
+      "quote": "Rakentaa LIVE, johon ihmiset haluavat palata.",
+      "subtext": "Nordic Riseen liittymiselle ei ole vaatimuksia — vain halu kasvaa."
+    },
+    "custom2": {
+      "heading": "Etsimme määrätietoisia sisällöntuottajia.", "subtext": "Sinun ei tarvitse olla suurin. Sinun täytyy haluta tulla paremmaksi.",
+      "item1": "Teet TikTok LIVEä", "item2": "Haluat kasvaa", "item3": "Haluat lisää katsojia",
+      "item4": "Haluat rakentaa yhteisön", "item5": "Haluat lisää seuraajia",
+      "item6": "Haluat ansaita enemmän live-lähetyksilläsi", "item7": "Olet valmis kehittymään",
+      "item8": "Haluat viedä LIVEsi seuraavalle tasolle", "cta": "Hae Nordic Riseen →"
+    },
+    "process": {
+      "heading": "Näin Nordic Rise toimii.",
+      "subtext": "Sinulla ei tarvitse jo olla LIVE-oikeuksia tai aiempia tilastoja — kohtaamme sinut siellä, missä olet.",
+      "step1": { "title": "Liity mukaan", "desc": "Hae ja liity osaksi Nordic Riseä — se on ilmaista ja vie vain hetken." },
+      "step2": { "title": "Pääse alkuun", "desc": "Oletpa sitten täysin uusi LIVEssä tai jo lähetät tänään, saat apua juuri omasta kokemuksestasi lähtien." },
+      "step3": { "title": "Kehittykää yhdessä", "desc": "Kokeile uusia strategioita, seuraa tilastojasi, saa palautetta ja säädä matkan varrella." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusohjelma", "heading": "Ansaitse lisää joka kuukausi Nordic Risen kanssa",
+      "p1": "Nordic Risessä palkitsemme sisällöntuottajia, jotka ovat johdonmukaisia ja saavuttavat uusia tasoja TikTok LIVEssä.",
+      "p2Html": "Tavallisten TikTok-tulojesi lisäksi voit saada <span class=\"text-white font-semibold\">kuukausittaisen Nordic Rise -bonuksen</span>, kun saavutat jonkin alla olevista bonustasoista.",
+      "quoteHtml": "Bonus lasketaan sen mukaan, kuinka monta <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coinia</span> keräät kalenterikuukauden aikana.",
+      "coinsLabel": "Kolikkoa / kk", "bonusCoinsLabel": "Bonuskolikot", "tierBadge": "Korkein taso",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Miten bonus toimii?",
+        "item1": "Bonus lasketaan koko kuukauden TikTok Coineista.",
+        "item2": "Kun saavutat bonustason, saat kyseistä tasoa vastaavan bonuksen.",
+        "item3": "Bonuksen maksaa Nordic Rise agency-sopimuksen mukaisesti."
+      },
+      "cta": { "heading": "Valmiina seuraavalle tasolle?", "subtext": "Liity osaksi Nordic Rise Agencyä ja anna LIVE-työsi palkita sinut joka kuukausi.", "button": "Hae Nordic Riseen →" }
+    },
+    "pricing": {
+      "heading": "Liittyminen on täysin ilmaista.",
+      "p1": "Nordic Rise Agencyyn liittyminen ei maksa mitään.",
+      "p2": "Tavoitteemme on auttaa sisällöntuottajiamme kehittymään, kasvattamaan yleisöään ja menestymään paremmin TikTok LIVEssä.",
+      "cta": "Hae ilmaiseksi →"
+    },
+    "faq": {
+      "heading": "Usein kysytyt kysymykset.",
+      "q1": "Mikä on Nordic Rise Agency?", "a1": "Nordic Rise on TikTok LIVEn erikoistoimisto. Autamme sisällöntuottajia kehittämään live-lähetyksiään, saamaan lisää katsojia ja seuraajia, rakentamaan yhteisöjä ja kasvattamaan LIVE-tulojaan.",
+      "q2": "Mitä saan sisällöntuottajana?", "a2": "Saat valmennusta, ohjausta, palautetta ja strategioita TikTok LIVEsi kehittämiseen ja kasvattamiseen alustalla. Saat myös bonuksen sen mukaan, kuinka paljon kolikoita keräät kuukaudessa!",
+      "q3": "Maksaako se mitään?", "a3": "Ei. Liittyminen on täysin ilmaista.",
+      "q4": "Pitääkö minulla jo olla paljon katsojia?", "a4": "Ei. Etsimme sisällöntuottajia, joilla on potentiaalia, draivia ja halua kehittyä. Sinun ei tarvitse olla jo suuri aloittaaksesi kasvamisen.",
+      "q5": "Millaista sisältöä minun pitää tehdä?", "a5": "Ei mitään tiettyä tyyppiä. Nordic Rise toivottaa tervetulleeksi sisällöntuottajat kaikenlaisesta TikTok LIVE -sisällöstä. Tärkeintä on, että haluat kehittyä ja rakentaa vahvemman LIVEn.",
+      "q6": "Mihin Nordic Rise keskittyy?", "a6": "Pelkästään TikTok LIVEen. Keskitymme katsojiin, seuraajiin, sitoutumiseen, yhteisöön, gifts, coins ja pitkäaikaiseen kasvuun TikTok LIVEssä."
+    },
+    "finalCta": {
+      "heading": "SE ALKAA LIVESTÄ.", "body": "Olet jo alkanut miettiä seuraavaa askelta. Nyt on aika todella ottaa se.",
+      "cta": "Liity osaksi Nordic Riseä →", "subtext": "Liittyminen on täysin ilmaista.", "brand": "Nordic Rise Agency", "tagline": "Missä sisällöntuottajat kasvavat."
+    },
+    "footer": {
+      "tagline": "Missä sisällöntuottajat kasvavat.", "navHeading": "Navigaatio",
+      "navHome": "Koti", "navForCreators": "Sisällöntuottajille", "navHowItWorks": "Näin se toimii", "navBonus": "Bonus", "navFaq": "UKK", "navApply": "Hae",
+      "socialHeading": "Sosiaaliset kanavat", "socialCaption": "TikTok · Instagram · Discord — tulossa pian",
+      "copyright": "© 2026 Nordic Rise Agency. Kaikki oikeudet pidätetään.", "legalLinks": "Tietosuojakäytäntö · Käyttöehdot · Evästeet"
+    },
+    "consent": {
+      "textHtml": "<strong>Käytämme evästeitä.</strong> Käytämme Google Analyticsia tilastointiin ja analysoimaan, miten kävijät käyttävät sivustoa, jotta voimme parantaa sitä. Analytiikkatietoja ei tallenneta ennen kuin hyväksyt sen.",
+      "decline": "Hylkää", "accept": "Hyväksy", "ariaLabel": "Evästeasetukset"
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE Agency | Where Creators Grow",
+      "description": "Nordic Rise Agency is a specialist agency for TikTok LIVE. We help creators get more viewers, followers, engagement and coins — completely free to join.",
+      "ogTitle": "Nordic Rise Agency — Where Creators Grow",
+      "ogDescription": "TikTok LIVE Coaching & Creator Growth for creators who want to grow.",
+      "ogImageAlt": "Nordic Rise Agency — Where Creators Grow. TikTok LIVE Coaching & Creator Growth.",
+      "locale": "en_US",
+      "htmlLang": "en",
+      "jsonLdSlogan": "Where creators grow.",
+      "jsonLdInLanguage": "en-US",
+      "jsonLdOrgDescription": "Specialist agency for TikTok LIVE creators. Helps creators with more viewers, followers, engagement, coins and long-term growth on TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Skip to content" },
+    "nav": {
+      "ariaLabel": "Main menu", "home": "Home", "forCreators": "For creators", "videos": "Videos",
+      "howItWorks": "How it works", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Apply now →", "openMenuAria": "Open menu"
+    },
+    "hero": {
+      "headlineLine1": "YOU DON'T HAVE TO", "headlineLine2": "GROW ALONE.",
+      "tagline": "Where creators grow.",
+      "body": "Nordic Rise Agency helps you as a creator develop on TikTok LIVE through personal coaching, a community to grow alongside and strategies that are actually tailored to your LIVE.",
+      "badge": "Completely free to join",
+      "ctaPrimary": "Become part of Nordic Rise →", "ctaSecondary": "Read more ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "VIEWERS", "followers": "FOLLOWERS", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "GROWTH" },
+    "intro": {
+      "heading": "Where creators grow.",
+      "p1": "Succeeding on TikTok LIVE is about more than just starting a stream. It's about understanding your audience, creating energy, keeping viewers engaged and building a LIVE that people want to come back to.",
+      "p2": "Nordic Rise helps creators understand what works and how they can develop their LIVE over time."
+    },
+    "founder": {
+      "eyebrow": "Behind Nordic Rise",
+      "heading": "I'm building this because I know myself what it's like to grow on TikTok LIVE.",
+      "p1": "My name is Robin and I run my own TikTok LIVE channel, with an audience of around 20,000 followers. I know how much work goes into every stream — and how much easier it gets when you don't have to figure it all out yourself.",
+      "p2": "That's why I started Nordic Rise Agency: to give other creators the guidance, community and structure I wish I'd had from the start. No made-up shortcuts — just practical help from someone who actually does this every day.",
+      "name": "Robin", "role": "Founder, Nordic Rise Agency", "photoAlt": "Robin, founder of Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "What you get as a creator at Nordic Rise.",
+      "card1": { "title": "Personal coaching", "desc": "Help getting started, developing and guidance along the way — no matter where you are today." },
+      "card2": { "title": "Community", "desc": "A space where you can learn from other creators, share experiences and know you're not doing this alone." },
+      "card3": { "title": "LIVE development", "desc": "Understand your stats, test new strategies and find out what actually works for your audience." },
+      "card4": { "title": "Tools", "desc": "Nordic Rise LIVE is included as part of your membership — a tool that makes it easier to grow, at no extra cost." }
+    },
+    "video": {
+      "eyebrow": "See Nordic Rise in action", "heading": "IT STARTS ON LIVE.",
+      "p1": "Nordic Rise is about what actually happens during the stream — not just the numbers afterwards. We're currently building a collection of clips and examples from our creators' live streams.",
+      "p2": "Watch this space — more content is added regularly as more creators become part of Nordic Rise.",
+      "cta": "Want to be featured here? Apply to Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Your LIVE. Your way.",
+      "p1": "You don't have to be a gamer, an entertainer, or make a specific type of content.",
+      "p2": "TikTok LIVE is about people, personalities and communities.",
+      "p3": "Whether you game, chat, entertain, create, discuss, cook, make IRL content or have your own completely unique concept, the goal is the same:",
+      "quote": "To build a LIVE that people want to come back to.",
+      "subtext": "There are no requirements to join Nordic Rise — just the will to grow."
+    },
+    "custom2": {
+      "heading": "We're looking for driven creators.", "subtext": "You don't have to be the biggest. You have to want to get better.",
+      "item1": "You do TikTok LIVE", "item2": "You want to grow", "item3": "You want more viewers",
+      "item4": "You want to build a community", "item5": "You want to grow your followers",
+      "item6": "You want to earn more from your live streams", "item7": "You're willing to develop",
+      "item8": "You want to take your LIVE to the next level", "cta": "Apply to Nordic Rise →"
+    },
+    "process": {
+      "heading": "How Nordic Rise works.",
+      "subtext": "You don't need LIVE access or previous stats already — we meet you where you are.",
+      "step1": { "title": "Join", "desc": "Apply and become part of Nordic Rise — it's free and only takes a minute." },
+      "step2": { "title": "Get started", "desc": "Whether you're completely new to LIVE or already streaming today, you'll get help based on your own experience." },
+      "step3": { "title": "Grow together", "desc": "Test new strategies, track your stats, get feedback and adjust along the way." }
+    },
+    "bonus": {
+      "eyebrow": "Bonus program", "heading": "Earn extra every month with Nordic Rise",
+      "p1": "At Nordic Rise, we reward creators who are consistent and reach new levels on TikTok LIVE.",
+      "p2Html": "On top of your regular earnings from TikTok, you can get a <span class=\"text-white font-semibold\">monthly Nordic Rise bonus</span> when you reach one of the bonus tiers below.",
+      "quoteHtml": "The bonus is based on how many <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> you collect during a calendar month.",
+      "coinsLabel": "Coins / month", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Highest tier",
+      "tier1": { "coins": "50,000", "bonus": "+1,250" },
+      "tier2": { "coins": "100,000", "bonus": "+2,500" },
+      "tier3": { "coins": "250,000", "bonus": "+8,000" },
+      "tier4": { "coins": "500,000", "bonus": "+22,000" },
+      "tier5": { "coins": "1,000,000", "bonus": "+35,000" },
+      "how": {
+        "heading": "How does the bonus work?",
+        "item1": "The bonus is calculated on the whole month's TikTok Coins.",
+        "item2": "When you reach a bonus tier, you get the bonus for that tier.",
+        "item3": "The bonus is paid out by Nordic Rise according to the agency agreement."
+      },
+      "cta": { "heading": "Ready to take the next level?", "subtext": "Become part of Nordic Rise Agency and let your LIVE work pay off every month.", "button": "Apply to Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "It's completely free to join us.",
+      "p1": "Nordic Rise Agency costs nothing to join.",
+      "p2": "Our goal is to help our creators develop, grow their audience and succeed better on TikTok LIVE.",
+      "cta": "Apply for free →"
+    },
+    "faq": {
+      "heading": "Frequently asked questions.",
+      "q1": "What is Nordic Rise Agency?", "a1": "Nordic Rise is a specialist agency for TikTok LIVE. We help creators develop their live streams, get more viewers and followers, build communities and increase their LIVE earnings.",
+      "q2": "What do I get as a creator?", "a2": "You get coaching, guidance, feedback and strategies to develop your TikTok LIVE and grow on the platform. You also get a bonus depending on how many coins you bring in during a month!",
+      "q3": "Does it cost anything?", "a3": "No. It's completely free to join us.",
+      "q4": "Do I already need to have lots of viewers?", "a4": "No. We're looking for creators with potential, drive and a willingness to develop. You don't need to already be big to start growing.",
+      "q5": "What type of content do I need to make?", "a5": "No specific type. Nordic Rise welcomes creators across all types of TikTok LIVE content. What matters is that you want to develop and build a stronger LIVE.",
+      "q6": "What does Nordic Rise focus on?", "a6": "TikTok LIVE only. Our focus is viewers, followers, engagement, community, gifts, coins and long-term growth on TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "IT STARTS ON LIVE.", "body": "You've already started thinking about the next step. Now it's time to actually take it.",
+      "cta": "Become part of Nordic Rise →", "subtext": "Completely free to join us.", "brand": "Nordic Rise Agency", "tagline": "Where creators grow."
+    },
+    "footer": {
+      "tagline": "Where creators grow.", "navHeading": "Navigation",
+      "navHome": "Home", "navForCreators": "For creators", "navHowItWorks": "How it works", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Apply",
+      "socialHeading": "Social channels", "socialCaption": "TikTok · Instagram · Discord — coming soon",
+      "copyright": "© 2026 Nordic Rise Agency. All rights reserved.", "legalLinks": "Privacy Policy · Terms of Use · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>We use cookies.</strong> We use Google Analytics for statistics and analysis of how visitors use the site, so we can improve it. No analytics data is stored until you accept.",
+      "decline": "Decline", "accept": "Accept", "ariaLabel": "Cookie settings"
+    }
+  }
+}

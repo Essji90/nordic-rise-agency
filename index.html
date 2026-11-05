@@ -29,7 +29,7 @@
      Left commented out on purpose -- a placeholder/fake code would just fail
      verification, so this is inert until you add the real one.
 <meta name="google-site-verification" content="REPLACE_WITH_REAL_CODE" /> -->
-<script type="application/ld+json">
+<script id="ld-org" type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -40,7 +40,7 @@
   "logo": "https://nordic-rise-agency.netlify.app/logo.png"
 }
 </script>
-<script type="application/ld+json">
+<script id="ld-website" type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -191,10 +191,666 @@
   @media (min-width:768px){ .nra-consent-bar-actions{width:auto; flex-shrink:0;} }
   .nra-consent-bar-actions .btn{font-size:.7rem; padding:.75rem 1.4rem; flex:1; justify-content:center;}
   @media (min-width:768px){ .nra-consent-bar-actions .btn{flex:none;} }
+
+  /* Language switching: the page's default rendered text is Swedish. The
+     geo/locale-based language is applied by a script that runs at the very
+     end of <body>, after all content has parsed. Starting body at opacity:0
+     and fading in only once that swap is done (nr-i18n-ready) avoids a
+     visible "flash" of Swedish text for non-Swedish visitors -- the delay is
+     imperceptible (a few ms of synchronous DOM work, no network calls). */
+  body{opacity:0;}
+  body.nr-i18n-ready{opacity:1; transition:opacity .18s ease;}
+  @media (prefers-reduced-motion: reduce){ body.nr-i18n-ready{transition:none;} }
+
+  .lang-switch{display:inline-flex; align-items:center; gap:.2rem; font-family:'Sora',sans-serif; font-size:.68rem; font-weight:600; letter-spacing:.06em;}
+  .lang-switch button{color:var(--text-dimmer); background:none; border:none; padding:.3rem .45rem; cursor:pointer; border-radius:.3rem; transition:color .2s ease, background .2s ease;}
+  .lang-switch button:hover{color:var(--text);}
+  .lang-switch button[aria-pressed="true"]{color:#04121e; background:var(--accent2);}
+  .lang-switch-sep{color:var(--border-strong);}
+  .lang-switch-mobile{display:flex; flex-wrap:wrap; gap:.5rem; padding-top:.5rem; border-top:1px solid var(--border); margin-top:.25rem;}
+  .lang-switch-mobile button{color:var(--text-dim); background:rgba(255,255,255,.04); border:1px solid var(--border-strong); padding:.4rem .8rem; border-radius:999px; font-family:'Sora',sans-serif; font-size:.68rem; font-weight:600; letter-spacing:.06em; cursor:pointer; text-transform:uppercase;}
+  .lang-switch-mobile button[aria-pressed="true"]{color:#04121e; background:var(--accent2); border-color:var(--accent2);}
 </style>
+<script id="nr-i18n-data" type="application/json">
+{
+  "sv": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-byrå | Där kreatörer växer",
+      "description": "Nordic Rise Agency är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att få fler tittare, följare, mer engagemang och coins — helt gratis att gå med.",
+      "ogTitle": "Nordic Rise Agency — Där kreatörer växer",
+      "ogDescription": "TikTok LIVE Coaching & Creator Growth för kreatörer som vill växa.",
+      "ogImageAlt": "Nordic Rise Agency — Där kreatörer växer. TikTok LIVE Coaching & Creator Growth.",
+      "locale": "sv_SE",
+      "htmlLang": "sv",
+      "jsonLdSlogan": "Där kreatörer växer.",
+      "jsonLdInLanguage": "sv-SE",
+      "jsonLdOrgDescription": "Specialistbyrå för TikTok LIVE-kreatörer. Hjälper kreatörer med fler tittare, följare, engagemang, coins och långsiktig tillväxt på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Hoppa till innehåll" },
+    "nav": {
+      "ariaLabel": "Huvudmeny",
+      "home": "Hem",
+      "forCreators": "För kreatörer",
+      "videos": "Videor",
+      "howItWorks": "Så fungerar det",
+      "bonus": "Bonus",
+      "faq": "FAQ",
+      "applyCta": "Ansök nu →",
+      "openMenuAria": "Öppna meny"
+    },
+    "hero": {
+      "headlineLine1": "DU BEHÖVER INTE",
+      "headlineLine2": "VÄXA ENSAM.",
+      "tagline": "Där kreatörer växer.",
+      "body": "Nordic Rise Agency hjälper dig som kreatör att utvecklas på TikTok LIVE genom personlig coachning, en community att växa tillsammans med och strategier som faktiskt är anpassade efter din LIVE.",
+      "badge": "Helt gratis att gå med oss",
+      "ctaPrimary": "Bli en del av Nordic Rise →",
+      "ctaSecondary": "Läs mer ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "TITTARE", "followers": "FÖLJARE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "TILLVÄXT" },
+    "intro": {
+      "heading": "Där kreatörer växer.",
+      "p1": "Att lyckas på TikTok LIVE handlar om mer än att bara starta en sändning. Det handlar om att förstå sin publik, skapa energi, behålla tittare och utveckla en LIVE som människor vill komma tillbaka till.",
+      "p2": "Nordic Rise hjälper kreatörer att förstå vad som fungerar och hur de kan utveckla sin LIVE över tid."
+    },
+    "founder": {
+      "eyebrow": "Bakom Nordic Rise",
+      "heading": "Jag bygger det här för att jag själv vet hur det är att växa på TikTok LIVE.",
+      "p1": "Jag heter Robin och driver min egen TikTok LIVE-kanal, med en publik på omkring 20 000 följare. Jag vet hur mycket jobb som ligger bakom varje sändning — och hur mycket lättare det blir när man inte behöver lista ut allt själv.",
+      "p2": "Det är därför jag startade Nordic Rise Agency: för att ge andra kreatörer den vägledning, gemenskap och struktur jag själv hade velat ha från början. Inga påhittade genvägar — bara praktisk hjälp från någon som faktiskt gör det här varje dag.",
+      "name": "Robin",
+      "role": "Grundare, Nordic Rise Agency",
+      "photoAlt": "Robin, grundare av Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Det här får du som kreatör hos Nordic Rise.",
+      "card1": { "title": "Personlig coachning", "desc": "Hjälp att komma igång, utvecklas och få vägledning längs vägen — oavsett var du befinner dig idag." },
+      "card2": { "title": "Community", "desc": "Ett sammanhang där du kan lära av andra kreatörer, dela erfarenheter och känna att du inte gör det här ensam." },
+      "card3": { "title": "LIVE-utveckling", "desc": "Förstå din statistik, testa nya strategier och hitta vad som faktiskt fungerar för just din publik." },
+      "card4": { "title": "Verktyg", "desc": "Nordic Rise LIVE ingår som en del av ditt medlemskap — ett verktyg som gör det enklare att utvecklas, helt utan extra kostnad." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praktiken",
+      "heading": "DET BÖRJAR PÅ LIVE.",
+      "p1": "Nordic Rise handlar om det som faktiskt händer under sändning — inte bara siffror i efterhand. Vi bygger just nu upp en samling klipp och exempel från våra kreatörers livesändningar.",
+      "p2": "Håll utkik här — mer innehåll läggs till löpande i takt med att fler kreatörer blir en del av Nordic Rise.",
+      "cta": "Vill du synas här? Ansök till Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Ditt sätt.",
+      "p1": "Du behöver inte vara gamer, underhållare eller ha en specifik typ av content.",
+      "p2": "TikTok LIVE handlar om människor, personligheter och communities.",
+      "p3": "Oavsett om du spelar, pratar, underhåller, skapar, diskuterar, lagar mat, gör IRL-content eller har ett helt eget koncept är målet detsamma:",
+      "quote": "Att bygga en LIVE som människor vill komma tillbaka till.",
+      "subtext": "Det finns inga krav för att gå med i Nordic Rise — bara viljan att växa."
+    },
+    "custom2": {
+      "heading": "Vi letar efter drivna kreatörer.",
+      "subtext": "Du behöver inte vara störst. Du behöver vilja bli bättre.",
+      "item1": "Du gör TikTok LIVE", "item2": "Du vill växa", "item3": "Du vill få fler tittare",
+      "item4": "Du vill bygga en community", "item5": "Du vill öka dina följare",
+      "item6": "Du vill tjäna mer på dina livesändningar", "item7": "Du är villig att utvecklas",
+      "item8": "Du vill ta din LIVE till nästa nivå", "cta": "Ansök till Nordic Rise →"
+    },
+    "process": {
+      "heading": "Så fungerar Nordic Rise.",
+      "subtext": "Du behöver inte redan ha LIVE-behörighet eller tidigare statistik — vi möter dig där du är.",
+      "step1": { "title": "Gå med", "desc": "Ansök och bli en del av Nordic Rise — det är gratis och tar bara någon minut." },
+      "step2": { "title": "Kom igång", "desc": "Oavsett om du är helt ny på LIVE eller redan sänder idag får du hjälp utifrån just din erfarenhet." },
+      "step3": { "title": "Utvecklas tillsammans", "desc": "Testa nya strategier, följ upp din statistik, få återkoppling och justera längs vägen." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram",
+      "heading": "Tjäna extra varje månad med Nordic Rise",
+      "p1": "Hos Nordic Rise belönar vi kreatörer som är konsekventa och når nya nivåer på TikTok LIVE.",
+      "p2Html": "Utöver dina vanliga intäkter från TikTok kan du få en <span class=\"text-white font-semibold\">månatlig Nordic Rise-bonus</span> när du når någon av bonusnivåerna nedan.",
+      "quoteHtml": "Bonusen baseras på hur många <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samlar under en kalendermånad.",
+      "coinsLabel": "Coins / månad",
+      "bonusCoinsLabel": "Bonus Coins",
+      "tierBadge": "Högsta nivå",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Hur fungerar bonusen?",
+        "item1": "Bonusen räknas på hela månadens TikTok Coins.",
+        "item2": "När du når en bonusnivå får du den bonus som motsvarar den nivån.",
+        "item3": "Bonusen betalas ut av Nordic Rise enligt agency-avtalet."
+      },
+      "cta": { "heading": "Redo att ta nästa nivå?", "subtext": "Bli en del av Nordic Rise Agency och låt ditt LIVE-arbete belönas varje månad.", "button": "Ansök till Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det är helt gratis att gå med oss.",
+      "p1": "Nordic Rise Agency kostar inget att gå med i.",
+      "p2": "Vårt mål är att hjälpa våra kreatörer att utvecklas, växa sin publik och lyckas bättre på TikTok LIVE.",
+      "cta": "Ansök gratis →"
+    },
+    "faq": {
+      "heading": "Vanliga frågor.",
+      "q1": "Vad är Nordic Rise Agency?", "a1": "Nordic Rise är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att utveckla sina livesändningar, få fler tittare och följare, bygga communities och öka sina LIVE-intäkter.",
+      "q2": "Vad får jag som kreatör?", "a2": "Du får coaching, vägledning, feedback och strategier för att utveckla din TikTok LIVE och växa på plattformen. Du får också bonus beroende på hur mycket coins du drar in på en månad!",
+      "q3": "Kostar det något?", "a3": "Nej. Det är helt gratis att gå med oss.",
+      "q4": "Måste jag redan ha många tittare?", "a4": "Nej. Vi letar efter kreatörer med potential, driv och vilja att utvecklas. Du behöver inte redan vara stor för att börja växa.",
+      "q5": "Vilken typ av content behöver jag göra?", "a5": "Ingen specifik typ. Nordic Rise välkomnar kreatörer inom alla typer av TikTok LIVE-content. Det viktiga är att du vill utvecklas och bygga en starkare LIVE.",
+      "q6": "Vad fokuserar Nordic Rise på?", "a6": "Enbart TikTok LIVE. Vårt fokus är tittare, följare, engagemang, community, gifts, coins och långsiktig tillväxt på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET BÖRJAR PÅ LIVE.",
+      "body": "Du har redan börjat fundera på nästa steg. Nu är det dags att faktiskt ta det.",
+      "cta": "Bli en del av Nordic Rise →",
+      "subtext": "Helt gratis att gå med oss.",
+      "brand": "Nordic Rise Agency",
+      "tagline": "Där kreatörer växer."
+    },
+    "footer": {
+      "tagline": "Där kreatörer växer.",
+      "navHeading": "Navigation",
+      "navHome": "Hem", "navForCreators": "För kreatörer", "navHowItWorks": "Så fungerar det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Ansök",
+      "socialHeading": "Sociala kanaler",
+      "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alla rättigheter förbehållna.",
+      "legalLinks": "Integritetspolicy · Användarvillkor · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.",
+      "decline": "Neka", "accept": "Acceptera", "ariaLabel": "Cookieinställningar"
+    }
+  },
+  "da": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-bureau | Hvor skabere vokser",
+      "description": "Nordic Rise Agency er et specialistbureau for TikTok LIVE. Vi hjælper skabere med flere seere, følgere, mere engagement og coins — helt gratis at være med.",
+      "ogTitle": "Nordic Rise Agency — Hvor skabere vokser",
+      "ogDescription": "TikTok LIVE-coaching & Creator Growth for skabere, der vil vokse.",
+      "ogImageAlt": "Nordic Rise Agency — Hvor skabere vokser. TikTok LIVE-coaching & Creator Growth.",
+      "locale": "da_DK",
+      "htmlLang": "da",
+      "jsonLdSlogan": "Hvor skabere vokser.",
+      "jsonLdInLanguage": "da-DK",
+      "jsonLdOrgDescription": "Specialistbureau for TikTok LIVE-skabere. Hjælper skabere med flere seere, følgere, engagement, coins og langsigtet vækst på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Spring til indhold" },
+    "nav": {
+      "ariaLabel": "Hovedmenu", "home": "Hjem", "forCreators": "For skabere", "videos": "Videoer",
+      "howItWorks": "Sådan fungerer det", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Ansøg nu →", "openMenuAria": "Åbn menu"
+    },
+    "hero": {
+      "headlineLine1": "DU SKAL IKKE", "headlineLine2": "VOKSE ALENE.",
+      "tagline": "Hvor skabere vokser.",
+      "body": "Nordic Rise Agency hjælper dig som skaber med at udvikle dig på TikTok LIVE gennem personlig coaching, et community at vokse sammen med og strategier, der faktisk er tilpasset din LIVE.",
+      "badge": "Helt gratis at være med",
+      "ctaPrimary": "Bliv en del af Nordic Rise →", "ctaSecondary": "Læs mere ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "SEERE", "followers": "FØLGERE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "VÆKST" },
+    "intro": {
+      "heading": "Hvor skabere vokser.",
+      "p1": "At lykkes på TikTok LIVE handler om mere end bare at starte en sending. Det handler om at forstå sit publikum, skabe energi, fastholde seere og udvikle en LIVE, som folk vil komme tilbage til.",
+      "p2": "Nordic Rise hjælper skabere med at forstå, hvad der virker, og hvordan de kan udvikle deres LIVE over tid."
+    },
+    "founder": {
+      "eyebrow": "Bag Nordic Rise",
+      "heading": "Jeg bygger det her, fordi jeg selv ved, hvordan det er at vokse på TikTok LIVE.",
+      "p1": "Jeg hedder Robin og driver min egen TikTok LIVE-kanal med et publikum på omkring 20.000 følgere. Jeg ved, hvor meget arbejde der ligger bag hver sending — og hvor meget lettere det bliver, når man ikke skal finde ud af det hele selv.",
+      "p2": "Det er derfor, jeg startede Nordic Rise Agency: for at give andre skabere den vejledning, det fællesskab og den struktur, jeg selv gerne havde haft fra starten. Ingen opdigtede genveje — kun praktisk hjælp fra en, der rent faktisk gør det her hver dag.",
+      "name": "Robin", "role": "Grundlægger, Nordic Rise Agency", "photoAlt": "Robin, grundlægger af Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Det her får du som skaber hos Nordic Rise.",
+      "card1": { "title": "Personlig coaching", "desc": "Hjælp til at komme i gang, udvikle dig og få vejledning undervejs — uanset hvor du er i dag." },
+      "card2": { "title": "Community", "desc": "Et fællesskab, hvor du kan lære af andre skabere, dele erfaringer og mærke, at du ikke gør det her alene." },
+      "card3": { "title": "LIVE-udvikling", "desc": "Forstå din statistik, test nye strategier og find ud af, hvad der rent faktisk virker for netop dit publikum." },
+      "card4": { "title": "Værktøjer", "desc": "Nordic Rise LIVE indgår som en del af dit medlemskab — et værktøj, der gør det nemmere at udvikle sig, helt uden ekstra omkostning." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praksis", "heading": "DET STARTER PÅ LIVE.",
+      "p1": "Nordic Rise handler om det, der rent faktisk sker under sendingen — ikke kun tal bagefter. Vi er ved at opbygge en samling klip og eksempler fra vores skaberes livesendinger.",
+      "p2": "Hold øje her — mere indhold bliver løbende tilføjet, efterhånden som flere skabere bliver en del af Nordic Rise.",
+      "cta": "Vil du vises her? Ansøg til Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Din stil.",
+      "p1": "Du behøver ikke være gamer, entertainer eller have en bestemt type indhold.",
+      "p2": "TikTok LIVE handler om mennesker, personligheder og communities.",
+      "p3": "Uanset om du spiller, snakker, underholder, skaber, diskuterer, laver mad, laver IRL-indhold eller har dit helt eget koncept, er målet det samme:",
+      "quote": "At bygge en LIVE, som folk vil komme tilbage til.",
+      "subtext": "Der er ingen krav for at blive en del af Nordic Rise — kun viljen til at vokse."
+    },
+    "custom2": {
+      "heading": "Vi søger drevne skabere.", "subtext": "Du behøver ikke være størst. Du skal ville blive bedre.",
+      "item1": "Du laver TikTok LIVE", "item2": "Du vil vokse", "item3": "Du vil have flere seere",
+      "item4": "Du vil bygge et community", "item5": "Du vil øge dine følgere",
+      "item6": "Du vil tjene mere på dine livesendinger", "item7": "Du er villig til at udvikle dig",
+      "item8": "Du vil tage din LIVE til næste niveau", "cta": "Ansøg til Nordic Rise →"
+    },
+    "process": {
+      "heading": "Sådan fungerer Nordic Rise.",
+      "subtext": "Du behøver ikke allerede have LIVE-adgang eller tidligere statistik — vi møder dig, der hvor du er.",
+      "step1": { "title": "Bliv medlem", "desc": "Ansøg og bliv en del af Nordic Rise — det er gratis og tager kun et øjeblik." },
+      "step2": { "title": "Kom i gang", "desc": "Uanset om du er helt ny til LIVE eller allerede sender i dag, får du hjælp ud fra netop din erfaring." },
+      "step3": { "title": "Udvikl jer sammen", "desc": "Test nye strategier, følg op på din statistik, få feedback og juster undervejs." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram", "heading": "Tjen ekstra hver måned med Nordic Rise",
+      "p1": "Hos Nordic Rise belønner vi skabere, der er konsekvente og når nye niveauer på TikTok LIVE.",
+      "p2Html": "Ud over dine almindelige indtægter fra TikTok kan du få en <span class=\"text-white font-semibold\">månedlig Nordic Rise-bonus</span>, når du når et af bonusniveauerne nedenfor.",
+      "quoteHtml": "Bonussen beregnes ud fra, hvor mange <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samler i løbet af en kalendermåned.",
+      "coinsLabel": "Coins / måned", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Højeste niveau",
+      "tier1": { "coins": "50.000", "bonus": "+1.250" },
+      "tier2": { "coins": "100.000", "bonus": "+2.500" },
+      "tier3": { "coins": "250.000", "bonus": "+8.000" },
+      "tier4": { "coins": "500.000", "bonus": "+22.000" },
+      "tier5": { "coins": "1.000.000", "bonus": "+35.000" },
+      "how": {
+        "heading": "Hvordan fungerer bonussen?",
+        "item1": "Bonussen beregnes ud fra hele månedens TikTok Coins.",
+        "item2": "Når du når et bonusniveau, får du den bonus, der svarer til det niveau.",
+        "item3": "Bonussen udbetales af Nordic Rise i henhold til agency-aftalen."
+      },
+      "cta": { "heading": "Klar til at tage næste niveau?", "subtext": "Bliv en del af Nordic Rise Agency, og lad dit LIVE-arbejde blive belønnet hver måned.", "button": "Ansøg til Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det er helt gratis at være med.",
+      "p1": "Nordic Rise Agency koster ikke noget at være medlem af.",
+      "p2": "Vores mål er at hjælpe vores skabere med at udvikle sig, vokse deres publikum og få mere succes på TikTok LIVE.",
+      "cta": "Ansøg gratis →"
+    },
+    "faq": {
+      "heading": "Ofte stillede spørgsmål.",
+      "q1": "Hvad er Nordic Rise Agency?", "a1": "Nordic Rise er et specialistbureau for TikTok LIVE. Vi hjælper skabere med at udvikle deres livesendinger, få flere seere og følgere, bygge communities og øge deres LIVE-indtægter.",
+      "q2": "Hvad får jeg som skaber?", "a2": "Du får coaching, vejledning, feedback og strategier til at udvikle din TikTok LIVE og vokse på platformen. Du får også bonus afhængigt af, hvor mange coins du samler på en måned!",
+      "q3": "Koster det noget?", "a3": "Nej. Det er helt gratis at være med.",
+      "q4": "Skal jeg allerede have mange seere?", "a4": "Nej. Vi leder efter skabere med potentiale, drive og vilje til at udvikle sig. Du behøver ikke allerede være stor for at begynde at vokse.",
+      "q5": "Hvilken type indhold skal jeg lave?", "a5": "Ingen bestemt type. Nordic Rise byder skabere inden for alle typer TikTok LIVE-indhold velkommen. Det vigtige er, at du vil udvikle dig og bygge en stærkere LIVE.",
+      "q6": "Hvad fokuserer Nordic Rise på?", "a6": "Udelukkende TikTok LIVE. Vores fokus er seere, følgere, engagement, community, gifts, coins og langsigtet vækst på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET STARTER PÅ LIVE.", "body": "Du er allerede begyndt at overveje næste skridt. Nu er det tid til rent faktisk at tage det.",
+      "cta": "Bliv en del af Nordic Rise →", "subtext": "Helt gratis at være med.", "brand": "Nordic Rise Agency", "tagline": "Hvor skabere vokser."
+    },
+    "footer": {
+      "tagline": "Hvor skabere vokser.", "navHeading": "Navigation",
+      "navHome": "Hjem", "navForCreators": "For skabere", "navHowItWorks": "Sådan fungerer det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Ansøg",
+      "socialHeading": "Sociale kanaler", "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alle rettigheder forbeholdes.", "legalLinks": "Privatlivspolitik · Brugsvilkår · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi bruger cookies.</strong> Vi bruger Google Analytics til statistik og analyse af, hvordan besøgende bruger sitet, så vi kan forbedre det. Ingen analysedata gemmes, før du accepterer.",
+      "decline": "Afvis", "accept": "Accepter", "ariaLabel": "Cookieindstillinger"
+    }
+  },
+  "nb": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE-byrå | Der skapere vokser",
+      "description": "Nordic Rise Agency er et spesialistbyrå for TikTok LIVE. Vi hjelper skapere med flere seere, følgere, mer engasjement og coins — helt gratis å bli med.",
+      "ogTitle": "Nordic Rise Agency — Der skapere vokser",
+      "ogDescription": "TikTok LIVE-coaching og Creator Growth for skapere som vil vokse.",
+      "ogImageAlt": "Nordic Rise Agency — Der skapere vokser. TikTok LIVE-coaching og Creator Growth.",
+      "locale": "nb_NO",
+      "htmlLang": "nb",
+      "jsonLdSlogan": "Der skapere vokser.",
+      "jsonLdInLanguage": "nb-NO",
+      "jsonLdOrgDescription": "Spesialistbyrå for TikTok LIVE-skapere. Hjelper skapere med flere seere, følgere, engasjement, coins og langsiktig vekst på TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Hopp til innhold" },
+    "nav": {
+      "ariaLabel": "Hovedmeny", "home": "Hjem", "forCreators": "For skapere", "videos": "Videoer",
+      "howItWorks": "Slik fungerer det", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Søk nå →", "openMenuAria": "Åpne meny"
+    },
+    "hero": {
+      "headlineLine1": "DU TRENGER IKKE", "headlineLine2": "VOKSE ALENE.",
+      "tagline": "Der skapere vokser.",
+      "body": "Nordic Rise Agency hjelper deg som skaper å utvikle deg på TikTok LIVE gjennom personlig coaching, et community å vokse sammen med, og strategier som faktisk er tilpasset din LIVE.",
+      "badge": "Helt gratis å bli med",
+      "ctaPrimary": "Bli en del av Nordic Rise →", "ctaSecondary": "Les mer ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "SEERE", "followers": "FØLGERE", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "VEKST" },
+    "intro": {
+      "heading": "Der skapere vokser.",
+      "p1": "Å lykkes på TikTok LIVE handler om mer enn å bare starte en sending. Det handler om å forstå publikummet sitt, skape energi, beholde seere og utvikle en LIVE som folk vil komme tilbake til.",
+      "p2": "Nordic Rise hjelper skapere med å forstå hva som fungerer, og hvordan de kan utvikle sin LIVE over tid."
+    },
+    "founder": {
+      "eyebrow": "Bak Nordic Rise",
+      "heading": "Jeg bygger dette fordi jeg selv vet hvordan det er å vokse på TikTok LIVE.",
+      "p1": "Jeg heter Robin og driver min egen TikTok LIVE-kanal, med et publikum på rundt 20 000 følgere. Jeg vet hvor mye jobb som ligger bak hver sending — og hvor mye lettere det blir når man ikke trenger å finne ut av alt selv.",
+      "p2": "Det er derfor jeg startet Nordic Rise Agency: for å gi andre skapere den veiledningen, fellesskapet og strukturen jeg selv skulle ønske jeg hadde hatt fra starten. Ingen oppdiktede snarveier — bare praktisk hjelp fra noen som faktisk gjør dette hver dag.",
+      "name": "Robin", "role": "Grunnlegger, Nordic Rise Agency", "photoAlt": "Robin, grunnlegger av Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "Dette får du som skaper hos Nordic Rise.",
+      "card1": { "title": "Personlig coaching", "desc": "Hjelp til å komme i gang, utvikle deg og få veiledning underveis — uansett hvor du er i dag." },
+      "card2": { "title": "Community", "desc": "Et fellesskap der du kan lære av andre skapere, dele erfaringer og kjenne at du ikke gjør dette alene." },
+      "card3": { "title": "LIVE-utvikling", "desc": "Forstå statistikken din, test nye strategier og finn ut hva som faktisk fungerer for nettopp ditt publikum." },
+      "card4": { "title": "Verktøy", "desc": "Nordic Rise LIVE inngår som en del av medlemskapet ditt — et verktøy som gjør det enklere å utvikle seg, helt uten ekstra kostnad." }
+    },
+    "video": {
+      "eyebrow": "Se Nordic Rise i praksis", "heading": "DET STARTER PÅ LIVE.",
+      "p1": "Nordic Rise handler om det som faktisk skjer under sendingen — ikke bare tall i etterkant. Vi bygger nå opp en samling klipp og eksempler fra livesendingene til skaperne våre.",
+      "p2": "Følg med her — mer innhold legges til fortløpende etter hvert som flere skapere blir en del av Nordic Rise.",
+      "cta": "Vil du vises her? Søk til Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Din LIVE. Din stil.",
+      "p1": "Du trenger ikke være gamer, underholder eller ha en bestemt type innhold.",
+      "p2": "TikTok LIVE handler om mennesker, personligheter og communities.",
+      "p3": "Uansett om du spiller, prater, underholder, skaper, diskuterer, lager mat, lager IRL-innhold eller har et helt eget konsept, er målet det samme:",
+      "quote": "Å bygge en LIVE som folk vil komme tilbake til.",
+      "subtext": "Det finnes ingen krav for å bli med i Nordic Rise — bare viljen til å vokse."
+    },
+    "custom2": {
+      "heading": "Vi ser etter drevne skapere.", "subtext": "Du trenger ikke være størst. Du må ville bli bedre.",
+      "item1": "Du driver med TikTok LIVE", "item2": "Du vil vokse", "item3": "Du vil ha flere seere",
+      "item4": "Du vil bygge et community", "item5": "Du vil øke antall følgere",
+      "item6": "Du vil tjene mer på livesendingene dine", "item7": "Du er villig til å utvikle deg",
+      "item8": "Du vil ta LIVE-en din til neste nivå", "cta": "Søk til Nordic Rise →"
+    },
+    "process": {
+      "heading": "Slik fungerer Nordic Rise.",
+      "subtext": "Du trenger ikke allerede ha LIVE-tilgang eller tidligere statistikk — vi møter deg der du er.",
+      "step1": { "title": "Bli med", "desc": "Søk og bli en del av Nordic Rise — det er gratis og tar bare et øyeblikk." },
+      "step2": { "title": "Kom i gang", "desc": "Enten du er helt ny på LIVE eller allerede sender i dag, får du hjelp ut fra din egen erfaring." },
+      "step3": { "title": "Utvikle dere sammen", "desc": "Test nye strategier, følg opp statistikken din, få tilbakemeldinger og juster underveis." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusprogram", "heading": "Tjen ekstra hver måned med Nordic Rise",
+      "p1": "Hos Nordic Rise belønner vi skapere som er konsekvente og når nye nivåer på TikTok LIVE.",
+      "p2Html": "I tillegg til de vanlige inntektene dine fra TikTok kan du få en <span class=\"text-white font-semibold\">månedlig Nordic Rise-bonus</span> når du når et av bonusnivåene nedenfor.",
+      "quoteHtml": "Bonusen beregnes ut fra hvor mange <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> du samler i løpet av en kalendermåned.",
+      "coinsLabel": "Coins / måned", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Høyeste nivå",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Hvordan fungerer bonusen?",
+        "item1": "Bonusen beregnes ut fra hele månedens TikTok Coins.",
+        "item2": "Når du når et bonusnivå, får du bonusen som tilsvarer det nivået.",
+        "item3": "Bonusen utbetales av Nordic Rise i henhold til agency-avtalen."
+      },
+      "cta": { "heading": "Klar for å ta neste nivå?", "subtext": "Bli en del av Nordic Rise Agency, og la LIVE-arbeidet ditt bli belønnet hver måned.", "button": "Søk til Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "Det er helt gratis å bli med oss.",
+      "p1": "Nordic Rise Agency koster ingenting å bli med i.",
+      "p2": "Målet vårt er å hjelpe skaperne våre med å utvikle seg, vokse publikummet sitt og lykkes bedre på TikTok LIVE.",
+      "cta": "Søk gratis →"
+    },
+    "faq": {
+      "heading": "Vanlige spørsmål.",
+      "q1": "Hva er Nordic Rise Agency?", "a1": "Nordic Rise er et spesialistbyrå for TikTok LIVE. Vi hjelper skapere med å utvikle livesendingene sine, få flere seere og følgere, bygge communities og øke LIVE-inntektene sine.",
+      "q2": "Hva får jeg som skaper?", "a2": "Du får coaching, veiledning, tilbakemeldinger og strategier for å utvikle din TikTok LIVE og vokse på plattformen. Du får også bonus avhengig av hvor mange coins du samler inn på en måned!",
+      "q3": "Koster det noe?", "a3": "Nei. Det er helt gratis å bli med oss.",
+      "q4": "Må jeg allerede ha mange seere?", "a4": "Nei. Vi ser etter skapere med potensial, pågangsmot og vilje til å utvikle seg. Du trenger ikke allerede være stor for å begynne å vokse.",
+      "q5": "Hvilken type innhold må jeg lage?", "a5": "Ingen bestemt type. Nordic Rise ønsker skapere innen alle typer TikTok LIVE-innhold velkommen. Det viktige er at du vil utvikle deg og bygge en sterkere LIVE.",
+      "q6": "Hva fokuserer Nordic Rise på?", "a6": "Utelukkende TikTok LIVE. Fokuset vårt er seere, følgere, engasjement, community, gifts, coins og langsiktig vekst på TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "DET STARTER PÅ LIVE.", "body": "Du har allerede begynt å tenke på neste steg. Nå er det på tide å faktisk ta det.",
+      "cta": "Bli en del av Nordic Rise →", "subtext": "Helt gratis å bli med oss.", "brand": "Nordic Rise Agency", "tagline": "Der skapere vokser."
+    },
+    "footer": {
+      "tagline": "Der skapere vokser.", "navHeading": "Navigasjon",
+      "navHome": "Hjem", "navForCreators": "For skapere", "navHowItWorks": "Slik fungerer det", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Søk",
+      "socialHeading": "Sosiale kanaler", "socialCaption": "TikTok · Instagram · Discord — kommer snart",
+      "copyright": "© 2026 Nordic Rise Agency. Alle rettigheter forbeholdt.", "legalLinks": "Personvernerklæring · Brukervilkår · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>Vi bruker informasjonskapsler.</strong> Vi bruker Google Analytics til statistikk og analyse av hvordan besøkende bruker nettstedet, slik at vi kan forbedre det. Ingen analysedata lagres før du godtar.",
+      "decline": "Avslå", "accept": "Godta", "ariaLabel": "Innstillinger for informasjonskapsler"
+    }
+  },
+  "fi": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE -toimisto | Missä sisällöntuottajat kasvavat",
+      "description": "Nordic Rise Agency on TikTok LIVEn erikoistoimisto. Autamme sisällöntuottajia saamaan lisää katsojia, seuraajia, enemmän sitoutumista ja kolikoita — liittyminen on täysin ilmaista.",
+      "ogTitle": "Nordic Rise Agency — Missä sisällöntuottajat kasvavat",
+      "ogDescription": "TikTok LIVE -valmennusta ja kasvua sisällöntuottajille, jotka haluavat kasvaa.",
+      "ogImageAlt": "Nordic Rise Agency — Missä sisällöntuottajat kasvavat. TikTok LIVE -valmennusta ja kasvua.",
+      "locale": "fi_FI",
+      "htmlLang": "fi",
+      "jsonLdSlogan": "Missä sisällöntuottajat kasvavat.",
+      "jsonLdInLanguage": "fi-FI",
+      "jsonLdOrgDescription": "TikTok LIVE -sisällöntuottajien erikoistoimisto. Auttaa sisällöntuottajia saamaan lisää katsojia, seuraajia, sitoutumista, kolikoita ja pitkäaikaista kasvua TikTok LIVEssä."
+    },
+    "a11y": { "skipLink": "Siirry sisältöön" },
+    "nav": {
+      "ariaLabel": "Päävalikko", "home": "Koti", "forCreators": "Sisällöntuottajille", "videos": "Videot",
+      "howItWorks": "Näin se toimii", "bonus": "Bonus", "faq": "UKK", "applyCta": "Hae nyt →", "openMenuAria": "Avaa valikko"
+    },
+    "hero": {
+      "headlineLine1": "SINUN EI TARVITSE", "headlineLine2": "KASVAA YKSIN.",
+      "tagline": "Missä sisällöntuottajat kasvavat.",
+      "body": "Nordic Rise Agency auttaa sinua sisällöntuottajana kehittymään TikTok LIVEssä henkilökohtaisen valmennuksen, yhdessä kasvavan yhteisön ja sellaisten strategioiden avulla, jotka on todella räätälöity sinun LIVE-lähetyksiisi.",
+      "badge": "Liittyminen on täysin ilmaista",
+      "ctaPrimary": "Liity osaksi Nordic Riseä →", "ctaSecondary": "Lue lisää ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "KATSOJAT", "followers": "SEURAAJAT", "community": "YHTEISÖ", "gifts": "GIFTS", "coins": "COINS", "growth": "KASVU" },
+    "intro": {
+      "heading": "Missä sisällöntuottajat kasvavat.",
+      "p1": "Menestyminen TikTok LIVEssä on muutakin kuin lähetyksen aloittaminen. Kyse on yleisön ymmärtämisestä, energian luomisesta, katsojien pitämisestä ja sellaisen LIVEn rakentamisesta, johon ihmiset haluavat palata.",
+      "p2": "Nordic Rise auttaa sisällöntuottajia ymmärtämään, mikä toimii ja miten he voivat kehittää LIVE-lähetystään ajan myötä."
+    },
+    "founder": {
+      "eyebrow": "Nordic Risen takana",
+      "heading": "Rakennan tätä, koska tiedän itse, millaista on kasvaa TikTok LIVEssä.",
+      "p1": "Nimeni on Robin, ja pyöritän omaa TikTok LIVE -kanavaani, jolla on noin 20 000 seuraajan yleisö. Tiedän, kuinka paljon työtä jokaisen lähetyksen takana on — ja kuinka paljon helpompaa se on, kun ei tarvitse keksiä kaikkea itse.",
+      "p2": "Siksi perustin Nordic Rise Agencyn: antaakseni muille sisällöntuottajille sitä ohjausta, yhteisöä ja rakennetta, jota itse olisin halunnut alusta alkaen. Ei keksittyjä oikoteitä — vain käytännön apua joltakulta, joka todella tekee tätä joka päivä.",
+      "name": "Robin", "role": "Perustaja, Nordic Rise Agency", "photoAlt": "Robin, Nordic Rise Agencyn perustaja"
+    },
+    "services": {
+      "heading": "Tämän saat sisällöntuottajana Nordic Riseltä.",
+      "card1": { "title": "Henkilökohtainen valmennus", "desc": "Apua aloittamiseen, kehittymiseen ja ohjausta matkan varrella — riippumatta siitä, missä olet juuri nyt." },
+      "card2": { "title": "Yhteisö", "desc": "Yhteisö, jossa voit oppia muilta sisällöntuottajilta, jakaa kokemuksia ja tuntea, ettet tee tätä yksin." },
+      "card3": { "title": "LIVE-kehitys", "desc": "Ymmärrä tilastosi, kokeile uusia strategioita ja löydä, mikä todella toimii juuri sinun yleisöllesi." },
+      "card4": { "title": "Työkalut", "desc": "Nordic Rise LIVE sisältyy jäsenyyteesi — työkalu, joka tekee kehittymisestä helpompaa täysin ilman lisäkustannuksia." }
+    },
+    "video": {
+      "eyebrow": "Katso Nordic Rise käytännössä", "heading": "SE ALKAA LIVESTÄ.",
+      "p1": "Nordic Rise keskittyy siihen, mitä lähetyksen aikana todella tapahtuu — ei vain jälkikäteen nähtäviin lukuihin. Kokoamme parhaillaan kokoelmaa klippejä ja esimerkkejä sisällöntuottajiemme live-lähetyksistä.",
+      "p2": "Pysy kuulolla — lisää sisältöä lisätään jatkuvasti sitä mukaa, kun yhä useampi sisällöntuottaja liittyy Nordic Riseen.",
+      "cta": "Haluatko näkyä täällä? Hae Nordic Riseen →"
+    },
+    "custom1": {
+      "heading": "Sinun LIVEsi. Omalla tavallasi.",
+      "p1": "Sinun ei tarvitse olla pelaaja, viihdyttäjä tai tehdä tietynlaista sisältöä.",
+      "p2": "TikTok LIVE on ihmisistä, persoonista ja yhteisöistä.",
+      "p3": "Olitpa sitten pelaamassa, juttelemassa, viihdyttämässä, luomassa, keskustelemassa, kokkaamassa, tekemässä IRL-sisältöä tai ihan oma konseptisi — tavoite on sama:",
+      "quote": "Rakentaa LIVE, johon ihmiset haluavat palata.",
+      "subtext": "Nordic Riseen liittymiselle ei ole vaatimuksia — vain halu kasvaa."
+    },
+    "custom2": {
+      "heading": "Etsimme määrätietoisia sisällöntuottajia.", "subtext": "Sinun ei tarvitse olla suurin. Sinun täytyy haluta tulla paremmaksi.",
+      "item1": "Teet TikTok LIVEä", "item2": "Haluat kasvaa", "item3": "Haluat lisää katsojia",
+      "item4": "Haluat rakentaa yhteisön", "item5": "Haluat lisää seuraajia",
+      "item6": "Haluat ansaita enemmän live-lähetyksilläsi", "item7": "Olet valmis kehittymään",
+      "item8": "Haluat viedä LIVEsi seuraavalle tasolle", "cta": "Hae Nordic Riseen →"
+    },
+    "process": {
+      "heading": "Näin Nordic Rise toimii.",
+      "subtext": "Sinulla ei tarvitse jo olla LIVE-oikeuksia tai aiempia tilastoja — kohtaamme sinut siellä, missä olet.",
+      "step1": { "title": "Liity mukaan", "desc": "Hae ja liity osaksi Nordic Riseä — se on ilmaista ja vie vain hetken." },
+      "step2": { "title": "Pääse alkuun", "desc": "Oletpa sitten täysin uusi LIVEssä tai jo lähetät tänään, saat apua juuri omasta kokemuksestasi lähtien." },
+      "step3": { "title": "Kehittykää yhdessä", "desc": "Kokeile uusia strategioita, seuraa tilastojasi, saa palautetta ja säädä matkan varrella." }
+    },
+    "bonus": {
+      "eyebrow": "Bonusohjelma", "heading": "Ansaitse lisää joka kuukausi Nordic Risen kanssa",
+      "p1": "Nordic Risessä palkitsemme sisällöntuottajia, jotka ovat johdonmukaisia ja saavuttavat uusia tasoja TikTok LIVEssä.",
+      "p2Html": "Tavallisten TikTok-tulojesi lisäksi voit saada <span class=\"text-white font-semibold\">kuukausittaisen Nordic Rise -bonuksen</span>, kun saavutat jonkin alla olevista bonustasoista.",
+      "quoteHtml": "Bonus lasketaan sen mukaan, kuinka monta <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coinia</span> keräät kalenterikuukauden aikana.",
+      "coinsLabel": "Kolikkoa / kk", "bonusCoinsLabel": "Bonuskolikot", "tierBadge": "Korkein taso",
+      "tier1": { "coins": "50 000", "bonus": "+1 250" },
+      "tier2": { "coins": "100 000", "bonus": "+2 500" },
+      "tier3": { "coins": "250 000", "bonus": "+8 000" },
+      "tier4": { "coins": "500 000", "bonus": "+22 000" },
+      "tier5": { "coins": "1 000 000", "bonus": "+35 000" },
+      "how": {
+        "heading": "Miten bonus toimii?",
+        "item1": "Bonus lasketaan koko kuukauden TikTok Coineista.",
+        "item2": "Kun saavutat bonustason, saat kyseistä tasoa vastaavan bonuksen.",
+        "item3": "Bonuksen maksaa Nordic Rise agency-sopimuksen mukaisesti."
+      },
+      "cta": { "heading": "Valmiina seuraavalle tasolle?", "subtext": "Liity osaksi Nordic Rise Agencyä ja anna LIVE-työsi palkita sinut joka kuukausi.", "button": "Hae Nordic Riseen →" }
+    },
+    "pricing": {
+      "heading": "Liittyminen on täysin ilmaista.",
+      "p1": "Nordic Rise Agencyyn liittyminen ei maksa mitään.",
+      "p2": "Tavoitteemme on auttaa sisällöntuottajiamme kehittymään, kasvattamaan yleisöään ja menestymään paremmin TikTok LIVEssä.",
+      "cta": "Hae ilmaiseksi →"
+    },
+    "faq": {
+      "heading": "Usein kysytyt kysymykset.",
+      "q1": "Mikä on Nordic Rise Agency?", "a1": "Nordic Rise on TikTok LIVEn erikoistoimisto. Autamme sisällöntuottajia kehittämään live-lähetyksiään, saamaan lisää katsojia ja seuraajia, rakentamaan yhteisöjä ja kasvattamaan LIVE-tulojaan.",
+      "q2": "Mitä saan sisällöntuottajana?", "a2": "Saat valmennusta, ohjausta, palautetta ja strategioita TikTok LIVEsi kehittämiseen ja kasvattamiseen alustalla. Saat myös bonuksen sen mukaan, kuinka paljon kolikoita keräät kuukaudessa!",
+      "q3": "Maksaako se mitään?", "a3": "Ei. Liittyminen on täysin ilmaista.",
+      "q4": "Pitääkö minulla jo olla paljon katsojia?", "a4": "Ei. Etsimme sisällöntuottajia, joilla on potentiaalia, draivia ja halua kehittyä. Sinun ei tarvitse olla jo suuri aloittaaksesi kasvamisen.",
+      "q5": "Millaista sisältöä minun pitää tehdä?", "a5": "Ei mitään tiettyä tyyppiä. Nordic Rise toivottaa tervetulleeksi sisällöntuottajat kaikenlaisesta TikTok LIVE -sisällöstä. Tärkeintä on, että haluat kehittyä ja rakentaa vahvemman LIVEn.",
+      "q6": "Mihin Nordic Rise keskittyy?", "a6": "Pelkästään TikTok LIVEen. Keskitymme katsojiin, seuraajiin, sitoutumiseen, yhteisöön, gifts, coins ja pitkäaikaiseen kasvuun TikTok LIVEssä."
+    },
+    "finalCta": {
+      "heading": "SE ALKAA LIVESTÄ.", "body": "Olet jo alkanut miettiä seuraavaa askelta. Nyt on aika todella ottaa se.",
+      "cta": "Liity osaksi Nordic Riseä →", "subtext": "Liittyminen on täysin ilmaista.", "brand": "Nordic Rise Agency", "tagline": "Missä sisällöntuottajat kasvavat."
+    },
+    "footer": {
+      "tagline": "Missä sisällöntuottajat kasvavat.", "navHeading": "Navigaatio",
+      "navHome": "Koti", "navForCreators": "Sisällöntuottajille", "navHowItWorks": "Näin se toimii", "navBonus": "Bonus", "navFaq": "UKK", "navApply": "Hae",
+      "socialHeading": "Sosiaaliset kanavat", "socialCaption": "TikTok · Instagram · Discord — tulossa pian",
+      "copyright": "© 2026 Nordic Rise Agency. Kaikki oikeudet pidätetään.", "legalLinks": "Tietosuojakäytäntö · Käyttöehdot · Evästeet"
+    },
+    "consent": {
+      "textHtml": "<strong>Käytämme evästeitä.</strong> Käytämme Google Analyticsia tilastointiin ja analysoimaan, miten kävijät käyttävät sivustoa, jotta voimme parantaa sitä. Analytiikkatietoja ei tallenneta ennen kuin hyväksyt sen.",
+      "decline": "Hylkää", "accept": "Hyväksy", "ariaLabel": "Evästeasetukset"
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Nordic Rise Agency — TikTok LIVE Agency | Where Creators Grow",
+      "description": "Nordic Rise Agency is a specialist agency for TikTok LIVE. We help creators get more viewers, followers, engagement and coins — completely free to join.",
+      "ogTitle": "Nordic Rise Agency — Where Creators Grow",
+      "ogDescription": "TikTok LIVE Coaching & Creator Growth for creators who want to grow.",
+      "ogImageAlt": "Nordic Rise Agency — Where Creators Grow. TikTok LIVE Coaching & Creator Growth.",
+      "locale": "en_US",
+      "htmlLang": "en",
+      "jsonLdSlogan": "Where creators grow.",
+      "jsonLdInLanguage": "en-US",
+      "jsonLdOrgDescription": "Specialist agency for TikTok LIVE creators. Helps creators with more viewers, followers, engagement, coins and long-term growth on TikTok LIVE."
+    },
+    "a11y": { "skipLink": "Skip to content" },
+    "nav": {
+      "ariaLabel": "Main menu", "home": "Home", "forCreators": "For creators", "videos": "Videos",
+      "howItWorks": "How it works", "bonus": "Bonus", "faq": "FAQ", "applyCta": "Apply now →", "openMenuAria": "Open menu"
+    },
+    "hero": {
+      "headlineLine1": "YOU DON'T HAVE TO", "headlineLine2": "GROW ALONE.",
+      "tagline": "Where creators grow.",
+      "body": "Nordic Rise Agency helps you as a creator develop on TikTok LIVE through personal coaching, a community to grow alongside and strategies that are actually tailored to your LIVE.",
+      "badge": "Completely free to join",
+      "ctaPrimary": "Become part of Nordic Rise →", "ctaSecondary": "Read more ↓"
+    },
+    "ticker": { "live": "LIVE", "viewers": "VIEWERS", "followers": "FOLLOWERS", "community": "COMMUNITY", "gifts": "GIFTS", "coins": "COINS", "growth": "GROWTH" },
+    "intro": {
+      "heading": "Where creators grow.",
+      "p1": "Succeeding on TikTok LIVE is about more than just starting a stream. It's about understanding your audience, creating energy, keeping viewers engaged and building a LIVE that people want to come back to.",
+      "p2": "Nordic Rise helps creators understand what works and how they can develop their LIVE over time."
+    },
+    "founder": {
+      "eyebrow": "Behind Nordic Rise",
+      "heading": "I'm building this because I know myself what it's like to grow on TikTok LIVE.",
+      "p1": "My name is Robin and I run my own TikTok LIVE channel, with an audience of around 20,000 followers. I know how much work goes into every stream — and how much easier it gets when you don't have to figure it all out yourself.",
+      "p2": "That's why I started Nordic Rise Agency: to give other creators the guidance, community and structure I wish I'd had from the start. No made-up shortcuts — just practical help from someone who actually does this every day.",
+      "name": "Robin", "role": "Founder, Nordic Rise Agency", "photoAlt": "Robin, founder of Nordic Rise Agency"
+    },
+    "services": {
+      "heading": "What you get as a creator at Nordic Rise.",
+      "card1": { "title": "Personal coaching", "desc": "Help getting started, developing and guidance along the way — no matter where you are today." },
+      "card2": { "title": "Community", "desc": "A space where you can learn from other creators, share experiences and know you're not doing this alone." },
+      "card3": { "title": "LIVE development", "desc": "Understand your stats, test new strategies and find out what actually works for your audience." },
+      "card4": { "title": "Tools", "desc": "Nordic Rise LIVE is included as part of your membership — a tool that makes it easier to grow, at no extra cost." }
+    },
+    "video": {
+      "eyebrow": "See Nordic Rise in action", "heading": "IT STARTS ON LIVE.",
+      "p1": "Nordic Rise is about what actually happens during the stream — not just the numbers afterwards. We're currently building a collection of clips and examples from our creators' live streams.",
+      "p2": "Watch this space — more content is added regularly as more creators become part of Nordic Rise.",
+      "cta": "Want to be featured here? Apply to Nordic Rise →"
+    },
+    "custom1": {
+      "heading": "Your LIVE. Your way.",
+      "p1": "You don't have to be a gamer, an entertainer, or make a specific type of content.",
+      "p2": "TikTok LIVE is about people, personalities and communities.",
+      "p3": "Whether you game, chat, entertain, create, discuss, cook, make IRL content or have your own completely unique concept, the goal is the same:",
+      "quote": "To build a LIVE that people want to come back to.",
+      "subtext": "There are no requirements to join Nordic Rise — just the will to grow."
+    },
+    "custom2": {
+      "heading": "We're looking for driven creators.", "subtext": "You don't have to be the biggest. You have to want to get better.",
+      "item1": "You do TikTok LIVE", "item2": "You want to grow", "item3": "You want more viewers",
+      "item4": "You want to build a community", "item5": "You want to grow your followers",
+      "item6": "You want to earn more from your live streams", "item7": "You're willing to develop",
+      "item8": "You want to take your LIVE to the next level", "cta": "Apply to Nordic Rise →"
+    },
+    "process": {
+      "heading": "How Nordic Rise works.",
+      "subtext": "You don't need LIVE access or previous stats already — we meet you where you are.",
+      "step1": { "title": "Join", "desc": "Apply and become part of Nordic Rise — it's free and only takes a minute." },
+      "step2": { "title": "Get started", "desc": "Whether you're completely new to LIVE or already streaming today, you'll get help based on your own experience." },
+      "step3": { "title": "Grow together", "desc": "Test new strategies, track your stats, get feedback and adjust along the way." }
+    },
+    "bonus": {
+      "eyebrow": "Bonus program", "heading": "Earn extra every month with Nordic Rise",
+      "p1": "At Nordic Rise, we reward creators who are consistent and reach new levels on TikTok LIVE.",
+      "p2Html": "On top of your regular earnings from TikTok, you can get a <span class=\"text-white font-semibold\">monthly Nordic Rise bonus</span> when you reach one of the bonus tiers below.",
+      "quoteHtml": "The bonus is based on how many <span class=\"text-[color:var(--accent2)] font-semibold\">TikTok Coins</span> you collect during a calendar month.",
+      "coinsLabel": "Coins / month", "bonusCoinsLabel": "Bonus Coins", "tierBadge": "Highest tier",
+      "tier1": { "coins": "50,000", "bonus": "+1,250" },
+      "tier2": { "coins": "100,000", "bonus": "+2,500" },
+      "tier3": { "coins": "250,000", "bonus": "+8,000" },
+      "tier4": { "coins": "500,000", "bonus": "+22,000" },
+      "tier5": { "coins": "1,000,000", "bonus": "+35,000" },
+      "how": {
+        "heading": "How does the bonus work?",
+        "item1": "The bonus is calculated on the whole month's TikTok Coins.",
+        "item2": "When you reach a bonus tier, you get the bonus for that tier.",
+        "item3": "The bonus is paid out by Nordic Rise according to the agency agreement."
+      },
+      "cta": { "heading": "Ready to take the next level?", "subtext": "Become part of Nordic Rise Agency and let your LIVE work pay off every month.", "button": "Apply to Nordic Rise →" }
+    },
+    "pricing": {
+      "heading": "It's completely free to join us.",
+      "p1": "Nordic Rise Agency costs nothing to join.",
+      "p2": "Our goal is to help our creators develop, grow their audience and succeed better on TikTok LIVE.",
+      "cta": "Apply for free →"
+    },
+    "faq": {
+      "heading": "Frequently asked questions.",
+      "q1": "What is Nordic Rise Agency?", "a1": "Nordic Rise is a specialist agency for TikTok LIVE. We help creators develop their live streams, get more viewers and followers, build communities and increase their LIVE earnings.",
+      "q2": "What do I get as a creator?", "a2": "You get coaching, guidance, feedback and strategies to develop your TikTok LIVE and grow on the platform. You also get a bonus depending on how many coins you bring in during a month!",
+      "q3": "Does it cost anything?", "a3": "No. It's completely free to join us.",
+      "q4": "Do I already need to have lots of viewers?", "a4": "No. We're looking for creators with potential, drive and a willingness to develop. You don't need to already be big to start growing.",
+      "q5": "What type of content do I need to make?", "a5": "No specific type. Nordic Rise welcomes creators across all types of TikTok LIVE content. What matters is that you want to develop and build a stronger LIVE.",
+      "q6": "What does Nordic Rise focus on?", "a6": "TikTok LIVE only. Our focus is viewers, followers, engagement, community, gifts, coins and long-term growth on TikTok LIVE."
+    },
+    "finalCta": {
+      "heading": "IT STARTS ON LIVE.", "body": "You've already started thinking about the next step. Now it's time to actually take it.",
+      "cta": "Become part of Nordic Rise →", "subtext": "Completely free to join us.", "brand": "Nordic Rise Agency", "tagline": "Where creators grow."
+    },
+    "footer": {
+      "tagline": "Where creators grow.", "navHeading": "Navigation",
+      "navHome": "Home", "navForCreators": "For creators", "navHowItWorks": "How it works", "navBonus": "Bonus", "navFaq": "FAQ", "navApply": "Apply",
+      "socialHeading": "Social channels", "socialCaption": "TikTok · Instagram · Discord — coming soon",
+      "copyright": "© 2026 Nordic Rise Agency. All rights reserved.", "legalLinks": "Privacy Policy · Terms of Use · Cookies"
+    },
+    "consent": {
+      "textHtml": "<strong>We use cookies.</strong> We use Google Analytics for statistics and analysis of how visitors use the site, so we can improve it. No analytics data is stored until you accept.",
+      "decline": "Decline", "accept": "Accept", "ariaLabel": "Cookie settings"
+    }
+  }
+}
+</script>
 </head>
 <body class="antialiased">
-<a class="sr-only-focusable fixed top-3 left-3 z-[100] bg-white text-black px-4 py-2 rounded font-semibold" href="#main">Hoppa till innehåll</a>
+<a class="sr-only-focusable fixed top-3 left-3 z-[100] bg-white text-black px-4 py-2 rounded font-semibold" data-i18n="a11y.skipLink" href="#main">Hoppa till innehåll</a>
 <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#050608]/75 backdrop-blur-md">
 <div class="mx-auto max-w-7xl px-5 md:px-8 flex items-center justify-between relative h-24 md:h-32">
 <a class="flex items-center gap-3 shrink-0" href="#hem">
@@ -203,30 +859,32 @@
 <img alt="Nordic Rise Agency" class="select-none brand-logo-header" fetchpriority="high" height="544" src="logo.png" width="1100"/>
 </picture>
 </a>
-<nav aria-label="Huvudmeny" class="hidden md:flex items-center gap-10 text-[.8rem] tracking-[.08em] uppercase text-white/70 font-medium">
-<a class="hover:text-white" href="#hem">Hem</a>
-<a class="hover:text-white" href="#for-kreatorer">För kreatörer</a>
-<a class="hover:text-white" href="#live-pa-tiktok">Videor</a>
-<a class="hover:text-white" href="#sa-fungerar-det">Så fungerar det</a>
-<a class="hover:text-white" href="#bonusprogram">Bonus</a>
-<a class="hover:text-white" href="#faq">FAQ</a>
+<nav aria-label="Huvudmeny" class="hidden md:flex items-center gap-8 text-[.8rem] tracking-[.08em] uppercase text-white/70 font-medium" data-i18n-attr="aria-label:nav.ariaLabel">
+<a class="hover:text-white" data-i18n="nav.home" href="#hem">Hem</a>
+<a class="hover:text-white" data-i18n="nav.forCreators" href="#for-kreatorer">För kreatörer</a>
+<a class="hover:text-white" data-i18n="nav.videos" href="#live-pa-tiktok">Videor</a>
+<a class="hover:text-white" data-i18n="nav.howItWorks" href="#sa-fungerar-det">Så fungerar det</a>
+<a class="hover:text-white" data-i18n="nav.bonus" href="#bonusprogram">Bonus</a>
+<a class="hover:text-white" data-i18n="nav.faq" href="#faq">FAQ</a>
+<div class="lang-switch" data-lang-switch role="group"></div>
 </nav>
 <div class="hidden md:block">
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök nu →</a>
+<a class="btn btn-primary" data-i18n="nav.applyCta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök nu →</a>
 </div>
 <details class="mobile-menu md:hidden relative">
-<summary aria-label="Öppna meny" class="w-11 h-11 flex items-center justify-center rounded-md border border-white/10">
+<summary aria-label="Öppna meny" class="w-11 h-11 flex items-center justify-center rounded-md border border-white/10" data-i18n-attr="aria-label:nav.openMenuAria">
 <svg class="icon-open" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
 <svg class="icon-close" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M6 6l12 12M18 6L6 18"></path></svg>
 </summary>
 <div class="mm-panel px-6 py-6 flex flex-col gap-5 text-sm uppercase tracking-wide text-white/80" style="position:fixed; top:6rem; left:0; right:0; max-height:calc(100vh - 6rem); overflow-y:auto; z-index:60;">
-<a href="#hem">Hem</a>
-<a href="#for-kreatorer">För kreatörer</a>
-<a href="#live-pa-tiktok">Videor</a>
-<a href="#sa-fungerar-det">Så fungerar det</a>
-<a href="#bonusprogram">Bonus</a>
-<a href="#faq">FAQ</a>
-<a class="btn btn-primary justify-center mt-2" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök nu →</a>
+<a data-i18n="nav.home" href="#hem">Hem</a>
+<a data-i18n="nav.forCreators" href="#for-kreatorer">För kreatörer</a>
+<a data-i18n="nav.videos" href="#live-pa-tiktok">Videor</a>
+<a data-i18n="nav.howItWorks" href="#sa-fungerar-det">Så fungerar det</a>
+<a data-i18n="nav.bonus" href="#bonusprogram">Bonus</a>
+<a data-i18n="nav.faq" href="#faq">FAQ</a>
+<a class="btn btn-primary justify-center mt-2" data-i18n="nav.applyCta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök nu →</a>
+<div class="lang-switch-mobile" data-lang-switch-mobile role="group"></div>
 </div>
 </details>
 </div>
@@ -247,14 +905,14 @@
 </svg>
 <div class="relative mx-auto max-w-7xl px-5 md:px-8 w-full grid md:grid-cols-[1.15fr,.85fr] gap-14 items-center">
 <div data-reveal>
-<h1 class="font-display font-extrabold hero-heading text-gradient">DU BEHÖVER INTE<br/>VÄXA ENSAM.</h1>
-<p class="font-display text-lg md:text-xl mt-6 text-[color:var(--accent2)]">Där kreatörer växer.</p>
-<p class="mt-6 max-w-xl text-[color:var(--text-dim)] text-base md:text-lg leading-relaxed">
+<h1 class="font-display font-extrabold hero-heading text-gradient"><span data-i18n="hero.headlineLine1">DU BEHÖVER INTE</span><br/><span data-i18n="hero.headlineLine2">VÄXA ENSAM.</span></h1>
+<p class="font-display text-lg md:text-xl mt-6 text-[color:var(--accent2)]" data-i18n="hero.tagline">Där kreatörer växer.</p>
+<p class="mt-6 max-w-xl text-[color:var(--text-dim)] text-base md:text-lg leading-relaxed" data-i18n="hero.body">
           Nordic Rise Agency hjälper dig som kreatör att utvecklas på TikTok LIVE genom personlig coachning, en community att växa tillsammans med och strategier som faktiskt är anpassade efter din LIVE.
-        </p><div class="badge-soon mt-5"><svg fill="none" height="14" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" width="14"><path d="M4 12l5 5L20 6"></path></svg>Helt gratis att gå med oss</div>
+        </p><div class="badge-soon mt-5"><svg fill="none" height="14" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" width="14"><path d="M4 12l5 5L20 6"></path></svg><span data-i18n="hero.badge">Helt gratis att gå med oss</span></div>
 <div class="mt-9 flex flex-wrap items-center gap-4">
-<a class="btn btn-primary text-sm" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
-<a class="btn btn-ghost text-sm" href="#intro">Läs mer ↓</a>
+<a class="btn btn-primary text-sm" data-i18n="hero.ctaPrimary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
+<a class="btn btn-ghost text-sm" data-i18n="hero.ctaSecondary" href="#intro">Läs mer ↓</a>
 </div>
 </div>
 <div aria-hidden="true" class="relative hidden md:flex items-center justify-center" data-reveal>
@@ -275,14 +933,14 @@
 </div>
 </div>
 </section>
-<div class="mx-auto max-w-6xl px-5 md:px-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-display text-xs md:text-sm tracking-[.25em] uppercase text-white/45 text-center"><span>LIVE</span><span class="text-[color:var(--accent)]">→</span><span>TITTARE</span><span class="text-[color:var(--accent)]">→</span><span>FÖLJARE</span><span class="text-[color:var(--accent)]">→</span><span>COMMUNITY</span><span class="text-[color:var(--accent)]">→</span><span>GIFTS</span><span class="text-[color:var(--accent)]">→</span><span>COINS</span><span class="text-[color:var(--accent)]">→</span><span>TILLVÄXT</span></div>
+<div class="mx-auto max-w-6xl px-5 md:px-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-display text-xs md:text-sm tracking-[.25em] uppercase text-white/45 text-center"><span data-i18n="ticker.live">LIVE</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.viewers">TITTARE</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.followers">FÖLJARE</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.community">COMMUNITY</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.gifts">GIFTS</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.coins">COINS</span><span class="text-[color:var(--accent)]">→</span><span data-i18n="ticker.growth">TILLVÄXT</span></div>
 <section class="relative py-24 md:py-32" data-section-type="about" id="intro">
 <div class="mx-auto max-w-4xl px-5 md:px-8 text-center" data-reveal>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-gradient mb-8">Där kreatörer växer.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-6">
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-gradient mb-8" data-i18n="intro.heading">Där kreatörer växer.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-6" data-i18n="intro.p1">
         Att lyckas på TikTok LIVE handlar om mer än att bara starta en sändning. Det handlar om att förstå sin publik, skapa energi, behålla tittare och utveckla en LIVE som människor vill komma tillbaka till.
       </p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed">
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed" data-i18n="intro.p2">
         Nordic Rise hjälper kreatörer att förstå vad som fungerar och hur de kan utveckla sin LIVE över tid.
       </p>
 </div>
@@ -290,44 +948,44 @@
 <section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)]" data-section-type="founder" id="bakom-nordic-rise">
 <div class="mx-auto max-w-6xl px-5 md:px-8 grid gap-14 items-center">
 <div data-reveal>
-<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Bakom Nordic Rise</p>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6">Jag bygger det här för att jag själv vet hur det är att växa på TikTok LIVE.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-5">Jag heter Robin och driver min egen TikTok LIVE-kanal, med en publik på omkring 20 000 följare. Jag vet hur mycket jobb som ligger bakom varje sändning — och hur mycket lättare det blir när man inte behöver lista ut allt själv.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed">Det är därför jag startade Nordic Rise Agency: för att ge andra kreatörer den vägledning, gemenskap och struktur jag själv hade velat ha från början. Inga påhittade genvägar — bara praktisk hjälp från någon som faktiskt gör det här varje dag.</p>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5" data-i18n="founder.eyebrow">Bakom Nordic Rise</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6" data-i18n="founder.heading">Jag bygger det här för att jag själv vet hur det är att växa på TikTok LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-5" data-i18n="founder.p1">Jag heter Robin och driver min egen TikTok LIVE-kanal, med en publik på omkring 20 000 följare. Jag vet hur mycket jobb som ligger bakom varje sändning — och hur mycket lättare det blir när man inte behöver lista ut allt själv.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed" data-i18n="founder.p2">Det är därför jag startade Nordic Rise Agency: för att ge andra kreatörer den vägledning, gemenskap och struktur jag själv hade velat ha från början. Inga påhittade genvägar — bara praktisk hjälp från någon som faktiskt gör det här varje dag.</p>
 </div>
 <div class="relative hidden md:flex items-center justify-center" data-reveal>
 <div class="absolute w-80 h-80 rounded-full glow-blob bg-[#1e6bff] opacity-40"></div>
 <div class="panel-card relative rounded-2xl p-8 text-center">
-<img alt="Robin, grundare av Nordic Rise Agency" class="founder-photo mx-auto mb-6" height="480" loading="lazy" src="robin-founder.jpg" width="480"/>
-<p class="font-display text-sm uppercase tracking-[.2em] text-white/70">Robin</p>
-<p class="text-xs text-[color:var(--text-dimmer)] mt-1">Grundare, Nordic Rise Agency</p>
+<img alt="Robin, grundare av Nordic Rise Agency" class="founder-photo mx-auto mb-6" data-i18n-attr="alt:founder.photoAlt" height="480" loading="lazy" src="robin-founder.jpg" width="480"/>
+<p class="font-display text-sm uppercase tracking-[.2em] text-white/70" data-i18n="founder.name">Robin</p>
+<p class="text-xs text-[color:var(--text-dimmer)] mt-1" data-i18n="founder.role">Grundare, Nordic Rise Agency</p>
 </div>
 </div>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="services" id="for-kreatorer">
 <div class="mx-auto max-w-7xl px-5 md:px-8">
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-16" data-reveal>Det här får du som kreatör hos Nordic Rise.</h2>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-16" data-i18n="services.heading" data-reveal>Det här får du som kreatör hos Nordic Rise.</h2>
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 <div class="panel-card rounded-xl p-7">
 <svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="12" cy="12" r="9"></circle><path d="M14.3 9.7 10 10.3l-.6 4.3 4.3-.6.6-4.3Z"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Personlig coachning</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Hjälp att komma igång, utvecklas och få vägledning längs vägen — oavsett var du befinner dig idag.</p>
+<h3 class="font-display font-semibold text-lg mb-3" data-i18n="services.card1.title">Personlig coachning</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="services.card1.desc">Hjälp att komma igång, utvecklas och få vägledning längs vägen — oavsett var du befinner dig idag.</p>
 </div>
 <div class="panel-card rounded-xl p-7">
 <svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-7 7-7s7 3 7 7"></path><path d="M19 8v6M22 11h-6"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Community</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Ett sammanhang där du kan lära av andra kreatörer, dela erfarenheter och känna att du inte gör det här ensam.</p>
+<h3 class="font-display font-semibold text-lg mb-3" data-i18n="services.card2.title">Community</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="services.card2.desc">Ett sammanhang där du kan lära av andra kreatörer, dela erfarenheter och känna att du inte gör det här ensam.</p>
 </div>
 <div class="panel-card rounded-xl p-7">
 <svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">LIVE-utveckling</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Förstå din statistik, testa nya strategier och hitta vad som faktiskt fungerar för just din publik.</p>
+<h3 class="font-display font-semibold text-lg mb-3" data-i18n="services.card3.title">LIVE-utveckling</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="services.card3.desc">Förstå din statistik, testa nya strategier och hitta vad som faktiskt fungerar för just din publik.</p>
 </div>
 <div class="panel-card rounded-xl p-7">
 <svg class="mb-5" fill="none" height="30" stroke="var(--accent2)" stroke-width="1.6" viewBox="0 0 24 24" width="30"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2.8-2.8 2.8-2.8Z"></path></svg>
-<h3 class="font-display font-semibold text-lg mb-3">Verktyg</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Nordic Rise LIVE ingår som en del av ditt medlemskap — ett verktyg som gör det enklare att utvecklas, helt utan extra kostnad.</p>
+<h3 class="font-display font-semibold text-lg mb-3" data-i18n="services.card4.title">Verktyg</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="services.card4.desc">Nordic Rise LIVE ingår som en del av ditt medlemskap — ett verktyg som gör det enklare att utvecklas, helt utan extra kostnad.</p>
 </div>
 </div>
 </div>
@@ -335,62 +993,62 @@
 <section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="video" id="live-pa-tiktok">
 <div aria-hidden="true" class="glow-blob w-[420px] h-[420px] bg-[#5fc2ff] left-1/2 -translate-x-1/2 -top-32"></div>
 <div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center" data-reveal>
-<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Se Nordic Rise i praktiken</p>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-gradient mb-6">DET BÖRJAR PÅ LIVE.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Nordic Rise handlar om det som faktiskt händer under sändning — inte bara siffror i efterhand. Vi bygger just nu upp en samling klipp och exempel från våra kreatörers livesändningar.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10">Håll utkik här — mer innehåll läggs till löpande i takt med att fler kreatörer blir en del av Nordic Rise.</p>
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Vill du synas här? Ansök till Nordic Rise →</a>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5" data-i18n="video.eyebrow">Se Nordic Rise i praktiken</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-gradient mb-6" data-i18n="video.heading">DET BÖRJAR PÅ LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4" data-i18n="video.p1">Nordic Rise handlar om det som faktiskt händer under sändning — inte bara siffror i efterhand. Vi bygger just nu upp en samling klipp och exempel från våra kreatörers livesändningar.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10" data-i18n="video.p2">Håll utkik här — mer innehåll läggs till löpande i takt med att fler kreatörer blir en del av Nordic Rise.</p>
+<a class="btn btn-primary" data-i18n="video.cta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Vill du synas här? Ansök till Nordic Rise →</a>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="custom">
 <div class="mx-auto max-w-4xl px-5 md:px-8 text-center" data-reveal>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-8">Din LIVE. Ditt sätt.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Du behöver inte vara gamer, underhållare eller ha en specifik typ av content.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">TikTok LIVE handlar om människor, personligheter och communities.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-8">Oavsett om du spelar, pratar, underhåller, skapar, diskuterar, lagar mat, gör IRL-content eller har ett helt eget koncept är målet detsamma:</p>
-<p class="font-display text-xl md:text-2xl font-semibold text-gradient">Att bygga en LIVE som människor vill komma tillbaka till.</p><p class="mt-6 text-base md:text-lg text-[color:var(--text-dim)]">Det finns inga krav för att gå med i Nordic Rise — bara viljan att växa.</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-8" data-i18n="custom1.heading">Din LIVE. Ditt sätt.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4" data-i18n="custom1.p1">Du behöver inte vara gamer, underhållare eller ha en specifik typ av content.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4" data-i18n="custom1.p2">TikTok LIVE handlar om människor, personligheter och communities.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-8" data-i18n="custom1.p3">Oavsett om du spelar, pratar, underhåller, skapar, diskuterar, lagar mat, gör IRL-content eller har ett helt eget koncept är målet detsamma:</p>
+<p class="font-display text-xl md:text-2xl font-semibold text-gradient" data-i18n="custom1.quote">Att bygga en LIVE som människor vill komma tillbaka till.</p><p class="mt-6 text-base md:text-lg text-[color:var(--text-dim)]" data-i18n="custom1.subtext">Det finns inga krav för att gå med i Nordic Rise — bara viljan att växa.</p>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)]" data-section-type="custom_2">
 <div class="mx-auto max-w-5xl px-5 md:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-5">Vi letar efter drivna kreatörer.</h2>
-<p class="text-[color:var(--text-dim)] text-lg">Du behöver inte vara störst. Du behöver vilja bli bättre.</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-5" data-i18n="custom2.heading">Vi letar efter drivna kreatörer.</h2>
+<p class="text-[color:var(--text-dim)] text-lg" data-i18n="custom2.subtext">Du behöver inte vara störst. Du behöver vilja bli bättre.</p>
 </div>
 <ul class="checklist grid sm:grid-cols-2 gap-x-10 gap-y-5 mb-14">
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du gör TikTok LIVE</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill växa</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill få fler tittare</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill bygga en community</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill öka dina följare</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill tjäna mer på dina livesändningar</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du är villig att utvecklas</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Du vill ta din LIVE till nästa nivå</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item1">Du gör TikTok LIVE</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item2">Du vill växa</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item3">Du vill få fler tittare</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item4">Du vill bygga en community</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item5">Du vill öka dina följare</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item6">Du vill tjäna mer på dina livesändningar</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item7">Du är villig att utvecklas</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="custom2.item8">Du vill ta din LIVE till nästa nivå</span></li>
 </ul>
 <div class="text-center">
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök till Nordic Rise →</a>
+<a class="btn btn-primary" data-i18n="custom2.cta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök till Nordic Rise →</a>
 </div>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="process_2" id="sa-fungerar-det">
 <div class="mx-auto max-w-6xl px-5 md:px-8">
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-6" data-reveal>Så fungerar Nordic Rise.</h2>
-<p class="text-[color:var(--text-dim)] text-lg text-center max-w-2xl mx-auto mb-16" data-reveal>Du behöver inte redan ha LIVE-behörighet eller tidigare statistik — vi möter dig där du är.</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-6" data-i18n="process.heading" data-reveal>Så fungerar Nordic Rise.</h2>
+<p class="text-[color:var(--text-dim)] text-lg text-center max-w-2xl mx-auto mb-16" data-i18n="process.subtext" data-reveal>Du behöver inte redan ha LIVE-behörighet eller tidigare statistik — vi möter dig där du är.</p>
 <div class="grid md:grid-cols-3 gap-8">
 <div>
 <span class="num-step">01</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Gå med</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Ansök och bli en del av Nordic Rise — det är gratis och tar bara någon minut.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2" data-i18n="process.step1.title">Gå med</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="process.step1.desc">Ansök och bli en del av Nordic Rise — det är gratis och tar bara någon minut.</p>
 </div>
 <div>
 <span class="num-step">02</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Kom igång</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Oavsett om du är helt ny på LIVE eller redan sänder idag får du hjälp utifrån just din erfarenhet.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2" data-i18n="process.step2.title">Kom igång</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="process.step2.desc">Oavsett om du är helt ny på LIVE eller redan sänder idag får du hjälp utifrån just din erfarenhet.</p>
 </div>
 <div>
 <span class="num-step">03</span>
-<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2">Utvecklas tillsammans</h3>
-<p class="text-sm text-[color:var(--text-dim)] leading-relaxed">Testa nya strategier, följ upp din statistik, få återkoppling och justera längs vägen.</p>
+<h3 class="font-display font-semibold uppercase tracking-wide mt-3 mb-2" data-i18n="process.step3.title">Utvecklas tillsammans</h3>
+<p class="text-sm text-[color:var(--text-dim)] leading-relaxed" data-i18n="process.step3.desc">Testa nya strategier, följ upp din statistik, få återkoppling och justera längs vägen.</p>
 </div>
 </div>
 </div>
@@ -399,106 +1057,106 @@
 <div aria-hidden="true" class="glow-blob w-[460px] h-[460px] bg-[#1e6bff] left-1/2 -translate-x-1/2 -top-40"></div>
 <div class="relative mx-auto max-w-6xl px-5 md:px-8">
 <div class="max-w-3xl mx-auto text-center mb-14" data-reveal>
-<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5">Bonusprogram</p>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6">Tjäna extra varje månad med Nordic Rise</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Hos Nordic Rise belönar vi kreatörer som är konsekventa och når nya nivåer på TikTok LIVE.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-8">Utöver dina vanliga intäkter från TikTok kan du få en <span class="text-white font-semibold">månatlig Nordic Rise-bonus</span> när du når någon av bonusnivåerna nedan.</p>
-<blockquote class="panel-card rounded-xl px-6 py-5 text-sm md:text-base text-[color:var(--text-dim)] text-left border-l-2" style="border-left-color:var(--accent);">Bonusen baseras på hur många <span class="text-[color:var(--accent2)] font-semibold">TikTok Coins</span> du samlar under en kalendermånad.</blockquote>
+<p class="font-display tracking-[.3em] uppercase text-xs md:text-sm text-[color:var(--accent2)] mb-5" data-i18n="bonus.eyebrow">Bonusprogram</p>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] mb-6" data-i18n="bonus.heading">Tjäna extra varje månad med Nordic Rise</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4" data-i18n="bonus.p1">Hos Nordic Rise belönar vi kreatörer som är konsekventa och når nya nivåer på TikTok LIVE.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-8" data-i18n-html="bonus.p2Html">Utöver dina vanliga intäkter från TikTok kan du få en <span class="text-white font-semibold">månatlig Nordic Rise-bonus</span> när du når någon av bonusnivåerna nedan.</p>
+<blockquote class="panel-card rounded-xl px-6 py-5 text-sm md:text-base text-[color:var(--text-dim)] text-left border-l-2" data-i18n-html="bonus.quoteHtml" style="border-left-color:var(--accent);">Bonusen baseras på hur många <span class="text-[color:var(--accent2)] font-semibold">TikTok Coins</span> du samlar under en kalendermånad.</blockquote>
 </div>
 <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-16">
 <div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
 <svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
-<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">50 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none" data-i18n="bonus.tier1.coins">50 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5" data-i18n="bonus.coinsLabel">Coins / månad</p>
 <div class="w-8 h-px bg-white/10 mb-5"></div>
-<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+1 250</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient" data-i18n="bonus.tier1.bonus">+1 250</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1" data-i18n="bonus.bonusCoinsLabel">Bonus Coins</p>
 </div>
 <div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
 <svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
-<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">100 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none" data-i18n="bonus.tier2.coins">100 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5" data-i18n="bonus.coinsLabel">Coins / månad</p>
 <div class="w-8 h-px bg-white/10 mb-5"></div>
-<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+2 500</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient" data-i18n="bonus.tier2.bonus">+2 500</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1" data-i18n="bonus.bonusCoinsLabel">Bonus Coins</p>
 </div>
 <div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
 <svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
-<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">250 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none" data-i18n="bonus.tier3.coins">250 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5" data-i18n="bonus.coinsLabel">Coins / månad</p>
 <div class="w-8 h-px bg-white/10 mb-5"></div>
-<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+8 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient" data-i18n="bonus.tier3.bonus">+8 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1" data-i18n="bonus.bonusCoinsLabel">Bonus Coins</p>
 </div>
 <div class="panel-card bonus-card rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center">
 <svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
-<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">500 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none" data-i18n="bonus.tier4.coins">500 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5" data-i18n="bonus.coinsLabel">Coins / månad</p>
 <div class="w-8 h-px bg-white/10 mb-5"></div>
-<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+22 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient" data-i18n="bonus.tier4.bonus">+22 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1" data-i18n="bonus.bonusCoinsLabel">Bonus Coins</p>
 </div>
 <div class="panel-card bonus-card featured rounded-xl p-6 pt-8 pb-8 text-center flex flex-col items-center relative">
-<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[color:var(--accent)] text-[#04121e] text-[.6rem] font-display font-bold uppercase tracking-[.15em] px-3 py-1 rounded-full whitespace-nowrap">Högsta nivå</span>
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[color:var(--accent)] text-[#04121e] text-[.6rem] font-display font-bold uppercase tracking-[.15em] px-3 py-1 rounded-full whitespace-nowrap" data-i18n="bonus.tierBadge">Högsta nivå</span>
 <svg class="mb-5" fill="none" height="34" stroke="var(--accent2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="34"><path d="M6 3h12l4 6-10 12L2 9Z"></path><path d="M2 9h20M9 3l-3 6 6 12 6-12-3-6M9 3h6"></path></svg>
-<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none">1 000 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5">Coins / månad</p>
+<p class="font-display font-extrabold text-2xl md:text-[1.6rem] leading-none" data-i18n="bonus.tier5.coins">1 000 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--text-dimmer)] mt-2 mb-5" data-i18n="bonus.coinsLabel">Coins / månad</p>
 <div class="w-8 h-px bg-white/10 mb-5"></div>
-<p class="font-display font-extrabold text-xl md:text-2xl text-gradient">+35 000</p>
-<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1">Bonus Coins</p>
+<p class="font-display font-extrabold text-xl md:text-2xl text-gradient" data-i18n="bonus.tier5.bonus">+35 000</p>
+<p class="text-[.65rem] tracking-[.18em] uppercase text-[color:var(--accent2)] mt-1" data-i18n="bonus.bonusCoinsLabel">Bonus Coins</p>
 </div>
 </div>
 <div class="max-w-3xl mx-auto panel-card rounded-xl p-8 md:p-10 mb-16" data-reveal>
-<h3 class="font-display font-semibold text-lg mb-5">Hur fungerar bonusen?</h3>
+<h3 class="font-display font-semibold text-lg mb-5" data-i18n="bonus.how.heading">Hur fungerar bonusen?</h3>
 <ul class="checklist space-y-4">
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Bonusen räknas på hela månadens TikTok Coins.</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">När du når en bonusnivå får du den bonus som motsvarar den nivån.</span></li>
-<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]">Bonusen betalas ut av Nordic Rise enligt agency-avtalet.</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="bonus.how.item1">Bonusen räknas på hela månadens TikTok Coins.</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="bonus.how.item2">När du når en bonusnivå får du den bonus som motsvarar den nivån.</span></li>
+<li><span class="check-badge"><svg fill="none" height="12" stroke="var(--accent2)" stroke-width="3" viewBox="0 0 24 24" width="12"><path d="M4 12l5 5L20 6"></path></svg></span><span class="text-[color:var(--text-dim)]" data-i18n="bonus.how.item3">Bonusen betalas ut av Nordic Rise enligt agency-avtalet.</span></li>
 </ul>
 </div>
 <div class="text-center" data-reveal>
-<h3 class="font-display font-bold text-2xl md:text-3xl mb-4 text-gradient">Redo att ta nästa nivå?</h3>
-<p class="text-[color:var(--text-dim)] text-lg mb-8 max-w-xl mx-auto">Bli en del av Nordic Rise Agency och låt ditt LIVE-arbete belönas varje månad.</p>
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök till Nordic Rise →</a>
+<h3 class="font-display font-bold text-2xl md:text-3xl mb-4 text-gradient" data-i18n="bonus.cta.heading">Redo att ta nästa nivå?</h3>
+<p class="text-[color:var(--text-dim)] text-lg mb-8 max-w-xl mx-auto" data-i18n="bonus.cta.subtext">Bli en del av Nordic Rise Agency och låt ditt LIVE-arbete belönas varje månad.</p>
+<a class="btn btn-primary" data-i18n="bonus.cta.button" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök till Nordic Rise →</a>
 </div>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5 bg-[color:var(--bg2)] overflow-hidden" data-section-type="pricing">
 <div aria-hidden="true" class="glow-blob w-[420px] h-[420px] bg-[#5fc2ff] left-1/2 -translate-x-1/2 -top-32"></div>
 <div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center panel-card rounded-2xl py-16 px-8 md:px-16" data-reveal>
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3rem)] text-gradient mb-6">Det är helt gratis att gå med oss.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4">Nordic Rise Agency kostar inget att gå med i.</p>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10">Vårt mål är att hjälpa våra kreatörer att utvecklas, växa sin publik och lyckas bättre på TikTok LIVE.</p>
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök gratis →</a>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3rem)] text-gradient mb-6" data-i18n="pricing.heading">Det är helt gratis att gå med oss.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-4" data-i18n="pricing.p1">Nordic Rise Agency kostar inget att gå med i.</p>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10" data-i18n="pricing.p2">Vårt mål är att hjälpa våra kreatörer att utvecklas, växa sin publik och lyckas bättre på TikTok LIVE.</p>
+<a class="btn btn-primary" data-i18n="pricing.cta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök gratis →</a>
 </div>
 </section>
 <section class="relative py-24 md:py-32 border-t border-white/5" data-section-type="faq" id="faq">
 <div class="mx-auto max-w-3xl px-5 md:px-8">
-<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-14" data-reveal>Vanliga frågor.</h2>
+<h2 class="font-display font-bold text-[clamp(2rem,5vw,3.2rem)] text-center mb-14" data-i18n="faq.heading" data-reveal>Vanliga frågor.</h2>
 <div>
 <details class="faq-item py-5" open="">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Vad är Nordic Rise Agency?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Nordic Rise är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att utveckla sina livesändningar, få fler tittare och följare, bygga communities och öka sina LIVE-intäkter.</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q1">Vad är Nordic Rise Agency?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a1">Nordic Rise är en specialistbyrå för TikTok LIVE. Vi hjälper kreatörer att utveckla sina livesändningar, få fler tittare och följare, bygga communities och öka sina LIVE-intäkter.</div></div>
 </details>
 <details class="faq-item py-5">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Vad får jag som kreatör?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Du får coaching, vägledning, feedback och strategier för att utveckla din TikTok LIVE och växa på plattformen. Du får också bonus beroende på hur mycket coins du drar in på en månad!</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q2">Vad får jag som kreatör?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a2">Du får coaching, vägledning, feedback och strategier för att utveckla din TikTok LIVE och växa på plattformen. Du får också bonus beroende på hur mycket coins du drar in på en månad!</div></div>
 </details>
 <details class="faq-item py-5">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Kostar det något?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Nej. Det är helt gratis att gå med oss.</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q3">Kostar det något?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a3">Nej. Det är helt gratis att gå med oss.</div></div>
 </details>
 <details class="faq-item py-5">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Måste jag redan ha många tittare?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Nej. Vi letar efter kreatörer med potential, driv och vilja att utvecklas. Du behöver inte redan vara stor för att börja växa.</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q4">Måste jag redan ha många tittare?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a4">Nej. Vi letar efter kreatörer med potential, driv och vilja att utvecklas. Du behöver inte redan vara stor för att börja växa.</div></div>
 </details>
 <details class="faq-item py-5">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Vilken typ av content behöver jag göra?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Ingen specifik typ. Nordic Rise välkomnar kreatörer inom alla typer av TikTok LIVE-content. Det viktiga är att du vill utvecklas och bygga en starkare LIVE.</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q5">Vilken typ av content behöver jag göra?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a5">Ingen specifik typ. Nordic Rise välkomnar kreatörer inom alla typer av TikTok LIVE-content. Det viktiga är att du vill utvecklas och bygga en starkare LIVE.</div></div>
 </details>
 <details class="faq-item py-5">
-<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg">Vad fokuserar Nordic Rise på?<span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
-<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed">Enbart TikTok LIVE. Vårt fokus är tittare, följare, engagemang, community, gifts, coins och långsiktig tillväxt på TikTok LIVE.</div></div>
+<summary class="flex items-center justify-between gap-4 font-display font-semibold text-lg"><span data-i18n="faq.q6">Vad fokuserar Nordic Rise på?</span><span class="chev text-[color:var(--accent2)] text-2xl leading-none">+</span></summary>
+<div class="faq-a"><div class="pt-3 text-[color:var(--text-dim)] leading-relaxed" data-i18n="faq.a6">Enbart TikTok LIVE. Vårt fokus är tittare, följare, engagemang, community, gifts, coins och långsiktig tillväxt på TikTok LIVE.</div></div>
 </details>
 </div>
 </div>
@@ -515,13 +1173,13 @@
 <path d="M0,220 L0,150 L80,170 L160,110 L240,150 L320,90 L410,140 L500,100 L590,145 L680,80 L760,130 L850,95 L940,140 L1030,85 L1120,135 L1210,100 L1300,145 L1440,120 L1440,220 Z" fill="url(#finalCtaRidgeGrad)"></path>
 </svg>
 <div class="relative mx-auto max-w-3xl px-5 md:px-8 text-center" data-reveal>
-<h2 class="font-display font-extrabold hero-heading text-gradient mb-6">DET BÖRJAR PÅ LIVE.</h2>
-<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10">Du har redan börjat fundera på nästa steg. Nu är det dags att faktiskt ta det.</p>
-<a class="btn btn-primary" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
-<p class="mt-5 text-sm text-[color:var(--text-dimmer)]">Helt gratis att gå med oss.</p>
+<h2 class="font-display font-extrabold hero-heading text-gradient mb-6" data-i18n="finalCta.heading">DET BÖRJAR PÅ LIVE.</h2>
+<p class="text-[color:var(--text-dim)] text-lg leading-relaxed mb-10" data-i18n="finalCta.body">Du har redan börjat fundera på nästa steg. Nu är det dags att faktiskt ta det.</p>
+<a class="btn btn-primary" data-i18n="finalCta.cta" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Bli en del av Nordic Rise →</a>
+<p class="mt-5 text-sm text-[color:var(--text-dimmer)]" data-i18n="finalCta.subtext">Helt gratis att gå med oss.</p>
 <div class="mt-12 pt-10 border-t border-white/5">
-<p class="font-display uppercase tracking-[.3em] text-sm text-white/70">Nordic Rise Agency</p>
-<p class="text-[color:var(--text-dim)] italic text-sm mt-2">Där kreatörer växer.</p>
+<p class="font-display uppercase tracking-[.3em] text-sm text-white/70" data-i18n="finalCta.brand">Nordic Rise Agency</p>
+<p class="text-[color:var(--text-dim)] italic text-sm mt-2" data-i18n="finalCta.tagline">Där kreatörer växer.</p>
 </div>
 </div>
 </section>
@@ -533,40 +1191,40 @@
 <source srcset="logo.webp" type="image/webp"/>
 <img alt="Nordic Rise Agency" class="mb-4 brand-logo-footer" height="544" loading="lazy" src="logo.png" width="1100"/>
 </picture>
-<p class="text-[color:var(--text-dim)] italic text-sm">Där kreatörer växer.</p>
+<p class="text-[color:var(--text-dim)] italic text-sm" data-i18n="footer.tagline">Där kreatörer växer.</p>
 </div>
 <div>
-<p class="font-display uppercase tracking-[.2em] text-xs text-white/50 mb-4">Navigation</p>
+<p class="font-display uppercase tracking-[.2em] text-xs text-white/50 mb-4" data-i18n="footer.navHeading">Navigation</p>
 <ul class="space-y-3 text-sm text-[color:var(--text-dim)]">
-<li><a class="hover:text-white" href="#hem">Hem</a></li>
-<li><a class="hover:text-white" href="#for-kreatorer">För kreatörer</a></li>
-<li><a class="hover:text-white" href="#sa-fungerar-det">Så fungerar det</a></li>
-<li><a class="hover:text-white" href="#bonusprogram">Bonus</a></li>
-<li><a class="hover:text-white" href="#faq">FAQ</a></li>
-<li><a class="hover:text-white" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navHome" href="#hem">Hem</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navForCreators" href="#for-kreatorer">För kreatörer</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navHowItWorks" href="#sa-fungerar-det">Så fungerar det</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navBonus" href="#bonusprogram">Bonus</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navFaq" href="#faq">FAQ</a></li>
+<li><a class="hover:text-white" data-i18n="footer.navApply" href="https://www.tiktok.com/t/ZSb5LLfWD/" target="_blank" rel="noopener noreferrer">Ansök</a></li>
 </ul>
 </div>
 <div>
-<p class="font-display uppercase tracking-[.2em] text-xs text-white/50 mb-4">Sociala kanaler</p>
+<p class="font-display uppercase tracking-[.2em] text-xs text-white/50 mb-4" data-i18n="footer.socialHeading">Sociala kanaler</p>
 <div aria-hidden="true" class="flex items-center gap-4 mb-3">
 <span class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40"><svg fill="currentColor" height="16" viewBox="0 0 24 24" width="16"><path d="M16.6 5.8c-.9-.9-1.4-2.1-1.4-3.4h-3.1v13.9c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9 0-1.6 1.3-2.9 2.9-2.9.3 0 .6 0 .9.1V10.3c-.3 0-.6-.1-.9-.1-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V9.1c1.2.9 2.7 1.4 4.3 1.4V7.4c-1 0-1.9-.3-2.9-1V5.8z"></path></svg></span>
 <span class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40"><svg fill="currentColor" height="16" viewBox="0 0 24 24" width="16"><path d="M12 2.2c2.7 0 3 0 4.1.1 1.1 0 1.7.2 2.1.4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.4 1 .4 2.1.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.7-.4 2.1-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1 .4-2.1.4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.7-.2-2.1-.4-.5-.2-.9-.4-1.3-.8-.4-.4-.6-.8-.8-1.3-.2-.4-.4-1-.4-2.1-.1-1.1-.1-1.4-.1-4.1s0-3 .1-4.1c0-1.1.2-1.7.4-2.1.2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1-.4 2.1-.4 1.1-.1 1.4-.1 4.1-.1M12 0C9.3 0 8.9 0 7.8.1c-1.1.1-1.9.2-2.6.5-.7.3-1.3.6-1.9 1.2C2.7 2.4 2.4 3 2.1 3.7c-.3.7-.5 1.5-.5 2.6C1.5 7.4 1.5 7.8 1.5 10.5v3c0 2.7 0 3.1.1 4.2.1 1.1.2 1.9.5 2.6.3.7.6 1.3 1.2 1.9.6.6 1.2.9 1.9 1.2.7.3 1.5.5 2.6.5 1.1.1 1.5.1 4.2.1s3.1 0 4.2-.1c1.1-.1 1.9-.2 2.6-.5.7-.3 1.3-.6 1.9-1.2.6-.6.9-1.2 1.2-1.9.3-.7.5-1.5.5-2.6.1-1.1.1-1.5.1-4.2v-3c0-2.7 0-3.1-.1-4.2 0-1.1-.2-1.9-.5-2.6-.3-.7-.6-1.3-1.2-1.9-.6-.6-1.2-.9-1.9-1.2-.7-.3-1.5-.5-2.6-.5C15.1 0 14.7 0 12 0z"></path><path d="M12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.4 5.6a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"></path></svg></span>
 <span class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40"><svg fill="currentColor" height="16" viewBox="0 0 24 24" width="16"><path d="M20.3 5.3A17 17 0 0 0 16 4l-.2.4c1.6.5 2.7 1.1 3.7 1.9-2-1-4-1.5-6.1-1.5s-4.1.5-6.1 1.5c1-.8 2.3-1.5 3.7-1.9L11 4a17 17 0 0 0-4.3 1.3C4.5 8.5 3.8 11.7 4 14.8a17 17 0 0 0 5.2 2.6l.7-1.1c-1-.4-1.9-.9-2.7-1.5.2.2.5.3.7.5 4.7 2.2 9.8 2.2 14.4 0 .2-.2.5-.3.7-.5-.8.6-1.7 1.1-2.7 1.5l.7 1.1a17 17 0 0 0 5.2-2.6c.3-3.5-.6-6.7-2.9-9.5zM9.5 12.9c-.8 0-1.4-.8-1.4-1.7 0-1 .6-1.7 1.4-1.7s1.4.8 1.4 1.7c0 1-.6 1.7-1.4 1.7zm5 0c-.8 0-1.4-.8-1.4-1.7 0-1 .6-1.7 1.4-1.7s1.4.8 1.4 1.7c0 1-.6 1.7-1.4 1.7z"></path></svg></span>
 </div>
-<p class="text-xs text-[color:var(--text-dimmer)]">TikTok · Instagram · Discord — kommer snart</p>
+<p class="text-xs text-[color:var(--text-dimmer)]" data-i18n="footer.socialCaption">TikTok · Instagram · Discord — kommer snart</p>
 </div>
 </div>
 <div class="mx-auto max-w-7xl px-5 md:px-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[color:var(--text-dimmer)]">
-<p>© 2026 Nordic Rise Agency. Alla rättigheter förbehållna.</p>
-<p>Integritetspolicy · Användarvillkor · Cookies</p>
+<p data-i18n="footer.copyright">© 2026 Nordic Rise Agency. Alla rättigheter förbehållna.</p>
+<p data-i18n="footer.legalLinks">Integritetspolicy · Användarvillkor · Cookies</p>
 </div>
 </footer>
-<div class="nra-consent-bar" data-nra-consent-bar="" hidden="" id="nra-consent-bar" role="dialog" aria-live="polite" aria-label="Cookieinställningar">
+<div class="nra-consent-bar" data-i18n-attr="aria-label:consent.ariaLabel" data-nra-consent-bar="" hidden="" id="nra-consent-bar" role="dialog" aria-live="polite" aria-label="Cookieinställningar">
 <div class="nra-consent-bar-inner">
-<p class="nra-consent-bar-text"><strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.</p>
+<p class="nra-consent-bar-text" data-i18n-html="consent.textHtml"><strong>Vi använder cookies.</strong> Vi använder Google Analytics för statistik och analys av hur besökare använder sajten, så vi kan förbättra den. Ingen analysdata sparas förrän du godkänner.</p>
 <div class="nra-consent-bar-actions">
-<button class="btn btn-ghost" id="nra-consent-decline" type="button">Neka</button>
-<button class="btn btn-primary" id="nra-consent-accept" type="button">Acceptera</button>
+<button class="btn btn-ghost" data-i18n="consent.decline" id="nra-consent-decline" type="button">Neka</button>
+<button class="btn btn-primary" data-i18n="consent.accept" id="nra-consent-accept" type="button">Acceptera</button>
 </div>
 </div>
 </div>
@@ -692,6 +1350,202 @@
       hideBanner();
     });
   }
+})();
+</script>
+<script>
+// ---------------------------------------------------------------------------
+// Language switching (sv / da / nb / fi / en)
+//
+// The language actually shown is decided in this priority order:
+//   1. A manual choice the visitor made via the language switcher (cookie
+//      "nr_lang", also mirrored in localStorage). Always wins.
+//   2. window.__NR_LANG__, set by the Netlify Edge Function
+//      (netlify/edge-functions/geo-lang.js) from the visitor's real
+//      IP-based country -- only present once the site is actually live on
+//      Netlify, not when opening this file locally or via a plain static
+//      host without edge functions.
+//   3. The visitor's browser/OS language (navigator.language) -- works
+//      everywhere, including local testing, as a reasonable guess.
+//   4. "sv" (Swedish) as the final fallback.
+//
+// All visible text lives in the JSON blob in #nr-i18n-data (one object per
+// language, same key structure for all five) -- see i18n/translations.json
+// in the project for the source of truth; keep both in sync if you edit
+// copy later.
+(function(){
+  var SUPPORTED = ['sv','da','nb','fi','en'];
+  var COOKIE_NAME = 'nr_lang';
+
+  function readCookie(name){
+    try {
+      var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    } catch(e){ return null; }
+  }
+  function writeCookie(name, value){
+    try {
+      var maxAge = 60 * 60 * 24 * 365; // 1 year
+      document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; max-age=' + maxAge + '; SameSite=Lax';
+    } catch(e){}
+  }
+
+  function langFromBrowserTag(tag){
+    if(!tag) return null;
+    var sub = tag.toLowerCase().split('-')[0];
+    if(sub === 'sv') return 'sv';
+    if(sub === 'da') return 'da';
+    if(sub === 'nb' || sub === 'no' || sub === 'nn') return 'nb';
+    if(sub === 'fi') return 'fi';
+    return null;
+  }
+
+  function detectLanguage(){
+    // 1. Manual override (cookie, falling back to localStorage for older
+    //    writes / belt-and-braces if cookies are ever blocked but
+    //    localStorage isn't).
+    var manual = readCookie(COOKIE_NAME);
+    if(!manual){
+      try { manual = localStorage.getItem(COOKIE_NAME); } catch(e){}
+    }
+    if(manual && SUPPORTED.indexOf(manual) !== -1) return manual;
+
+    // 2. Geo-detected language from the Netlify Edge Function, if present.
+    if(window.__NR_LANG__ && SUPPORTED.indexOf(window.__NR_LANG__) !== -1){
+      return window.__NR_LANG__;
+    }
+
+    // 3. Browser/OS language as a best-effort guess (also what's used when
+    //    previewing this file locally, where no edge function ever runs).
+    var tags = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language];
+    for(var i = 0; i < tags.length; i++){
+      var guess = langFromBrowserTag(tags[i]);
+      if(guess) return guess;
+    }
+    if (tags.length) return 'en'; // has a browser language, just not a Nordic one -> English
+
+    // 4. Absolute fallback.
+    return 'sv';
+  }
+
+  function getPath(obj, path){
+    var parts = path.split('.');
+    var cur = obj;
+    for(var i = 0; i < parts.length; i++){
+      if(cur == null) return undefined;
+      cur = cur[parts[i]];
+    }
+    return cur;
+  }
+
+  function loadTranslations(){
+    var node = document.getElementById('nr-i18n-data');
+    if(!node) return null;
+    try { return JSON.parse(node.textContent); } catch(e){ return null; }
+  }
+
+  var LANG_LABELS = { sv: 'SV', da: 'DA', nb: 'NO', fi: 'FI', en: 'EN' };
+  var LANG_NAMES = { sv: 'Svenska', da: 'Dansk', nb: 'Norsk', fi: 'Suomi', en: 'English' };
+
+  function buildSwitcher(container, variant, activeLang, onPick){
+    if(!container) return;
+    container.innerHTML = '';
+    SUPPORTED.forEach(function(code, idx){
+      if(variant === 'desktop' && idx > 0){
+        var sep = document.createElement('span');
+        sep.className = 'lang-switch-sep';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = '/';
+        container.appendChild(sep);
+      }
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = LANG_LABELS[code];
+      btn.title = LANG_NAMES[code];
+      btn.setAttribute('aria-pressed', code === activeLang ? 'true' : 'false');
+      btn.setAttribute('aria-label', LANG_NAMES[code]);
+      btn.addEventListener('click', function(){ onPick(code); });
+      container.appendChild(btn);
+    });
+  }
+
+  function applyTranslations(lang, translations){
+    var dict = translations[lang] || translations.sv;
+    if(!dict) return;
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var value = getPath(dict, el.getAttribute('data-i18n'));
+      if(typeof value === 'string') el.textContent = value;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var value = getPath(dict, el.getAttribute('data-i18n-html'));
+      if(typeof value === 'string') el.innerHTML = value;
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      el.getAttribute('data-i18n-attr').split(';').forEach(function(pair){
+        var sep = pair.indexOf(':');
+        if(sep === -1) return;
+        var attr = pair.slice(0, sep).trim();
+        var path = pair.slice(sep + 1).trim();
+        var value = getPath(dict, path);
+        if(typeof value === 'string') el.setAttribute(attr, value);
+      });
+    });
+
+    // <head> metadata: title, description, Open Graph, Twitter Card, html lang.
+    var meta = dict.meta || {};
+    document.documentElement.setAttribute('lang', meta.htmlLang || lang);
+    if(meta.title) document.title = meta.title;
+    var setMeta = function(selector, value){
+      if(!value) return;
+      var el = document.querySelector(selector);
+      if(el) el.setAttribute('content', value);
+    };
+    setMeta('meta[name="description"]', meta.description);
+    setMeta('meta[property="og:title"]', meta.ogTitle);
+    setMeta('meta[property="og:description"]', meta.ogDescription);
+    setMeta('meta[property="og:locale"]', meta.locale);
+    setMeta('meta[property="og:image:alt"]', meta.ogImageAlt);
+    setMeta('meta[name="twitter:title"]', meta.ogTitle);
+    setMeta('meta[name="twitter:description"]', meta.ogDescription);
+    setMeta('meta[name="twitter:image:alt"]', meta.ogImageAlt);
+
+    try {
+      var orgNode = document.getElementById('ld-org');
+      if(orgNode){
+        var org = JSON.parse(orgNode.textContent);
+        if(meta.jsonLdOrgDescription) org.description = meta.jsonLdOrgDescription;
+        if(meta.jsonLdSlogan) org.slogan = meta.jsonLdSlogan;
+        orgNode.textContent = JSON.stringify(org);
+      }
+      var siteNode = document.getElementById('ld-website');
+      if(siteNode){
+        var site = JSON.parse(siteNode.textContent);
+        if(meta.jsonLdInLanguage) site.inLanguage = meta.jsonLdInLanguage;
+        siteNode.textContent = JSON.stringify(site);
+      }
+    } catch(e){}
+
+    buildSwitcher(document.querySelector('[data-lang-switch]'), 'desktop', lang, setLanguage);
+    buildSwitcher(document.querySelector('[data-lang-switch-mobile]'), 'mobile', lang, setLanguage);
+  }
+
+  var translations = loadTranslations();
+
+  function setLanguage(lang){
+    if(!translations || SUPPORTED.indexOf(lang) === -1) return;
+    writeCookie(COOKIE_NAME, lang);
+    try { localStorage.setItem(COOKIE_NAME, lang); } catch(e){}
+    applyTranslations(lang, translations);
+  }
+
+  if(translations){
+    applyTranslations(detectLanguage(), translations);
+  }
+  // Reveal the page now that the correct language is in place (see the
+  // body{opacity:0} / body.nr-i18n-ready rule in <style>). Runs regardless
+  // of whether translations loaded, so a parsing problem never leaves the
+  // page permanently invisible.
+  document.body.classList.add('nr-i18n-ready');
 })();
 </script>
 </body>

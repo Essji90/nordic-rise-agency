@@ -1,0 +1,12 @@
+# Registers the geo-based language-detection Edge Function (see
+# netlify/edge-functions/geo-lang.js). The function also declares its own
+# path via `export const config = { path: "/" }`, so this block is mostly
+# belt-and-braces / documentation -- Netlify picks up functions from the
+# default netlify/edge-functions/ directory automatically.
+#
+# This file intentionally does NOT set [build] / publish settings, so it
+# won't override whatever build & publish configuration is already set in
+# the Netlify UI for this site.
+[[edge_functions]]
+  path = "/"
+  function = "geo-lang"
