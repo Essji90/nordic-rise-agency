@@ -87,7 +87,14 @@ function getCookie(request, name) {
   const header = request.headers.get("cookie");
   if (!header) return null;
   const match = header.match(new RegExp("(?:^|;\\s*)" + name + "=([^;]*)"));
-  return match ? decodeURIComponent(match[1]) : null;
+  if (!match) return null;
+  try {
+    return decodeURIComponent(match[1]);
+  } catch (err) {
+    // A malformed percent-encoded cookie value should never crash the
+    // request -- just treat it as "no manual override".
+    return null;
+  }
 }
 
 function resolveLang(request, context) {
@@ -108,6 +115,58 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+// Replaces the content="..." value of the first <meta> tag whose given
+// attribute (e.g. name or property) matches attrValue exactly, regardless of
+// how the tag's own attributes are ordered. No-op if no such tag is found,
+// so a markup change in index.html degrades gracefully instead of throwing.
+function setMetaContent(html, attrName, attrValue, newValue) {
+  const tagRe = new RegExp(
+    `<meta\\b[^>]*\\b${attrName}=["']${attrValue}["'][^>]*>`,
+    "i"
+  );
+  const tagMatch = html.match(tagRe);
+  if (!tagMatch) return html;
+  const newTag = tagMatch[0].replace(
+    /content=["'][^"']*["']/i,
+    `content="${escapeHtml(newValue)}"`
+  );
+  return html.slice(0, tagMatch.index) + newTag + html.slice(tagMatch.index + tagMatch[0].length);
+}
+
+// Netlify Edge Functions do NOT expose a global `HTMLRewriter` (that's a
+// Cloudflare Workers API) -- using it here previously threw
+// "ReferenceError: HTMLRewriter is not defined" on every single request,
+// crashing the function. Netlify's own docs model HTML middleware as plain
+// text manipulation instead (read the body with response.text(), transform
+// the string, return `new Response(newText, response)`), so that's what
+// this does: a handful of small, targeted string replacements against HTML
+// we fully control (this project's own index.html), each one safely a
+// no-op if the markup doesn't match rather than throwing.
+function transformHtml(html, lang, meta) {
+  // 1. <html lang="...">
+  html = html.replace(/(<html\b[^>]*\blang=")[^"]*(")/i, `$1${meta.htmlLang}$2`);
+
+  // 2. Inject window.__NR_LANG__ right after <head> opens, so the page's own
+  //    end-of-body script can read it instead of re-guessing the language.
+  const inlineScript = `<script>window.__NR_LANG__=${JSON.stringify(lang)};window.__NR_LANG_SOURCE__="geo";</script>`;
+  html = html.replace(/<head(\s[^>]*)?>/i, (match) => match + inlineScript);
+
+  // 3. <title>...</title>
+  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
+
+  // 4. Meta description / Open Graph / Twitter Card tags.
+  html = setMetaContent(html, "name", "description", meta.description);
+  html = setMetaContent(html, "property", "og:title", meta.ogTitle);
+  html = setMetaContent(html, "property", "og:description", meta.ogDescription);
+  html = setMetaContent(html, "property", "og:locale", meta.locale);
+  html = setMetaContent(html, "property", "og:image:alt", meta.ogImageAlt);
+  html = setMetaContent(html, "name", "twitter:title", meta.ogTitle);
+  html = setMetaContent(html, "name", "twitter:description", meta.ogDescription);
+  html = setMetaContent(html, "name", "twitter:image:alt", meta.ogImageAlt);
+
+  return html;
+}
+
 export default async (request, context) => {
   const response = await context.next();
 
@@ -119,67 +178,32 @@ export default async (request, context) => {
   const lang = resolveLang(request, context);
   const meta = META[lang] || META.sv;
 
-  const rewriter = new HTMLRewriter()
-    .on("html", {
-      element(el) {
-        el.setAttribute("lang", meta.htmlLang);
-      },
-    })
-    .on("head", {
-      element(el) {
-        el.prepend(
-          `<script>window.__NR_LANG__=${JSON.stringify(lang)};window.__NR_LANG_SOURCE__="geo";</script>`,
-          { html: true }
-        );
-      },
-    })
-    .on("title", {
-      element(el) {
-        el.setInnerContent(meta.title);
-      },
-    })
-    .on('meta[name="description"]', {
-      element(el) {
-        el.setAttribute("content", meta.description);
-      },
-    })
-    .on('meta[property="og:title"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogTitle);
-      },
-    })
-    .on('meta[property="og:description"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogDescription);
-      },
-    })
-    .on('meta[property="og:locale"]', {
-      element(el) {
-        el.setAttribute("content", meta.locale);
-      },
-    })
-    .on('meta[property="og:image:alt"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogImageAlt);
-      },
-    })
-    .on('meta[name="twitter:title"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogTitle);
-      },
-    })
-    .on('meta[name="twitter:description"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogDescription);
-      },
-    })
-    .on('meta[name="twitter:image:alt"]', {
-      element(el) {
-        el.setAttribute("content", meta.ogImageAlt);
-      },
-    });
+  let html;
+  try {
+    html = await response.text();
+  } catch (err) {
+    // Couldn't read the body for some reason -- fail open rather than
+    // crashing the request: localization is a nice-to-have, not critical
+    // plumbing, so the visitor should still get the (Swedish-default) page.
+    return response;
+  }
 
-  return rewriter.transform(response);
+  let transformed;
+  try {
+    transformed = transformHtml(html, lang, meta);
+  } catch (err) {
+    // Same fail-open principle if a future markup change ever breaks one of
+    // the regexes above in a way the no-op guards don't already cover.
+    return new Response(html, response);
+  }
+
+  return new Response(transformed, response);
 };
 
-export const config = { path: "/" };
+// onError: "bypass" is Netlify's documented "fail open" option -- if
+// anything in this function still throws for a reason none of the try/catch
+// guards above anticipated, Netlify skips this function and serves the
+// normal (Swedish-default) static response instead of a crashed/500 page.
+// Appropriate here because this function only personalizes language; it is
+// never responsible for anything security- or payment-critical.
+export const config = { path: "/", onError: "bypass" };
